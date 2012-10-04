@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  Cell.h
 //  IntroducingCollectionViews
 //
 //  Created by Mark Pospesel on 10/4/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UICollectionViewController
-
-@property (nonatomic, assign) NSInteger cellCount;
+@interface Cell : UICollectionViewCell
 
 @end

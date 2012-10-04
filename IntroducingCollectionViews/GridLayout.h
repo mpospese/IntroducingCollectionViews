@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GridLayout.h
 //  IntroducingCollectionViews
 //
 //  Created by Mark Pospesel on 10/4/12.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UICollectionViewController
+@interface GridLayout : UICollectionViewFlowLayout
 
-@property (nonatomic, assign) NSInteger cellCount;
+@property (nonatomic) CGSize itemSize;
 
 @end
