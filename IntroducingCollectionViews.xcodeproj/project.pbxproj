@@ -19,6 +19,8 @@
 		4D3C7351161D9BB600C71391 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C734F161D9BB600C71391 /* MainStoryboard_iPhone.storyboard */; };
 		4D3C7354161D9BB600C71391 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C7352161D9BB600C71391 /* MainStoryboard_iPad.storyboard */; };
 		4D3C7357161D9BB600C71391 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C7356161D9BB600C71391 /* ViewController.m */; };
+		4D3C7361161D9DB500C71391 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C7360161D9DB500C71391 /* Cell.m */; };
+		4D3C7365161D9F2600C71391 /* GridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C7364161D9F2600C71391 /* GridLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,10 @@
 		4D3C7353161D9BB600C71391 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		4D3C7355161D9BB600C71391 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4D3C7356161D9BB600C71391 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4D3C735F161D9DB500C71391 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		4D3C7360161D9DB500C71391 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		4D3C7363161D9F2600C71391 /* GridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayout.h; sourceTree = "<group>"; };
+		4D3C7364161D9F2600C71391 /* GridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,8 @@
 		4D3C733D161D9BB600C71391 /* IntroducingCollectionViews */ = {
 			isa = PBXGroup;
 			children = (
+				4D3C7362161D9F0600C71391 /* layouts */,
+				4D3C735D161D9C0500C71391 /* images */,
 				4D3C7346161D9BB600C71391 /* AppDelegate.h */,
 				4D3C7347161D9BB600C71391 /* AppDelegate.m */,
 				4D3C734F161D9BB600C71391 /* MainStoryboard_iPhone.storyboard */,
@@ -92,6 +100,8 @@
 				4D3C7355161D9BB600C71391 /* ViewController.h */,
 				4D3C7356161D9BB600C71391 /* ViewController.m */,
 				4D3C733E161D9BB600C71391 /* Supporting Files */,
+				4D3C735F161D9DB500C71391 /* Cell.h */,
+				4D3C7360161D9DB500C71391 /* Cell.m */,
 			);
 			path = IntroducingCollectionViews;
 			sourceTree = "<group>";
@@ -108,6 +118,30 @@
 				4D3C734D161D9BB600C71391 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D3C735D161D9C0500C71391 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				4D3C735E161D9C5200C71391 /* speakers */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		4D3C735E161D9C5200C71391 /* speakers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = speakers;
+			sourceTree = "<group>";
+		};
+		4D3C7362161D9F0600C71391 /* layouts */ = {
+			isa = PBXGroup;
+			children = (
+				4D3C7363161D9F2600C71391 /* GridLayout.h */,
+				4D3C7364161D9F2600C71391 /* GridLayout.m */,
+			);
+			name = layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +214,8 @@
 				4D3C7344161D9BB600C71391 /* main.m in Sources */,
 				4D3C7348161D9BB600C71391 /* AppDelegate.m in Sources */,
 				4D3C7357161D9BB600C71391 /* ViewController.m in Sources */,
+				4D3C7361161D9DB500C71391 /* Cell.m in Sources */,
+				4D3C7365161D9F2600C71391 /* GridLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +307,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntroducingCollectionViews/IntroducingCollectionViews-Prefix.pch";
 				INFOPLIST_FILE = "IntroducingCollectionViews/IntroducingCollectionViews-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -282,6 +319,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntroducingCollectionViews/IntroducingCollectionViews-Prefix.pch";
 				INFOPLIST_FILE = "IntroducingCollectionViews/IntroducingCollectionViews-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
