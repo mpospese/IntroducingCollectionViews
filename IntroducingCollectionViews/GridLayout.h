@@ -11,5 +11,6 @@
 @interface GridLayout : UICollectionViewFlowLayout
 
 @property (nonatomic) CGSize itemSize;
+@property (nonatomic) UIEdgeInsets sectionInset;
 
 @end

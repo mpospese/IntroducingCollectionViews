@@ -15,4 +15,9 @@
     return (CGSize){140, 140};
 }
 
+- (UIEdgeInsets)sectionInset
+{
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
 @end

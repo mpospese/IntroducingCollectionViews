@@ -8,6 +8,12 @@
 
 #import "Cell.h"
 
+@interface Cell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *speakerImage;
+
+@end
+
 @implementation Cell
 
 - (id)initWithFrame:(CGRect)frame
@@ -18,6 +24,15 @@
         self.contentView.backgroundColor = [UIColor underPageBackgroundColor];
     }
     return self;
+}
+
+- (void)setSpeakerName:(NSString *)speakerName
+{
+    if (![_speakerName isEqualToString:speakerName])
+    {
+        _speakerName = speakerName;
+        self.speakerImage.image = [UIImage imageNamed:speakerName];
+    }
 }
 
 /*

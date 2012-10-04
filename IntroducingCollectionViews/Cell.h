@@ -10,4 +10,6 @@
 
 @interface Cell : UICollectionViewCell
 
+@property (nonatomic, copy) NSString *speakerName;
+
 @end
