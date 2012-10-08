@@ -83,6 +83,19 @@
 		4D3C745B161DA87400C71391 /* Tim Burks.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741D161DA87400C71391 /* Tim Burks.png */; };
 		4D3C745C161DA87400C71391 /* Jonathan Blocksom.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */; };
 		4D3C745D161DA87400C71391 /* Mike Ash.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741F161DA87400C71391 /* Mike Ash.png */; };
+		4DFAC5D11622628900E9BFD7 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D01622628900E9BFD7 /* LineLayout.m */; };
+		4DFAC5D4162263E500E9BFD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */; };
+		4DFAC5DA1622D6D400E9BFD7 /* Conference.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D91622D6D400E9BFD7 /* Conference.m */; };
+		4DFAC5DE1622DA4300E9BFD7 /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5DD1622DA4300E9BFD7 /* NSDate+Helpers.m */; };
+		4DFAC5E11622E19C00E9BFD7 /* CocoaConf.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5E01622E19C00E9BFD7 /* CocoaConf.m */; };
+		4DFAC5E31622F69D00E9BFD7 /* Ken Auer.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC5E21622F69D00E9BFD7 /* Ken Auer.png */; };
+		4DFAC5E6162304F500E9BFD7 /* ConferenceHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5E5162304F500E9BFD7 /* ConferenceHeader.m */; };
+		4DFAC5F1162311B700E9BFD7 /* Apple-Wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC5ED162311B700E9BFD7 /* Apple-Wood.png */; };
+		4DFAC5F2162311B700E9BFD7 /* Apple-Wood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC5EE162311B700E9BFD7 /* Apple-Wood@2x.png */; };
+		4DFAC5F3162311B700E9BFD7 /* Wood-Planks.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC5EF162311B700E9BFD7 /* Wood-Planks.png */; };
+		4DFAC5F4162311B700E9BFD7 /* Wood-Planks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC5F0162311B700E9BFD7 /* Wood-Planks@2x.png */; };
+		4DFAC5F71623141600E9BFD7 /* Aged-Paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC5F51623141600E9BFD7 /* Aged-Paper.png */; };
+		4DFAC5F81623141600E9BFD7 /* Aged-Paper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFAC5F61623141600E9BFD7 /* Aged-Paper@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +182,24 @@
 		4D3C741D161DA87400C71391 /* Tim Burks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tim Burks.png"; sourceTree = "<group>"; };
 		4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jonathan Blocksom.png"; sourceTree = "<group>"; };
 		4D3C741F161DA87400C71391 /* Mike Ash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mike Ash.png"; sourceTree = "<group>"; };
+		4DFAC5CF1622628900E9BFD7 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
+		4DFAC5D01622628900E9BFD7 /* LineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayout.m; sourceTree = "<group>"; };
+		4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4DFAC5D81622D6D400E9BFD7 /* Conference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conference.h; sourceTree = "<group>"; };
+		4DFAC5D91622D6D400E9BFD7 /* Conference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conference.m; sourceTree = "<group>"; };
+		4DFAC5DC1622DA4300E9BFD7 /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helpers.h"; sourceTree = "<group>"; };
+		4DFAC5DD1622DA4300E9BFD7 /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helpers.m"; sourceTree = "<group>"; };
+		4DFAC5DF1622E19C00E9BFD7 /* CocoaConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaConf.h; sourceTree = "<group>"; };
+		4DFAC5E01622E19C00E9BFD7 /* CocoaConf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaConf.m; sourceTree = "<group>"; };
+		4DFAC5E21622F69D00E9BFD7 /* Ken Auer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ken Auer.png"; sourceTree = "<group>"; };
+		4DFAC5E4162304F500E9BFD7 /* ConferenceHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConferenceHeader.h; sourceTree = "<group>"; };
+		4DFAC5E5162304F500E9BFD7 /* ConferenceHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConferenceHeader.m; sourceTree = "<group>"; };
+		4DFAC5ED162311B700E9BFD7 /* Apple-Wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Apple-Wood.png"; sourceTree = "<group>"; };
+		4DFAC5EE162311B700E9BFD7 /* Apple-Wood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Apple-Wood@2x.png"; sourceTree = "<group>"; };
+		4DFAC5EF162311B700E9BFD7 /* Wood-Planks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wood-Planks.png"; sourceTree = "<group>"; };
+		4DFAC5F0162311B700E9BFD7 /* Wood-Planks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wood-Planks@2x.png"; sourceTree = "<group>"; };
+		4DFAC5F51623141600E9BFD7 /* Aged-Paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Aged-Paper.png"; sourceTree = "<group>"; };
+		4DFAC5F61623141600E9BFD7 /* Aged-Paper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Aged-Paper@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DFAC5D4162263E500E9BFD7 /* QuartzCore.framework in Frameworks */,
 				4D3C7338161D9BB600C71391 /* UIKit.framework in Frameworks */,
 				4D3C733A161D9BB600C71391 /* Foundation.framework in Frameworks */,
 				4D3C733C161D9BB600C71391 /* CoreGraphics.framework in Frameworks */,
@@ -205,6 +237,7 @@
 		4D3C7336161D9BB600C71391 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */,
 				4D3C7337161D9BB600C71391 /* UIKit.framework */,
 				4D3C7339161D9BB600C71391 /* Foundation.framework */,
 				4D3C733B161D9BB600C71391 /* CoreGraphics.framework */,
@@ -225,7 +258,15 @@
 				4D3C7356161D9BB600C71391 /* ViewController.m */,
 				4D3C735F161D9DB500C71391 /* Cell.h */,
 				4D3C7360161D9DB500C71391 /* Cell.m */,
+				4DFAC5E4162304F500E9BFD7 /* ConferenceHeader.h */,
+				4DFAC5E5162304F500E9BFD7 /* ConferenceHeader.m */,
 				4D3C733E161D9BB600C71391 /* Supporting Files */,
+				4DFAC5D81622D6D400E9BFD7 /* Conference.h */,
+				4DFAC5D91622D6D400E9BFD7 /* Conference.m */,
+				4DFAC5DC1622DA4300E9BFD7 /* NSDate+Helpers.h */,
+				4DFAC5DD1622DA4300E9BFD7 /* NSDate+Helpers.m */,
+				4DFAC5DF1622E19C00E9BFD7 /* CocoaConf.h */,
+				4DFAC5E01622E19C00E9BFD7 /* CocoaConf.m */,
 			);
 			path = IntroducingCollectionViews;
 			sourceTree = "<group>";
@@ -248,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				4D3C735E161D9C5200C71391 /* speakers */,
+				4DFAC5EB1623114A00E9BFD7 /* backgrounds */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -255,22 +297,33 @@
 		4D3C735E161D9C5200C71391 /* speakers */ = {
 			isa = PBXGroup;
 			children = (
+				4D3C7414161DA87400C71391 /* Josh Abernathy.png */,
+				4D3C7413161DA87400C71391 /* Chris Adamson.png */,
+				4D3C7412161DA87400C71391 /* Ameir Al-Zoubi.png */,
+				4D3C741F161DA87400C71391 /* Mike Ash.png */,
+				4DFAC5E21622F69D00E9BFD7 /* Ken Auer.png */,
 				4D3C73E2161DA87400C71391 /* Whitney Young.png */,
 				4D3C73E3161DA87400C71391 /* Jay Thrash.png */,
 				4D3C73E4161DA87400C71391 /* Walter Tyree.png */,
 				4D3C73E5161DA87400C71391 /* Mattt Thompson.png */,
 				4D3C73E6161DA87400C71391 /* Elizabeth Taylor.png */,
+				4D3C7415161DA87400C71391 /* Daniel Steinberg.png */,
 				4D3C73E7161DA87400C71391 /* David Smith.png */,
 				4D3C73E8161DA87400C71391 /* Josh Smith.png */,
 				4D3C73E9161DA87400C71391 /* Doug Sjoquist.png */,
 				4D3C73EA161DA87400C71391 /* Brent Simmons.png */,
 				4D3C73EB161DA87400C71391 /* Chad Sellers.png */,
+				4D3C7416161DA87400C71391 /* Ben Scheirman.png */,
 				4D3C73EC161DA87400C71391 /* Jonathan Saggau.png */,
 				4D3C73ED161DA87400C71391 /* Jared Richardson.png */,
+				4D3C7417161DA87400C71391 /* Mark Pospesel.png */,
 				4D3C73EE161DA87400C71391 /* Boisy Pitre.png */,
 				4D3C73EF161DA87400C71391 /* Jonathan Penn.png */,
+				4D3C7418161DA87400C71391 /* Daniel Pasco.png */,
+				4D3C7419161DA87400C71391 /* Janine Ohmer.png */,
 				4D3C73F0161DA87400C71391 /* Josh Nozzi.png */,
 				4D3C73F1161DA87400C71391 /* Jaimee Newberry.png */,
+				4D3C741A161DA87400C71391 /* Rob Napier.png */,
 				4D3C73F2161DA87400C71391 /* Kevin Munc.png */,
 				4D3C73F3161DA87400C71391 /* Saul Mora.png */,
 				4D3C73F4161DA87400C71391 /* Justin Miller.png */,
@@ -286,8 +339,8 @@
 				4D3C73FE161DA87400C71391 /* Josh Johnson.png */,
 				4D3C73FF161DA87400C71391 /* Andria Jensen.png */,
 				4D3C7400161DA87400C71391 /* Jason Hunter.png */,
-				4D3C7401161DA87400C71391 /* Pete Hodgson.png */,
 				4D3C7402161DA87400C71391 /* Andy Hunt.png */,
+				4D3C741B161DA87400C71391 /* Aaron Hillegass.png */,
 				4D3C7403161DA87400C71391 /* Geoff Goetz.png */,
 				4D3C7404161DA87400C71391 /* Mark Gilicinski.png */,
 				4D3C7405161DA87400C71391 /* Jason Felice.png */,
@@ -298,25 +351,15 @@
 				4D3C740A161DA87400C71391 /* Mark Dalrymple.png */,
 				4D3C740B161DA87400C71391 /* Brian Coyner.png */,
 				4D3C740C161DA87400C71391 /* Jack Cox.png */,
+				4D3C7401161DA87400C71391 /* Pete Hodgson.png */,
+				4D3C741C161DA87400C71391 /* Kevin Conner.png */,
 				4D3C740D161DA87400C71391 /* Step Christopher.png */,
 				4D3C740E161DA87400C71391 /* Craig Castelaz.png */,
+				4D3C741D161DA87400C71391 /* Tim Burks.png */,
 				4D3C740F161DA87400C71391 /* Heath Borders.png */,
+				4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */,
 				4D3C7410161DA87400C71391 /* Jeff Biggus.png */,
 				4D3C7411161DA87400C71391 /* Randy Beiter.png */,
-				4D3C7412161DA87400C71391 /* Ameir Al-Zoubi.png */,
-				4D3C7413161DA87400C71391 /* Chris Adamson.png */,
-				4D3C7414161DA87400C71391 /* Josh Abernathy.png */,
-				4D3C7415161DA87400C71391 /* Daniel Steinberg.png */,
-				4D3C7416161DA87400C71391 /* Ben Scheirman.png */,
-				4D3C7417161DA87400C71391 /* Mark Pospesel.png */,
-				4D3C7418161DA87400C71391 /* Daniel Pasco.png */,
-				4D3C7419161DA87400C71391 /* Janine Ohmer.png */,
-				4D3C741A161DA87400C71391 /* Rob Napier.png */,
-				4D3C741B161DA87400C71391 /* Aaron Hillegass.png */,
-				4D3C741C161DA87400C71391 /* Kevin Conner.png */,
-				4D3C741D161DA87400C71391 /* Tim Burks.png */,
-				4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */,
-				4D3C741F161DA87400C71391 /* Mike Ash.png */,
 			);
 			name = speakers;
 			sourceTree = "<group>";
@@ -326,8 +369,23 @@
 			children = (
 				4D3C7363161D9F2600C71391 /* GridLayout.h */,
 				4D3C7364161D9F2600C71391 /* GridLayout.m */,
+				4DFAC5CF1622628900E9BFD7 /* LineLayout.h */,
+				4DFAC5D01622628900E9BFD7 /* LineLayout.m */,
 			);
 			name = layouts;
+			sourceTree = "<group>";
+		};
+		4DFAC5EB1623114A00E9BFD7 /* backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAC5ED162311B700E9BFD7 /* Apple-Wood.png */,
+				4DFAC5EE162311B700E9BFD7 /* Apple-Wood@2x.png */,
+				4DFAC5EF162311B700E9BFD7 /* Wood-Planks.png */,
+				4DFAC5F0162311B700E9BFD7 /* Wood-Planks@2x.png */,
+				4DFAC5F51623141600E9BFD7 /* Aged-Paper.png */,
+				4DFAC5F61623141600E9BFD7 /* Aged-Paper@2x.png */,
+			);
+			name = backgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +507,13 @@
 				4D3C745B161DA87400C71391 /* Tim Burks.png in Resources */,
 				4D3C745C161DA87400C71391 /* Jonathan Blocksom.png in Resources */,
 				4D3C745D161DA87400C71391 /* Mike Ash.png in Resources */,
+				4DFAC5E31622F69D00E9BFD7 /* Ken Auer.png in Resources */,
+				4DFAC5F1162311B700E9BFD7 /* Apple-Wood.png in Resources */,
+				4DFAC5F2162311B700E9BFD7 /* Apple-Wood@2x.png in Resources */,
+				4DFAC5F3162311B700E9BFD7 /* Wood-Planks.png in Resources */,
+				4DFAC5F4162311B700E9BFD7 /* Wood-Planks@2x.png in Resources */,
+				4DFAC5F71623141600E9BFD7 /* Aged-Paper.png in Resources */,
+				4DFAC5F81623141600E9BFD7 /* Aged-Paper@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +529,11 @@
 				4D3C7357161D9BB600C71391 /* ViewController.m in Sources */,
 				4D3C7361161D9DB500C71391 /* Cell.m in Sources */,
 				4D3C7365161D9F2600C71391 /* GridLayout.m in Sources */,
+				4DFAC5D11622628900E9BFD7 /* LineLayout.m in Sources */,
+				4DFAC5DA1622D6D400E9BFD7 /* Conference.m in Sources */,
+				4DFAC5DE1622DA4300E9BFD7 /* NSDate+Helpers.m in Sources */,
+				4DFAC5E11622E19C00E9BFD7 /* CocoaConf.m in Sources */,
+				4DFAC5E6162304F500E9BFD7 /* ConferenceHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +662,7 @@
 				4D3C735C161D9BB600C71391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
