@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D136A0516242CD900D84E85 /* ShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A0416242CD900D84E85 /* ShelfView.m */; };
 		4D3C7338161D9BB600C71391 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7337161D9BB600C71391 /* UIKit.framework */; };
 		4D3C733A161D9BB600C71391 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7339161D9BB600C71391 /* Foundation.framework */; };
 		4D3C733C161D9BB600C71391 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C733B161D9BB600C71391 /* CoreGraphics.framework */; };
@@ -99,6 +100,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D136A0316242CD800D84E85 /* ShelfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShelfView.h; sourceTree = "<group>"; };
+		4D136A0416242CD900D84E85 /* ShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelfView.m; sourceTree = "<group>"; };
 		4D3C7333161D9BB600C71391 /* IntroducingCollectionViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroducingCollectionViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3C7337161D9BB600C71391 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D3C7339161D9BB600C71391 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -267,6 +270,8 @@
 				4DFAC5DD1622DA4300E9BFD7 /* NSDate+Helpers.m */,
 				4DFAC5DF1622E19C00E9BFD7 /* CocoaConf.h */,
 				4DFAC5E01622E19C00E9BFD7 /* CocoaConf.m */,
+				4D136A0316242CD800D84E85 /* ShelfView.h */,
+				4D136A0416242CD900D84E85 /* ShelfView.m */,
 			);
 			path = IntroducingCollectionViews;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 				4DFAC5DE1622DA4300E9BFD7 /* NSDate+Helpers.m in Sources */,
 				4DFAC5E11622E19C00E9BFD7 /* CocoaConf.m in Sources */,
 				4DFAC5E6162304F500E9BFD7 /* ConferenceHeader.m in Sources */,
+				4D136A0516242CD900D84E85 /* ShelfView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
