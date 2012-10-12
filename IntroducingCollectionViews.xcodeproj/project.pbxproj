@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D136A0516242CD900D84E85 /* ShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A0416242CD900D84E85 /* ShelfView.m */; };
+		4D136A4C1626DE1D00D84E85 /* CoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */; };
 		4D3C7338161D9BB600C71391 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7337161D9BB600C71391 /* UIKit.framework */; };
 		4D3C733A161D9BB600C71391 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7339161D9BB600C71391 /* Foundation.framework */; };
 		4D3C733C161D9BB600C71391 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C733B161D9BB600C71391 /* CoreGraphics.framework */; };
@@ -102,6 +103,8 @@
 /* Begin PBXFileReference section */
 		4D136A0316242CD800D84E85 /* ShelfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShelfView.h; sourceTree = "<group>"; };
 		4D136A0416242CD900D84E85 /* ShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelfView.m; sourceTree = "<group>"; };
+		4D136A4A1626DE1D00D84E85 /* CoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverFlowLayout.h; sourceTree = "<group>"; };
+		4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverFlowLayout.m; sourceTree = "<group>"; };
 		4D3C7333161D9BB600C71391 /* IntroducingCollectionViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroducingCollectionViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3C7337161D9BB600C71391 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D3C7339161D9BB600C71391 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -376,6 +379,8 @@
 				4D3C7364161D9F2600C71391 /* GridLayout.m */,
 				4DFAC5CF1622628900E9BFD7 /* LineLayout.h */,
 				4DFAC5D01622628900E9BFD7 /* LineLayout.m */,
+				4D136A4A1626DE1D00D84E85 /* CoverFlowLayout.h */,
+				4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */,
 			);
 			name = layouts;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 				4DFAC5E11622E19C00E9BFD7 /* CocoaConf.m in Sources */,
 				4DFAC5E6162304F500E9BFD7 /* ConferenceHeader.m in Sources */,
 				4D136A0516242CD900D84E85 /* ShelfView.m in Sources */,
+				4D136A4C1626DE1D00D84E85 /* CoverFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
