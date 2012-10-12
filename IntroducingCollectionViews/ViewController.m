@@ -11,8 +11,11 @@
 #import "GridLayout.h"
 #import "LineLayout.h"
 #import "CocoaConf.h"
+#import "CoverFlowLayout.h"
 
 @interface ViewController ()
+
+@property (nonatomic, assign) SpeakerLayout layoutStyle;
 
 @end
 
@@ -60,6 +63,7 @@
 
 - (void)doInit
 {
+    _layoutStyle = SpeakerLayoutGrid;
 }
 
 - (void)viewDidLoad
@@ -72,12 +76,56 @@
 //    [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"SpeakerCell"];
     [self.collectionView reloadData];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wood-Planks"]];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    tap.numberOfTouchesRequired = 2;
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setLayoutStyle:(SpeakerLayout)layoutStyle animated:(BOOL)animated
+{
+    if (layoutStyle == self.layoutStyle)
+        return;
+    
+    UICollectionViewLayout *newLayout = nil;
+    switch (layoutStyle)
+    {
+        case SpeakerLayoutGrid:
+            newLayout = [[GridLayout alloc] init];
+            break;
+            
+        case SpeakerLayoutLine:
+            newLayout = [[LineLayout alloc] init];
+            break;
+            
+        case SpeakerLayoutCoverFlow:
+            newLayout = [[CoverFlowLayout alloc] init];
+            
+        default:
+            break;
+    }
+    
+    if (!newLayout)
+        return;
+    
+    self.layoutStyle = layoutStyle;
+    [self.collectionView setCollectionViewLayout:newLayout animated:animated];
+}
+
+#pragma mark - Touch gesture
+
+- (void)handleTap:(UITapGestureRecognizer *)gestureRecognizer
+{
+    SpeakerLayout newLayout = self.layoutStyle + 1;
+    if (newLayout >= SpeakerLayoutCount)
+        newLayout = 0;
+    [self setLayoutStyle:newLayout animated:YES];
 }
 
 @end

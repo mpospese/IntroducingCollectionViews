@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+enum {
+    SpeakerLayoutGrid,
+    SpeakerLayoutLine,
+    SpeakerLayoutCoverFlow,
+    
+    SpeakerLayoutCount
+}
+typedef SpeakerLayout;
+
 @interface ViewController : UICollectionViewController
+
+@property (nonatomic, assign, readonly) SpeakerLayout layoutStyle;
 
 @end
