@@ -14,6 +14,7 @@
 + (CocoaConf *)combined;
 + (CocoaConf *)all;
 + (CocoaConf *)currentCocoaConf;
++ (CocoaConf *)recent;
 
 + (NSString *)smallHeaderKind;
 
