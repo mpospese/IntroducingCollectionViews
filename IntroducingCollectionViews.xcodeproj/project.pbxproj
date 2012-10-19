@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		4D136A0516242CD900D84E85 /* ShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A0416242CD900D84E85 /* ShelfView.m */; };
 		4D136A4C1626DE1D00D84E85 /* CoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */; };
+		4D2A7FD4162EBFD400F03025 /* MPAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A7FD3162EBFD400F03025 /* MPAnimation.m */; };
+		4D2A7FFA1630172400F03025 /* Mark Pospesel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A7FF91630172400F03025 /* Mark Pospesel@2x.png */; };
+		4D2A7FFC16301A7700F03025 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A7FFB16301A7700F03025 /* Icon.png */; };
+		4D2A7FFE16301A7E00F03025 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A7FFD16301A7E00F03025 /* Icon@2x.png */; };
+		4D2A800016301A8D00F03025 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A7FFF16301A8D00F03025 /* Icon-72@2x.png */; };
+		4D2A800216301A9200F03025 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A800116301A9100F03025 /* Icon-72.png */; };
 		4D3C7338161D9BB600C71391 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7337161D9BB600C71391 /* UIKit.framework */; };
 		4D3C733A161D9BB600C71391 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7339161D9BB600C71391 /* Foundation.framework */; };
 		4D3C733C161D9BB600C71391 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C733B161D9BB600C71391 /* CoreGraphics.framework */; };
@@ -85,6 +91,7 @@
 		4D3C745B161DA87400C71391 /* Tim Burks.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741D161DA87400C71391 /* Tim Burks.png */; };
 		4D3C745C161DA87400C71391 /* Jonathan Blocksom.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */; };
 		4D3C745D161DA87400C71391 /* Mike Ash.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741F161DA87400C71391 /* Mike Ash.png */; };
+		4D84872C16281CE800699477 /* StacksLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84872B16281CE800699477 /* StacksLayout.m */; };
 		4DFAC5D11622628900E9BFD7 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D01622628900E9BFD7 /* LineLayout.m */; };
 		4DFAC5D4162263E500E9BFD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */; };
 		4DFAC5DA1622D6D400E9BFD7 /* Conference.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D91622D6D400E9BFD7 /* Conference.m */; };
@@ -105,6 +112,13 @@
 		4D136A0416242CD900D84E85 /* ShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelfView.m; sourceTree = "<group>"; };
 		4D136A4A1626DE1D00D84E85 /* CoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverFlowLayout.h; sourceTree = "<group>"; };
 		4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverFlowLayout.m; sourceTree = "<group>"; };
+		4D2A7FD2162EBFD300F03025 /* MPAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAnimation.h; sourceTree = "<group>"; };
+		4D2A7FD3162EBFD400F03025 /* MPAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAnimation.m; sourceTree = "<group>"; };
+		4D2A7FF91630172400F03025 /* Mark Pospesel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mark Pospesel@2x.png"; sourceTree = "<group>"; };
+		4D2A7FFB16301A7700F03025 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		4D2A7FFD16301A7E00F03025 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		4D2A7FFF16301A8D00F03025 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		4D2A800116301A9100F03025 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		4D3C7333161D9BB600C71391 /* IntroducingCollectionViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroducingCollectionViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3C7337161D9BB600C71391 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D3C7339161D9BB600C71391 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,6 +202,8 @@
 		4D3C741D161DA87400C71391 /* Tim Burks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tim Burks.png"; sourceTree = "<group>"; };
 		4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jonathan Blocksom.png"; sourceTree = "<group>"; };
 		4D3C741F161DA87400C71391 /* Mike Ash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mike Ash.png"; sourceTree = "<group>"; };
+		4D84872A16281CE800699477 /* StacksLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StacksLayout.h; sourceTree = "<group>"; };
+		4D84872B16281CE800699477 /* StacksLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StacksLayout.m; sourceTree = "<group>"; };
 		4DFAC5CF1622628900E9BFD7 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
 		4DFAC5D01622628900E9BFD7 /* LineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayout.m; sourceTree = "<group>"; };
 		4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -226,6 +242,10 @@
 		4D3C7328161D9BB600C71391 = {
 			isa = PBXGroup;
 			children = (
+				4D2A800116301A9100F03025 /* Icon-72.png */,
+				4D2A7FFF16301A8D00F03025 /* Icon-72@2x.png */,
+				4D2A7FFD16301A7E00F03025 /* Icon@2x.png */,
+				4D2A7FFB16301A7700F03025 /* Icon.png */,
 				4D3C733D161D9BB600C71391 /* IntroducingCollectionViews */,
 				4D3C7336161D9BB600C71391 /* Frameworks */,
 				4D3C7334161D9BB600C71391 /* Products */,
@@ -275,6 +295,8 @@
 				4DFAC5E01622E19C00E9BFD7 /* CocoaConf.m */,
 				4D136A0316242CD800D84E85 /* ShelfView.h */,
 				4D136A0416242CD900D84E85 /* ShelfView.m */,
+				4D2A7FD2162EBFD300F03025 /* MPAnimation.h */,
+				4D2A7FD3162EBFD400F03025 /* MPAnimation.m */,
 			);
 			path = IntroducingCollectionViews;
 			sourceTree = "<group>";
@@ -325,6 +347,7 @@
 				4D3C73EC161DA87400C71391 /* Jonathan Saggau.png */,
 				4D3C73ED161DA87400C71391 /* Jared Richardson.png */,
 				4D3C7417161DA87400C71391 /* Mark Pospesel.png */,
+				4D2A7FF91630172400F03025 /* Mark Pospesel@2x.png */,
 				4D3C73EE161DA87400C71391 /* Boisy Pitre.png */,
 				4D3C73EF161DA87400C71391 /* Jonathan Penn.png */,
 				4D3C7418161DA87400C71391 /* Daniel Pasco.png */,
@@ -381,6 +404,8 @@
 				4DFAC5D01622628900E9BFD7 /* LineLayout.m */,
 				4D136A4A1626DE1D00D84E85 /* CoverFlowLayout.h */,
 				4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */,
+				4D84872A16281CE800699477 /* StacksLayout.h */,
+				4D84872B16281CE800699477 /* StacksLayout.m */,
 			);
 			name = layouts;
 			sourceTree = "<group>";
@@ -524,6 +549,11 @@
 				4DFAC5F4162311B700E9BFD7 /* Wood-Planks@2x.png in Resources */,
 				4DFAC5F71623141600E9BFD7 /* Aged-Paper.png in Resources */,
 				4DFAC5F81623141600E9BFD7 /* Aged-Paper@2x.png in Resources */,
+				4D2A7FFA1630172400F03025 /* Mark Pospesel@2x.png in Resources */,
+				4D2A7FFC16301A7700F03025 /* Icon.png in Resources */,
+				4D2A7FFE16301A7E00F03025 /* Icon@2x.png in Resources */,
+				4D2A800016301A8D00F03025 /* Icon-72@2x.png in Resources */,
+				4D2A800216301A9200F03025 /* Icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +576,8 @@
 				4DFAC5E6162304F500E9BFD7 /* ConferenceHeader.m in Sources */,
 				4D136A0516242CD900D84E85 /* ShelfView.m in Sources */,
 				4D136A4C1626DE1D00D84E85 /* CoverFlowLayout.m in Sources */,
+				4D84872C16281CE800699477 /* StacksLayout.m in Sources */,
+				4D2A7FD4162EBFD400F03025 /* MPAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,11 +666,13 @@
 		4D3C735B161D9BB600C71391 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mark Pospesel (FU9EZ7577L)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntroducingCollectionViews/IntroducingCollectionViews-Prefix.pch";
 				INFOPLIST_FILE = "IntroducingCollectionViews/IntroducingCollectionViews-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "67B33A7A-E264-4845-BB90-707FADD1E988";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
