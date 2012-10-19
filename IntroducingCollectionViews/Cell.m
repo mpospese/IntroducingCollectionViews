@@ -8,10 +8,10 @@
 
 #import "Cell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MPAnimation.h"
 
 @interface Cell()
 
-@property (weak, nonatomic) IBOutlet UIView *photoBorder;
 @property (weak, nonatomic) IBOutlet UIImageView *speakerImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
@@ -44,7 +44,8 @@
     if (![_speakerName isEqualToString:speakerName])
     {
         _speakerName = speakerName;
-        self.speakerImage.image = [UIImage imageNamed:speakerName];
+        UIImage *speakerImage = [UIImage imageNamed:speakerName];
+        self.speakerImage.image = [MPAnimation renderImage:speakerImage withMargin:10.0 color:[UIColor whiteColor]];
         self.nameLabel.text = speakerName;
     }
 }
@@ -54,9 +55,9 @@
     [super willMoveToSuperview:newSuperview];
     if (newSuperview)
     {
-        self.photoBorder.layer.shadowOpacity = 0.75;
-        self.photoBorder.layer.shadowOffset = CGSizeMake(0, 3);
-        self.photoBorder.layer.shadowPath = [[UIBezierPath bezierPathWithRect:_photoBorder.bounds] CGPath];
+        self.speakerImage.layer.shadowOpacity = 0.5;
+        self.speakerImage.layer.shadowOffset = CGSizeMake(0, 3);
+        self.speakerImage.layer.shadowPath = [[UIBezierPath bezierPathWithRect:CGRectInset(self.speakerImage.bounds,1,1)] CGPath];
     }
 }
 /*

@@ -11,11 +11,17 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define ZIG_SIZE 3
+#define MARGIN_HORIZONTAL_LARGE 20
+#define MARGIN_HORIZONTAL_SMALL 10
+#define MARGIN_VERTICAL_LARGE 5
+#define MARGIN_VERTICAL_SMALL 3
 
 @interface ConferenceHeader()
 
-@property (weak, nonatomic) IBOutlet UILabel *conferenceNameLabel;
-
+@property (strong, nonatomic) IBOutlet UILabel *conferenceNameLabel;
+@property (nonatomic, assign, getter = isBackgroundSet) BOOL backgroundSet;
+@property (nonatomic, assign, getter = isSmall) BOOL small;
+@property (nonatomic, assign) BOOL centerText;
 @end
 
 @implementation ConferenceHeader
@@ -25,6 +31,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        _conferenceNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 6, frame.size.width, 13)];
+        _conferenceNameLabel.font = [UIFont fontWithName:@"Courier-Bold" size:13];
+        _conferenceNameLabel.textColor = [UIColor blackColor];
+        _conferenceNameLabel.textAlignment = NSTextAlignmentCenter;
+        [self setBackground];
+        [self addSubview:_conferenceNameLabel];
+        _small = YES;
+        _centerText = YES;
     }
     return self;
 }
@@ -35,6 +49,8 @@
     if (self) {
         // Initialization code
         //[self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Apple-Wood"]]];
+        _small = NO;
+        _centerText = NO;
     }
     return self;
 }
@@ -48,16 +64,41 @@
 }
 */
 
+- (void)setBackground
+{
+    if (self.isBackgroundSet)
+        return;
+    
+    [self.conferenceNameLabel setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Aged-Paper"]]];
+    [self setBackgroundSet:YES];
+}
+
+- (CGFloat)horizontalMargin
+{
+    return self.isSmall? MARGIN_HORIZONTAL_SMALL : MARGIN_HORIZONTAL_LARGE;
+}
+
+- (CGFloat)verticalMargin
+{
+    return self.isSmall? MARGIN_VERTICAL_SMALL : MARGIN_VERTICAL_LARGE;
+}
+
 - (void)setConference:(Conference *)conference
 {
-    [self.conferenceNameLabel setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Aged-Paper"]]];
+    CGFloat x = self.conferenceNameLabel.frame.origin.x;
+    [self setBackground];
     self.conferenceNameLabel.text = conference.name;
     [self.conferenceNameLabel sizeToFit];
-    CGRect labelBounds = CGRectInset(self.conferenceNameLabel.bounds, -20, -5);
-    CGRect labelFrame = (CGRect){{20, roundf((self.bounds.size.height - labelBounds.size.height)/2)}, labelBounds.size};
+    CGRect labelBounds = CGRectInset(self.conferenceNameLabel.bounds, -[self horizontalMargin], -[self verticalMargin]);
     
-    self.conferenceNameLabel.frame = labelFrame;
-    
+    if (self.centerText)
+    {
+        self.conferenceNameLabel.bounds = (CGRect){CGPointZero, labelBounds.size};
+        self.conferenceNameLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    }
+    else
+        self.conferenceNameLabel.frame = (CGRect){{x, roundf((self.bounds.size.height - labelBounds.size.height)/2)}, labelBounds.size};
+        
     // put a zig-zag edge like tap cut marks on left and right edges of label
     UIBezierPath *mask = [UIBezierPath bezierPath];
     [mask moveToPoint:CGPointZero];

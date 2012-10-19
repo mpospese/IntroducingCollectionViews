@@ -12,6 +12,7 @@
 #import "ConferenceHeader.h"
 
 NSString *kConferenceHeaderID = @"ConferenceHeader";
+NSString *kConferenceHeaderSmallID = @"ConferenceHeaderSmall";
 NSString *kSpeakerCellID = @"SpeakerCell";
 
 @interface CocoaConf()
@@ -30,25 +31,33 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     if (self)
     {
         _conferences = conferences;
+        _selectedSection = -1;
     }
     return self;
 }
 
+#pragma mark - UICollectionViewDataSource
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [self.conferences count];
+    return self.selectedSection >= 0? 1 : [self.conferences count];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if (self.selectedSection >= 0)
+        section = self.selectedSection;
+    
     return [[self.conferences[section] speakers] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger section = self.selectedSection >= 0? self.selectedSection : indexPath.section;
+    
     Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSpeakerCellID forIndexPath:indexPath];
     
-    cell.speakerName = [self.conferences[indexPath.section] speakers][indexPath.row];
+    cell.speakerName = [self.conferences[section] speakers][indexPath.row];
     
     return cell;
     
@@ -56,12 +65,17 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    ConferenceHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kConferenceHeaderID forIndexPath:indexPath];
+    NSInteger section = self.selectedSection >= 0? self.selectedSection : indexPath.section;
+
+    BOOL isSmall = [kind isEqualToString:kConferenceHeaderSmallID];
+    ConferenceHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:isSmall? kConferenceHeaderSmallID : kConferenceHeaderID forIndexPath:indexPath];
     
-    [header setConference:self.conferences[indexPath.section]];
+    [header setConference:self.conferences[section]];
     
     return header;
 }
+
+#pragma mark - UICollectionViewStackDataSource
 
 #pragma mark - Class Methods
 
@@ -104,6 +118,11 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     });
     
     return current;
+}
+
++ (NSString *)smallHeaderKind
+{
+    return kConferenceHeaderSmallID;
 }
 
 @end

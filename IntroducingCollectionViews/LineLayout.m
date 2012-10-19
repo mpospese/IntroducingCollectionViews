@@ -18,11 +18,13 @@
     self = [super init];
     if (self)
     {
+        BOOL iPad = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        self.itemSize = (CGSize){160, 190};
-        self.sectionInset = UIEdgeInsetsMake(250, 35, 200, 250);
-        self.minimumLineSpacing = 40.0;
+        self.itemSize = (CGSize){170, 200};
+        self.sectionInset = UIEdgeInsetsMake(iPad? 225 : 0, 35, 0, iPad? 225 : 35);
+        self.minimumLineSpacing = 30.0;
         self.minimumInteritemSpacing = 200;
+        self.headerReferenceSize = iPad? (CGSize){50, 50} : (CGSize){43, 43};
     }
     return self;
 }
@@ -40,17 +42,60 @@
     visibleRect.size = self.collectionView.bounds.size;
     
     for (UICollectionViewLayoutAttributes* attributes in array) {
-        if (CGRectIntersectsRect(attributes.frame, rect)) {
-            CGFloat distance = CGRectGetMidX(visibleRect) - attributes.center.x;
-            CGFloat normalizedDistance = distance / ACTIVE_DISTANCE;
-            if (ABS(distance) < ACTIVE_DISTANCE) {
-                CGFloat zoom = 1 + ZOOM_FACTOR*(1 - ABS(normalizedDistance));
-                attributes.transform3D = CATransform3DMakeScale(zoom, zoom, 1.0);
-                attributes.zIndex = 1;
+        if (attributes.representedElementCategory == UICollectionElementCategoryCell)
+        {
+            if (CGRectIntersectsRect(attributes.frame, rect)) {
+                [self setLineAttributes:attributes visibleRect:visibleRect];
             }
         }
+        else if (attributes.representedElementCategory == UICollectionElementCategorySupplementaryView)
+        {
+            [self setHeaderAttributes:attributes];
+         }
     }
     return array;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+    CGRect visibleRect;
+    visibleRect.origin = self.collectionView.contentOffset;
+    visibleRect.size = self.collectionView.bounds.size;
+    [self setLineAttributes:attributes visibleRect:visibleRect];
+    return attributes;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:indexPath];
+    
+    [self setHeaderAttributes:attributes];
+    
+    return attributes;
+}
+
+- (void)setHeaderAttributes:(UICollectionViewLayoutAttributes *)attributes
+{
+    attributes.transform3D = CATransform3DMakeRotation(-90 * M_PI / 180, 0, 0, 1);
+    attributes.size = CGSizeMake(attributes.size.height, attributes.size.width);
+    attributes.center = CGPointMake(attributes.center.x, attributes.center.y + (self.itemSize.height + 100 - self.collectionView.bounds.size.height)/2);    
+}
+
+- (void)setLineAttributes:(UICollectionViewLayoutAttributes *)attributes visibleRect:(CGRect)visibleRect
+{
+    CGFloat distance = CGRectGetMidX(visibleRect) - attributes.center.x;
+    CGFloat normalizedDistance = distance / ACTIVE_DISTANCE;
+    if (ABS(distance) < ACTIVE_DISTANCE) {
+        CGFloat zoom = 1 + ZOOM_FACTOR*(1 - ABS(normalizedDistance));
+        attributes.transform3D = CATransform3DMakeScale(zoom, zoom, 1.0);
+        attributes.zIndex = 1;
+    }    
+    else
+    {
+        attributes.transform3D = CATransform3DIdentity;
+        attributes.zIndex = 0;
+    }
 }
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity

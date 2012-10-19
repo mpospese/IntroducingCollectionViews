@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "StacksLayout.h"
 
-@interface CocoaConf : NSObject<UICollectionViewDataSource>
+@interface CocoaConf : NSObject<UICollectionViewStackDataSource>
 
 + (CocoaConf *)combined;
 + (CocoaConf *)all;
 + (CocoaConf *)currentCocoaConf;
+
++ (NSString *)smallHeaderKind;
+
+@property (nonatomic, assign) NSInteger selectedSection;
 
 @end

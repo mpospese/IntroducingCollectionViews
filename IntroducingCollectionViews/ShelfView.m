@@ -19,7 +19,7 @@ const NSString *kShelfViewKind = @"ShelfView";
     if (self) {
         // Initialization code
         [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Apple-Wood"]]];
-        self.layer.shadowOpacity = 0.75;
+        self.layer.shadowOpacity = 0.5;
         self.layer.shadowOffset = CGSizeMake(0,5);
     }
     return self;

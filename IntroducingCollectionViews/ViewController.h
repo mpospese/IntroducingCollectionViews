@@ -12,6 +12,7 @@ enum {
     SpeakerLayoutGrid,
     SpeakerLayoutLine,
     SpeakerLayoutCoverFlow,
+    SpeakerLayoutStacks,
     
     SpeakerLayoutCount
 }

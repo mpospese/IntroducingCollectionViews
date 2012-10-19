@@ -8,6 +8,7 @@
 
 #import "GridLayout.h"
 #import "ShelfView.h"
+#import "CocoaConf.h"
 
 @interface GridLayout()
 
@@ -23,10 +24,10 @@
     if (self)
     {
         self.scrollDirection = UICollectionViewScrollDirectionVertical;
-        self.itemSize = (CGSize){160, 189};
-        self.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-        self.headerReferenceSize = (CGSize){768, 50};
-        self.minimumLineSpacing = 28;
+        self.itemSize = (CGSize){170, 197};
+        self.sectionInset = UIEdgeInsetsMake(4, 10, 14, 10);
+        self.headerReferenceSize = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad? (CGSize){50, 50} : (CGSize){43, 43};
+        self.minimumLineSpacing = 10;
         [self registerClass:[ShelfView class] forDecorationViewOfKind:[ShelfView kind]];
     }
     return self;
@@ -80,7 +81,7 @@
         for (int row = 0; row < rows; row++)
         {
             y += self.itemSize.height;
-            dictionary[[NSIndexPath indexPathForItem:row inSection:section]] = [NSValue valueWithCGRect:CGRectMake(0, y - 29, self.collectionViewContentSize.width, 37)];
+            dictionary[[NSIndexPath indexPathForItem:row inSection:section]] = [NSValue valueWithCGRect:CGRectMake(0, y - 32, self.collectionViewContentSize.width, 37)];
             
             if (row < rows - 1)
                 y += self.minimumLineSpacing;
@@ -101,6 +102,9 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
+    if ([kind isEqualToString:[CocoaConf smallHeaderKind]])
+        return nil;
+    
     UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:indexPath];
     attributes.zIndex = 1;
     return attributes;
