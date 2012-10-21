@@ -13,6 +13,7 @@ enum {
     SpeakerLayoutLine,
     SpeakerLayoutCoverFlow,
     SpeakerLayoutStacks,
+    SpeakerLayoutSpiral,
     
     SpeakerLayoutCount
 }

@@ -13,6 +13,7 @@
 #import "CocoaConf.h"
 #import "CoverFlowLayout.h"
 #import "StacksLayout.h"
+#import "SpiralLayout.h"
 #import "ConferenceHeader.h"
 
 @interface ViewController ()
@@ -71,7 +72,7 @@
 - (void)viewDidLoad
 {
     [self.collectionView setCollectionViewLayout:[[GridLayout alloc] init]];
-    [self.collectionView setDataSource:[CocoaConf all]];
+    [self.collectionView setDataSource:[CocoaConf currentCocoaConf]];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -125,6 +126,11 @@
             
         case SpeakerLayoutStacks:
             newLayout = [[StacksLayout alloc] init];
+            reloadData = YES;
+            break;
+            
+        case SpeakerLayoutSpiral:
+            newLayout = [[SpiralLayout alloc] init];
             reloadData = YES;
             break;
             

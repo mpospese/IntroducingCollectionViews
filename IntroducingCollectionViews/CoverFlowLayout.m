@@ -23,7 +23,7 @@
         BOOL iPad = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         self.itemSize = (CGSize){170, 200};
-        self.sectionInset = UIEdgeInsetsMake(iPad? 225 : 0, 35, 0, iPad? 225 : 35);
+        self.sectionInset = UIEdgeInsetsMake(iPad? 225 : 0, 35, iPad? 225 : 0, 35);
         self.minimumLineSpacing = -51.0;
         self.minimumInteritemSpacing = 200;
         self.headerReferenceSize = iPad? (CGSize){50, 50} : (CGSize){43, 43};

@@ -41,6 +41,10 @@
     for (UICollectionViewLayoutAttributes *attributes in array)
     {
         attributes.zIndex = 1;
+        if (attributes.representedElementCategory == UICollectionElementCategorySupplementaryView)
+            attributes.alpha = 0.5;
+        else if (attributes.indexPath.row > 0 || attributes.indexPath.section > 0)
+            attributes.alpha = 0.5;
     }
     
     NSMutableArray *newArray = [array mutableCopy];
@@ -51,6 +55,7 @@
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:[ShelfView kind] withIndexPath:key];
             attributes.frame = [obj CGRectValue];
             attributes.zIndex = 0;
+            attributes.alpha = 0.5; // screenshots
             [newArray addObject:attributes];
         }
     }];
