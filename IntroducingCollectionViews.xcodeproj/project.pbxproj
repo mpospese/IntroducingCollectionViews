@@ -91,6 +91,9 @@
 		4D3C745B161DA87400C71391 /* Tim Burks.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741D161DA87400C71391 /* Tim Burks.png */; };
 		4D3C745C161DA87400C71391 /* Jonathan Blocksom.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */; };
 		4D3C745D161DA87400C71391 /* Mike Ash.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C741F161DA87400C71391 /* Mike Ash.png */; };
+		4D4714431632B714008C8F8B /* Josh Abernathy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4714421632B714008C8F8B /* Josh Abernathy@2x.png */; };
+		4D4714461632B94E008C8F8B /* Justin Miller@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4714451632B94E008C8F8B /* Justin Miller@2x.png */; };
+		4D47144916330A14008C8F8B /* SpiralLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D47144816330A14008C8F8B /* SpiralLayout.m */; };
 		4D84872C16281CE800699477 /* StacksLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84872B16281CE800699477 /* StacksLayout.m */; };
 		4DFAC5D11622628900E9BFD7 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D01622628900E9BFD7 /* LineLayout.m */; };
 		4DFAC5D4162263E500E9BFD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */; };
@@ -202,6 +205,10 @@
 		4D3C741D161DA87400C71391 /* Tim Burks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tim Burks.png"; sourceTree = "<group>"; };
 		4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jonathan Blocksom.png"; sourceTree = "<group>"; };
 		4D3C741F161DA87400C71391 /* Mike Ash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mike Ash.png"; sourceTree = "<group>"; };
+		4D4714421632B714008C8F8B /* Josh Abernathy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Josh Abernathy@2x.png"; sourceTree = "<group>"; };
+		4D4714451632B94E008C8F8B /* Justin Miller@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Justin Miller@2x.png"; sourceTree = "<group>"; };
+		4D47144716330A14008C8F8B /* SpiralLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiralLayout.h; sourceTree = "<group>"; };
+		4D47144816330A14008C8F8B /* SpiralLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiralLayout.m; sourceTree = "<group>"; };
 		4D84872A16281CE800699477 /* StacksLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StacksLayout.h; sourceTree = "<group>"; };
 		4D84872B16281CE800699477 /* StacksLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StacksLayout.m; sourceTree = "<group>"; };
 		4DFAC5CF1622628900E9BFD7 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
@@ -328,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				4D3C7414161DA87400C71391 /* Josh Abernathy.png */,
+				4D4714421632B714008C8F8B /* Josh Abernathy@2x.png */,
 				4D3C7413161DA87400C71391 /* Chris Adamson.png */,
 				4D3C7412161DA87400C71391 /* Ameir Al-Zoubi.png */,
 				4D3C741F161DA87400C71391 /* Mike Ash.png */,
@@ -358,6 +366,7 @@
 				4D3C73F2161DA87400C71391 /* Kevin Munc.png */,
 				4D3C73F3161DA87400C71391 /* Saul Mora.png */,
 				4D3C73F4161DA87400C71391 /* Justin Miller.png */,
+				4D4714451632B94E008C8F8B /* Justin Miller@2x.png */,
 				4D3C73F5161DA87400C71391 /* Eric Meyer.png */,
 				4D3C73F6161DA87400C71391 /* Scott McAlister.png */,
 				4D3C73F7161DA87400C71391 /* Steve Madsen.png */,
@@ -406,6 +415,8 @@
 				4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */,
 				4D84872A16281CE800699477 /* StacksLayout.h */,
 				4D84872B16281CE800699477 /* StacksLayout.m */,
+				4D47144716330A14008C8F8B /* SpiralLayout.h */,
+				4D47144816330A14008C8F8B /* SpiralLayout.m */,
 			);
 			name = layouts;
 			sourceTree = "<group>";
@@ -554,6 +565,8 @@
 				4D2A7FFE16301A7E00F03025 /* Icon@2x.png in Resources */,
 				4D2A800016301A8D00F03025 /* Icon-72@2x.png in Resources */,
 				4D2A800216301A9200F03025 /* Icon-72.png in Resources */,
+				4D4714431632B714008C8F8B /* Josh Abernathy@2x.png in Resources */,
+				4D4714461632B94E008C8F8B /* Justin Miller@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +591,7 @@
 				4D136A4C1626DE1D00D84E85 /* CoverFlowLayout.m in Sources */,
 				4D84872C16281CE800699477 /* StacksLayout.m in Sources */,
 				4D2A7FD4162EBFD400F03025 /* MPAnimation.m in Sources */,
+				4D47144916330A14008C8F8B /* SpiralLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
