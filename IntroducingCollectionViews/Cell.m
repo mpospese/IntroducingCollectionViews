@@ -9,6 +9,7 @@
 #import "Cell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MPAnimation.h"
+#import "ConferenceLayoutAttributes.h"
 
 @interface Cell()
 
@@ -60,6 +61,16 @@
         self.speakerImage.layer.shadowPath = [[UIBezierPath bezierPathWithRect:CGRectInset(self.speakerImage.bounds,1,1)] CGPath];
     }
 }
+
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
+{
+    if ([layoutAttributes isKindOfClass:[ConferenceLayoutAttributes class]])
+    {
+        ConferenceLayoutAttributes *conferenceAttributes = (ConferenceLayoutAttributes *)layoutAttributes;
+        self.speakerImage.layer.shadowOpacity = conferenceAttributes.shadowOpacity;
+    }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

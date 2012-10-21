@@ -7,6 +7,7 @@
 //
 
 #import "CoverFlowLayout.h"
+#import "ConferenceLayoutAttributes.h"
 
 @implementation CoverFlowLayout
 
@@ -34,6 +35,11 @@
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)oldBounds
 {
     return YES;
+}
+
++ (Class)layoutAttributesClass
+{
+    return [ConferenceLayoutAttributes class];
 }
 
 -(NSArray*)layoutAttributesForElementsInRect:(CGRect)rect
@@ -83,7 +89,11 @@
 {
     attributes.transform3D = CATransform3DMakeRotation(-90 * M_PI / 180, 0, 0, 1);
     attributes.size = CGSizeMake(attributes.size.height, attributes.size.width);
-    attributes.center = CGPointMake(attributes.center.x, attributes.center.y + (self.itemSize.height + 100 - self.collectionView.bounds.size.height)/2);
+    if ([attributes isKindOfClass:[ConferenceLayoutAttributes class]])
+    {
+        ConferenceLayoutAttributes *conferenceAttributes = (ConferenceLayoutAttributes *)attributes;
+        conferenceAttributes.headerTextAlignment = NSTextAlignmentCenter;
+    }
 }
 
 - (void)setCellAttributes:(UICollectionViewLayoutAttributes *)attributes forVisibleRect:(CGRect)visibleRect

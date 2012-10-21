@@ -93,6 +93,7 @@
  */
 
 #import "SpiralLayout.h"
+#import "ConferenceLayoutAttributes.h"
 
 #define ITEM_SIZE 170
 
@@ -119,6 +120,11 @@
     return YES;
 }
 
++ (Class)layoutAttributesClass
+{
+    return [ConferenceLayoutAttributes class];
+}
+
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)path
 {
     UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path];
@@ -131,13 +137,26 @@
     return attributes;
 }
 
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    ConferenceLayoutAttributes *attributes = [ConferenceLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
+    attributes.size = CGSizeMake(self.collectionView.bounds.size.width, 50);
+    attributes.center = CGPointMake(self.collectionView.bounds.size.width / 2, 35);
+    attributes.headerTextAlignment = NSTextAlignmentCenter;
+    return attributes;
+}
+
 -(NSArray*)layoutAttributesForElementsInRect:(CGRect)rect
 {
     NSMutableArray* attributes = [NSMutableArray array];
     for (NSInteger i=0 ; i < self.cellCount; i++) {
         NSIndexPath* indexPath = [NSIndexPath indexPathForItem:i inSection:0];
         [attributes addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
-    }    
+    }
+    
+    // add header
+    [attributes addObject:[self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]]];
+
     return attributes;
 }
 

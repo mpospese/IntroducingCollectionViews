@@ -9,6 +9,7 @@
 #import "StacksLayout.h"
 #import "GridLayout.h"
 #import "CocoaConf.h"
+#import "ConferenceLayoutAttributes.h"
 
 #define STACKS_LEFT_MARGIN  20.0f
 #define STACKS_TOP_MARGIN  20.0f
@@ -70,6 +71,11 @@
     return YES;
 }
 
++ (Class)layoutAttributesClass
+{
+    return [ConferenceLayoutAttributes class];
+}
+
 - (CGSize)collectionViewContentSize
 {
     return self.contentSize;
@@ -89,18 +95,19 @@
 {
     CGRect stackFrame = [self.stackFrames[path.section] CGRectValue];
     
-    UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path];
+    ConferenceLayoutAttributes* attributes = [ConferenceLayoutAttributes layoutAttributesForCellWithIndexPath:path];
     attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
     attributes.center = CGPointMake(CGRectGetMidX(stackFrame), CGRectGetMidY(stackFrame));
     CGFloat angle = 0;
-    if (path.row == 1)
+    if (path.item == 1)
         angle = 5;
-    else if (path.row == 2)
+    else if (path.item == 2)
         angle = -5;
     attributes.transform3D = CATransform3DMakeRotation(angle * M_PI / 180, 0, 0, 1);
-    attributes.alpha = path.row >= 3? 0 : 1;
-    attributes.zIndex = path.row >= 3? 0 : 3 - path.row;
-    attributes.hidden = path.row >= 3;
+    attributes.alpha = path.item >= 3? 0 : 1;
+    attributes.zIndex = path.item >= 3? 0 : 3 - path.item;
+    attributes.hidden = path.item >= 3;
+    attributes.shadowOpacity = 0.5;
     
     if (self.isPinching)
     {
@@ -110,17 +117,19 @@
         if (path.section == self.pinchedStackIndex)
         {
             int itemCount = self.itemFrames.count;
-            if (path.row < itemCount)
+            if (path.item < itemCount)
             {
-                CGRect itemFrame = [self.itemFrames[path.row] CGRectValue];
+                CGRect itemFrame = [self.itemFrames[path.item] CGRectValue];
                 CGFloat newX = attributes.center.x * (1 - progress) + CGRectGetMidX(itemFrame) * progress;
                 CGFloat newY = attributes.center.y * (1 - progress) + CGRectGetMidY(itemFrame) * progress;
                 attributes.center = CGPointMake(newX, newY);
                 angle *= (1- progress);
                 attributes.transform3D = CATransform3DMakeRotation(angle * M_PI / 180, 0, 0, 1);
                 attributes.alpha = 1;
-                attributes.zIndex = (itemCount + 3) - path.row;
+                attributes.zIndex = (itemCount + 3) - path.item;
                 attributes.hidden = NO;
+                if (path.item >= 3)
+                    attributes.shadowOpacity = 0.5 * progress;
            }
         }
         else

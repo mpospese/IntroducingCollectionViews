@@ -9,6 +9,7 @@
 #import "ConferenceHeader.h"
 #import "Conference.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ConferenceLayoutAttributes.h"
 
 #define ZIG_SIZE 3
 #define MARGIN_HORIZONTAL_LARGE 20
@@ -64,6 +65,17 @@
 }
 */
 
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
+{
+    if ([layoutAttributes isKindOfClass:[ConferenceLayoutAttributes class]])
+    {
+        ConferenceLayoutAttributes *conferenceAttributes = (ConferenceLayoutAttributes *)layoutAttributes;
+        self.conferenceNameLabel.textAlignment = conferenceAttributes.headerTextAlignment;
+        self.centerText = conferenceAttributes.headerTextAlignment == NSTextAlignmentCenter;
+    }    
+}
+
+
 - (void)setBackground
 {
     if (self.isBackgroundSet)
@@ -83,11 +95,9 @@
     return self.isSmall? MARGIN_VERTICAL_SMALL : MARGIN_VERTICAL_LARGE;
 }
 
-- (void)setConference:(Conference *)conference
+- (void)layoutSubviews
 {
     CGFloat x = self.conferenceNameLabel.frame.origin.x;
-    [self setBackground];
-    self.conferenceNameLabel.text = conference.name;
     [self.conferenceNameLabel sizeToFit];
     CGRect labelBounds = CGRectInset(self.conferenceNameLabel.bounds, -[self horizontalMargin], -[self verticalMargin]);
     
@@ -98,6 +108,13 @@
     }
     else
         self.conferenceNameLabel.frame = (CGRect){{x, roundf((self.bounds.size.height - labelBounds.size.height)/2)}, labelBounds.size};
+}
+
+- (void)setConference:(Conference *)conference
+{
+    [self setBackground];
+    self.conferenceNameLabel.text = conference.name;
+    [self layoutSubviews];
         
     // put a zig-zag edge like tap cut marks on left and right edges of label
     UIBezierPath *mask = [UIBezierPath bezierPath];

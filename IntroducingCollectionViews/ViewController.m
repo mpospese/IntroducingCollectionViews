@@ -126,12 +126,11 @@
             
         case SpeakerLayoutStacks:
             newLayout = [[StacksLayout alloc] init];
-            reloadData = YES;
+            //reloadData = YES;
             break;
             
         case SpeakerLayoutSpiral:
             newLayout = [[SpiralLayout alloc] init];
-            reloadData = YES;
             break;
             
         default:
