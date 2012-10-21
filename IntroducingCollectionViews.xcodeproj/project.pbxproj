@@ -94,6 +94,7 @@
 		4D4714431632B714008C8F8B /* Josh Abernathy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4714421632B714008C8F8B /* Josh Abernathy@2x.png */; };
 		4D4714461632B94E008C8F8B /* Justin Miller@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4714451632B94E008C8F8B /* Justin Miller@2x.png */; };
 		4D47144916330A14008C8F8B /* SpiralLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D47144816330A14008C8F8B /* SpiralLayout.m */; };
+		4D47144C1633ECE1008C8F8B /* ConferenceLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D47144B1633ECE1008C8F8B /* ConferenceLayoutAttributes.m */; };
 		4D84872C16281CE800699477 /* StacksLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84872B16281CE800699477 /* StacksLayout.m */; };
 		4DFAC5D11622628900E9BFD7 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D01622628900E9BFD7 /* LineLayout.m */; };
 		4DFAC5D4162263E500E9BFD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */; };
@@ -209,6 +210,8 @@
 		4D4714451632B94E008C8F8B /* Justin Miller@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Justin Miller@2x.png"; sourceTree = "<group>"; };
 		4D47144716330A14008C8F8B /* SpiralLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiralLayout.h; sourceTree = "<group>"; };
 		4D47144816330A14008C8F8B /* SpiralLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiralLayout.m; sourceTree = "<group>"; };
+		4D47144A1633ECE1008C8F8B /* ConferenceLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConferenceLayoutAttributes.h; sourceTree = "<group>"; };
+		4D47144B1633ECE1008C8F8B /* ConferenceLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConferenceLayoutAttributes.m; sourceTree = "<group>"; };
 		4D84872A16281CE800699477 /* StacksLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StacksLayout.h; sourceTree = "<group>"; };
 		4D84872B16281CE800699477 /* StacksLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StacksLayout.m; sourceTree = "<group>"; };
 		4DFAC5CF1622628900E9BFD7 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 		4D3C733D161D9BB600C71391 /* IntroducingCollectionViews */ = {
 			isa = PBXGroup;
 			children = (
+				4D47144A1633ECE1008C8F8B /* ConferenceLayoutAttributes.h */,
+				4D47144B1633ECE1008C8F8B /* ConferenceLayoutAttributes.m */,
 				4D3C7362161D9F0600C71391 /* layouts */,
 				4D3C735D161D9C0500C71391 /* images */,
 				4D3C7346161D9BB600C71391 /* AppDelegate.h */,
@@ -592,6 +597,7 @@
 				4D84872C16281CE800699477 /* StacksLayout.m in Sources */,
 				4D2A7FD4162EBFD400F03025 /* MPAnimation.m in Sources */,
 				4D47144916330A14008C8F8B /* SpiralLayout.m in Sources */,
+				4D47144C1633ECE1008C8F8B /* ConferenceLayoutAttributes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
