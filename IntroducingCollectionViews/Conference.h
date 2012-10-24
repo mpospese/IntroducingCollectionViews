@@ -18,4 +18,6 @@
 - (id)initWithName:(NSString *)name startDate:(NSDate *)startDate duration:(NSUInteger)durationDays speakers:(NSArray *)speakers;
 + (Conference *)conferenceWithName:(NSString *)name startDate:(NSDate *)startDate duration:(NSUInteger)durationDays speakers:(NSArray *)speakers;
 
+- (void)deleteSpeakerAtIndex:(NSUInteger)index;
+
 @end

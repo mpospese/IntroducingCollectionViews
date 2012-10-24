@@ -14,3 +14,7 @@
 - (void)setConference:(Conference *)conference;
 
 @end
+
+@interface SmallConferenceHeader: ConferenceHeader
+
+@end

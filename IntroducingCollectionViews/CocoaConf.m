@@ -48,6 +48,9 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     if (self.selectedSection >= 0)
         section = self.selectedSection;
     
+    if (section < 0 || section >= self.conferences.count)
+        return 0;
+    
     return [[self.conferences[section] speakers] count];
 }
 
@@ -57,7 +60,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     
     Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSpeakerCellID forIndexPath:indexPath];
     
-    cell.speakerName = [self.conferences[section] speakers][indexPath.row];
+    cell.speakerName = [self.conferences[section] speakers][indexPath.item];
     
     return cell;
     
@@ -107,7 +110,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 + (Conference *)portland2012
 {
     // reduces list for screenshots
-    /*return [Conference conferenceWithName:@"CocoaConf Portland 2012" startDate:[NSDate dateWithYear:2012 month:10 day:25] duration:3 speakers:@[@"Josh Abernathy", @"Tim Burks", @"James Dempsey", @"Collin Donnell", @"Andria Jensen", @"Justin Miller", @"Jaimee Newberry", @"Janine Ohmer", @"Elizabeth Taylor"]];*/
+    //return [Conference conferenceWithName:@"CocoaConf Portland 2012" startDate:[NSDate dateWithYear:2012 month:10 day:25] duration:3 speakers:@[@"Josh Abernathy", @"Tim Burks", @"James Dempsey", @"Collin Donnell", @"Andria Jensen", @"Justin Miller", @"Jaimee Newberry", @"Janine Ohmer", @"Elizabeth Taylor"]];
     return [Conference conferenceWithName:@"CocoaConf Portland 2012" startDate:[NSDate dateWithYear:2012 month:10 day:25] duration:3 speakers:@[@"Josh Abernathy", @"Chris Adamson", @"Tim Burks", @"James Dempsey", @"Collin Donnell", @"Pete Hodgson", @"Andria Jensen", @"Justin Miller", @"Saul Mora", @"Jaimee Newberry", @"Janine Ohmer", @"Daniel Pasco", @"Jonathan Penn", @"Mark Pospesel", @"Ben Scheirman", @"Brent Simmons", @"Josh Smith", @"Daniel Steinberg", @"Elizabeth Taylor", @"Mattt Thompson"]];
 }
 
@@ -165,6 +168,12 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 + (NSString *)smallHeaderKind
 {
     return kConferenceHeaderSmallID;
+}
+
+- (void)deleteSpeakerAtPath:(NSIndexPath *)indexPath
+{
+    Conference* conference = self.conferences[indexPath.section];
+    [conference deleteSpeakerAtIndex:indexPath.item];
 }
 
 @end

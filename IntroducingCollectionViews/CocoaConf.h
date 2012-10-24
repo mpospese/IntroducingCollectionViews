@@ -20,4 +20,6 @@
 
 @property (nonatomic, assign) NSInteger selectedSection;
 
+- (void)deleteSpeakerAtPath:(NSIndexPath *)indexPath;
+
 @end

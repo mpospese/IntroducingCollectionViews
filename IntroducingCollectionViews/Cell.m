@@ -35,7 +35,9 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
-        //self.contentView.backgroundColor = [UIColor underPageBackgroundColor];
+         /*self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.bounds];
+        self.selectedBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        self.selectedBackgroundView.backgroundColor = [UIColor orangeColor];*/
     }
     return self;
 }

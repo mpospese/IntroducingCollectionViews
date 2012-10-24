@@ -37,4 +37,10 @@
     return [[Conference alloc] initWithName:name startDate:startDate duration:durationDays speakers:speakers];
 }
 
+- (void)deleteSpeakerAtIndex:(NSUInteger)index
+{
+    NSMutableArray *newSpeakers = [self.speakers mutableCopy];
+    [newSpeakers removeObjectAtIndex:index];
+    self.speakers = [NSArray arrayWithArray:newSpeakers];
+}
 @end

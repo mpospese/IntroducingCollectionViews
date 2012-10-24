@@ -33,13 +33,13 @@
     if (self) {
         // Initialization code
         _conferenceNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 6, frame.size.width, 13)];
-        _conferenceNameLabel.font = [UIFont fontWithName:@"Courier-Bold" size:13];
+        _conferenceNameLabel.font = [UIFont fontWithName:@"Courier-Bold" size:24];
         _conferenceNameLabel.textColor = [UIColor blackColor];
         _conferenceNameLabel.textAlignment = NSTextAlignmentCenter;
         [self setBackground];
         [self addSubview:_conferenceNameLabel];
-        _small = YES;
-        _centerText = YES;
+        _small = NO;
+        _centerText = NO;
     }
     return self;
 }
@@ -70,7 +70,6 @@
     if ([layoutAttributes isKindOfClass:[ConferenceLayoutAttributes class]])
     {
         ConferenceLayoutAttributes *conferenceAttributes = (ConferenceLayoutAttributes *)layoutAttributes;
-        self.conferenceNameLabel.textAlignment = conferenceAttributes.headerTextAlignment;
         self.centerText = conferenceAttributes.headerTextAlignment == NSTextAlignmentCenter;
     }    
 }
@@ -97,7 +96,6 @@
 
 - (void)layoutSubviews
 {
-    CGFloat x = self.conferenceNameLabel.frame.origin.x;
     [self.conferenceNameLabel sizeToFit];
     CGRect labelBounds = CGRectInset(self.conferenceNameLabel.bounds, -[self horizontalMargin], -[self verticalMargin]);
     
@@ -107,7 +105,18 @@
         self.conferenceNameLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
     }
     else
-        self.conferenceNameLabel.frame = (CGRect){{x, roundf((self.bounds.size.height - labelBounds.size.height)/2)}, labelBounds.size};
+    {
+        CGFloat leftMargin = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad? 20 : 5;
+        self.conferenceNameLabel.frame = (CGRect){{leftMargin, roundf((self.bounds.size.height - labelBounds.size.height)/2)}, labelBounds.size};
+    }
+}
+
+#pragma mark - Properties
+
+- (void)setCenterText:(BOOL)centerText
+{
+    _centerText = centerText;
+    [self setNeedsLayout];
 }
 
 - (void)setConference:(Conference *)conference
@@ -143,5 +152,22 @@
     
     self.conferenceNameLabel.layer.mask = maskLayer;
 }
+
+@end
+
+@implementation SmallConferenceHeader
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        self.conferenceNameLabel.font = [UIFont fontWithName:@"Courier-Bold" size:13];
+        self.small = YES;
+        self.centerText = YES;
+    }
+    return self;
+}
+
 
 @end

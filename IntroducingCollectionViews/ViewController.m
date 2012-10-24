@@ -72,12 +72,12 @@
 - (void)viewDidLoad
 {
     [self.collectionView setCollectionViewLayout:[[GridLayout alloc] init]];
-    [self.collectionView setDataSource:[CocoaConf currentCocoaConf]];
+    [self.collectionView setDataSource:[CocoaConf all]];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"SpeakerCell"];
-    [self.collectionView registerClass:[ConferenceHeader class] forSupplementaryViewOfKind:[CocoaConf smallHeaderKind] withReuseIdentifier:[CocoaConf smallHeaderKind]];
+    //[self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"SpeakerCell"];
+    [self.collectionView registerClass:[SmallConferenceHeader class] forSupplementaryViewOfKind:[CocoaConf smallHeaderKind] withReuseIdentifier:[CocoaConf smallHeaderKind]];
     [self.collectionView reloadData];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wood-Planks"]];
     
@@ -91,6 +91,10 @@
     
     UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
     [self.collectionView addGestureRecognizer:pinch];
+    
+    UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
+    swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.collectionView addGestureRecognizer:swipeUp];
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,6 +156,24 @@
     {
         [self.collectionView performSelector:@selector(reloadData) withObject:nil afterDelay:0.5];
     }
+    
+    // There's a UICollectionView bug where the supplementary views from StacksLayout are leftover and remain in other layouts
+    if (layoutStyle != SpeakerLayoutStacks)
+    {
+        NSMutableArray *leftoverViews = [NSMutableArray array];
+        for (UIView *subview in self.collectionView.subviews)
+        {
+            // Find all the leftover supplementary views
+            if ([subview isKindOfClass:[SmallConferenceHeader class]])
+            {
+                [leftoverViews addObject:subview];
+            }
+        }
+        
+        // remove them from the view hierarchy
+        for (UIView *subview in leftoverViews)
+            [subview removeFromSuperview];
+    }
 }
 
 #pragma mark - Touch gesture
@@ -195,19 +217,53 @@
     
     else
     {
-        if (stacksLayout.pinchedStackScale > 2.5)
+        if (stacksLayout.pinchedStackIndex >= 0)
         {
-            [self setLayoutStyle:SpeakerLayoutGrid animated:YES];
+            if (stacksLayout.pinchedStackScale > 2.5)
+            {
+                // switch to GridLayout
+                [self setLayoutStyle:SpeakerLayoutGrid animated:YES];
+            }
+            else
+            {
+                // collapse items back into stack
+                NSMutableArray *leftoverViews = [NSMutableArray array];
+                for (UIView *subview in self.collectionView.subviews)
+                {
+                    // Find all the supplementary views
+                    if ([subview isKindOfClass:[SmallConferenceHeader class]])
+                    {
+                        [leftoverViews addObject:subview];
+                    }
+                }
+                
+                stacksLayout.collapsing = YES;
+                [self.collectionView performBatchUpdates:^{
+                    stacksLayout.pinchedStackIndex = -1;
+                   stacksLayout.pinchedStackScale = 1.0;
+                 } completion:^(BOOL finished) {
+                     stacksLayout.collapsing = NO;
+                     // remove them from the view hierarchy
+                     for (UIView *subview in leftoverViews)
+                         [subview removeFromSuperview];
+                }];
+            }
         }
-        else
-        {
-            [self.collectionView performBatchUpdates:^{
-                stacksLayout.pinchedStackIndex = -1;
-               stacksLayout.pinchedStackScale = 1.0;
-             } completion:^(BOOL finished) {
-                 [self.collectionView reloadData];
-             }];
-        }
+    }
+}
+
+
+- (void)handleSwipeUp:(UISwipeGestureRecognizer *)gestureRecognizer
+{
+    CGPoint startPoint = [gestureRecognizer locationInView:self.collectionView];
+    NSIndexPath* cellPath = [self.collectionView indexPathForItemAtPoint:startPoint];
+    if (cellPath)
+    {
+        CocoaConf *cocoaConf = (CocoaConf *)self.collectionView.dataSource;
+        [cocoaConf deleteSpeakerAtPath:cellPath];
+        [self.collectionView deleteItemsAtIndexPaths:@[cellPath]];
+        [self.collectionView insertItemsAtIndexPaths:nil];
+        [self.collectionView moveItemAtIndexPath:nil toIndexPath:nil];
     }
 }
 
