@@ -138,6 +138,9 @@
     NSArray* array = [super layoutAttributesForElementsInRect:targetRect];
     
     for (UICollectionViewLayoutAttributes* layoutAttributes in array) {
+        if (layoutAttributes.representedElementCategory != UICollectionElementCategoryCell)
+            continue; // skip headers
+        
         CGFloat itemHorizontalCenter = layoutAttributes.center.x;
         if (ABS(itemHorizontalCenter - horizontalCenter) < ABS(offsetAdjustment)) {
             offsetAdjustment = itemHorizontalCenter - horizontalCenter;
