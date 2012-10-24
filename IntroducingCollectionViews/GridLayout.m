@@ -9,6 +9,7 @@
 #import "GridLayout.h"
 #import "ShelfView.h"
 #import "CocoaConf.h"
+#import "ConferenceLayoutAttributes.h"
 
 @interface GridLayout()
 
@@ -27,10 +28,16 @@
         self.itemSize = (CGSize){170, 197};
         self.sectionInset = UIEdgeInsetsMake(4, 10, 14, 10);
         self.headerReferenceSize = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad? (CGSize){50, 50} : (CGSize){43, 43};
+        self.minimumInteritemSpacing = 10;
         self.minimumLineSpacing = 10;
         [self registerClass:[ShelfView class] forDecorationViewOfKind:[ShelfView kind]];
     }
     return self;
+}
+
++ (Class)layoutAttributesClass
+{
+    return [ConferenceLayoutAttributes class];
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
@@ -41,10 +48,22 @@
     for (UICollectionViewLayoutAttributes *attributes in array)
     {
         attributes.zIndex = 1;
-        if (attributes.representedElementCategory == UICollectionElementCategorySupplementaryView)
-            attributes.alpha = 0.5;
-        else if (attributes.indexPath.row > 0 || attributes.indexPath.section > 0)
-            attributes.alpha = 0.5;
+        //if (attributes.representedElementCategory == UICollectionElementCategoryCell)
+        //    attributes.alpha = 0.5;
+        /*else if (attributes.indexPath.row > 0 || attributes.indexPath.section > 0)
+            attributes.alpha = 0.5;*/
+        if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal && attributes.representedElementCategory == UICollectionElementCategorySupplementaryView)
+        {
+            // make label vertical if scrolling is horizontal
+            attributes.transform3D = CATransform3DMakeRotation(-90 * M_PI / 180, 0, 0, 1);
+            attributes.size = CGSizeMake(attributes.size.height, attributes.size.width);            
+        }
+        
+        if (attributes.representedElementCategory == UICollectionElementCategorySupplementaryView && [attributes isKindOfClass:[ConferenceLayoutAttributes class]])
+        {
+            ConferenceLayoutAttributes *conferenceAttributes = (ConferenceLayoutAttributes *)attributes;
+            conferenceAttributes.headerTextAlignment = NSTextAlignmentLeft;
+        }
     }
     
     NSMutableArray *newArray = [array mutableCopy];
@@ -55,7 +74,7 @@
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:[ShelfView kind] withIndexPath:key];
             attributes.frame = [obj CGRectValue];
             attributes.zIndex = 0;
-            attributes.alpha = 0.5; // screenshots
+            //attributes.alpha = 0.5; // screenshots
             [newArray addObject:attributes];
         }
     }];
@@ -70,29 +89,47 @@
     [super prepareLayout];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    int sectionCount = [self.collectionView numberOfSections];
     
-    CGFloat y = 0;
-    CGFloat availableWidth = self.collectionViewContentSize.width - (self.sectionInset.left + self.sectionInset.right);
-    int itemsAcross = floorf((availableWidth + self.minimumInteritemSpacing) / (self.itemSize.width + self.minimumInteritemSpacing));
-    
-    for (int section = 0; section < sectionCount; section++)
+    if (self.scrollDirection == UICollectionViewScrollDirectionVertical)
     {
-        y += self.headerReferenceSize.height;
-        y += self.sectionInset.top;
+        int sectionCount = [self.collectionView numberOfSections];
         
-        int itemCount = [self.collectionView numberOfItemsInSection:section];
-        int rows = ceilf(itemCount/(float)itemsAcross);
-        for (int row = 0; row < rows; row++)
+        CGFloat y = 0;
+        CGFloat availableWidth = self.collectionViewContentSize.width - (self.sectionInset.left + self.sectionInset.right);
+        int itemsAcross = floorf((availableWidth + self.minimumInteritemSpacing) / (self.itemSize.width + self.minimumInteritemSpacing));
+        
+        for (int section = 0; section < sectionCount; section++)
+        {
+            y += self.headerReferenceSize.height;
+            y += self.sectionInset.top;
+            
+            int itemCount = [self.collectionView numberOfItemsInSection:section];
+            int rows = ceilf(itemCount/(float)itemsAcross);
+            for (int row = 0; row < rows; row++)
+            {
+                y += self.itemSize.height;
+                dictionary[[NSIndexPath indexPathForItem:row inSection:section]] = [NSValue valueWithCGRect:CGRectMake(0, y - 32, self.collectionViewContentSize.width, 37)];
+                
+                if (row < rows - 1)
+                    y += self.minimumLineSpacing;
+            }
+            
+            y += self.sectionInset.bottom;
+        }
+    }
+    else
+    {
+        CGFloat y = self.sectionInset.top;
+        CGFloat availableHeight = self.collectionViewContentSize.height - (self.sectionInset.top + self.sectionInset.bottom);
+        int itemsAcross = floorf((availableHeight + self.minimumInteritemSpacing) / (self.itemSize.height + self.minimumInteritemSpacing));
+        CGFloat interval = ((availableHeight - self.itemSize.height) / (itemsAcross <= 1? 1 : itemsAcross - 1)) - self.itemSize.height;
+        for (int row = 0; row < itemsAcross; row++)
         {
             y += self.itemSize.height;
-            dictionary[[NSIndexPath indexPathForItem:row inSection:section]] = [NSValue valueWithCGRect:CGRectMake(0, y - 32, self.collectionViewContentSize.width, 37)];
+            dictionary[[NSIndexPath indexPathForItem:row inSection:0]] = [NSValue valueWithCGRect:CGRectMake(0, roundf(y - 32), self.collectionViewContentSize.width, 37)];
             
-            if (row < rows - 1)
-                y += self.minimumLineSpacing;
+            y += interval;
         }
-        
-        y += self.sectionInset.bottom;
     }
     
     self.shelfRects = [NSDictionary dictionaryWithDictionary:dictionary];
@@ -112,7 +149,20 @@
     
     UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:indexPath];
     attributes.zIndex = 1;
-    return attributes;
+    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal)
+    {
+        // make label vertical if scrolling is horizontal
+        attributes.transform3D = CATransform3DMakeRotation(-90 * M_PI / 180, 0, 0, 1);
+        attributes.size = CGSizeMake(attributes.size.height, attributes.size.width);
+    }
+    
+    if ([attributes isKindOfClass:[ConferenceLayoutAttributes class]])
+    {
+        ConferenceLayoutAttributes *conferenceAttributes = (ConferenceLayoutAttributes *)attributes;
+        conferenceAttributes.headerTextAlignment = NSTextAlignmentLeft;
+    }
+    
+   return attributes;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForDecorationViewOfKind:(NSString *)decorationViewKind atIndexPath:(NSIndexPath *)indexPath
