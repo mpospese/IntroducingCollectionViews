@@ -9,6 +9,12 @@
 #import "LineLayout.h"
 #import "ConferenceLayoutAttributes.h"
 
+@interface LineLayout()
+
+@property (nonatomic, strong) NSMutableArray *deleteIndexPaths;
+
+@end
+
 @implementation LineLayout
 
 #define ACTIVE_DISTANCE 200
@@ -117,12 +123,50 @@
     NSArray* array = [super layoutAttributesForElementsInRect:targetRect];
     
     for (UICollectionViewLayoutAttributes* layoutAttributes in array) {
+        if (layoutAttributes.representedElementCategory != UICollectionElementCategoryCell)
+            continue; // skip headers
+        
         CGFloat itemHorizontalCenter = layoutAttributes.center.x;
         if (ABS(itemHorizontalCenter - horizontalCenter) < ABS(offsetAdjustment)) {
             offsetAdjustment = itemHorizontalCenter - horizontalCenter;
         }
     }
     return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y);
+}
+
+- (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
+{
+    [super prepareForCollectionViewUpdates:updateItems];
+    
+    self.deleteIndexPaths = [NSMutableArray array];
+    for (UICollectionViewUpdateItem *update in updateItems)
+    {
+        if (update.updateAction == UICollectionUpdateActionDelete)
+        {
+            [self.deleteIndexPaths addObject:update.indexPathBeforeUpdate];
+        }
+    }
+}
+
+- (void)finalizeCollectionViewUpdates
+{
+    [super finalizeCollectionViewUpdates];
+    self.deleteIndexPaths = nil;
+}
+
+- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
+{
+    UICollectionViewLayoutAttributes *attributes = [super finalLayoutAttributesForDisappearingItemAtIndexPath:itemIndexPath];
+    
+    if ([self.deleteIndexPaths containsObject:itemIndexPath])
+    {
+        if (!attributes)
+            attributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+        attributes.alpha = 0.0;
+        attributes.center = CGPointMake(attributes.center.x, 0 - self.itemSize.height);
+    }    
+    
+    return attributes;
 }
 
 @end
