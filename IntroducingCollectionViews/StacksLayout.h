@@ -22,5 +22,7 @@
 @property (nonatomic, assign) NSInteger pinchedStackIndex;
 @property (nonatomic, assign) CGFloat pinchedStackScale;
 @property (nonatomic, assign) CGPoint pinchedStackCenter;
+@property (nonatomic, assign, getter = isCollapsing) BOOL collapsing;
 
 @end
+

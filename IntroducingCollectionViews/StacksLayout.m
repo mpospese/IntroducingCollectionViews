@@ -26,6 +26,7 @@
 #define MIN_PINCH_SCALE 1.0f
 #define MAX_PINCH_SCALE 4.0f
 #define FADE_PROGRESS 0.75
+#define VISIBLE_ITEMS_PER_STACK 3
 
 @interface StacksLayout()
 
@@ -40,6 +41,7 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *gridLayout;
 @property (nonatomic, assign) NSUInteger numberOfStacksAcross;
 @property (nonatomic, assign) NSUInteger numberOfStackRows;
+@property (nonatomic, assign) CGSize pageSize;
 @property (nonatomic, assign) CGSize contentSize;
 
 @end
@@ -68,7 +70,7 @@
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)oldBounds
 {
-    return YES;
+    return !CGSizeEqualToSize(oldBounds.size, self.pageSize);
 }
 
 + (Class)layoutAttributesClass
@@ -104,10 +106,10 @@
     else if (path.item == 2)
         angle = -5;
     attributes.transform3D = CATransform3DMakeRotation(angle * M_PI / 180, 0, 0, 1);
-    attributes.alpha = path.item >= 3? 0 : 1;
-    attributes.zIndex = path.item >= 3? 0 : 3 - path.item;
-    attributes.hidden = path.item >= 3;
-    attributes.shadowOpacity = 0.5;
+    attributes.alpha = path.item >= VISIBLE_ITEMS_PER_STACK? 0 : 1;
+    attributes.zIndex = path.item >= VISIBLE_ITEMS_PER_STACK? 0 : VISIBLE_ITEMS_PER_STACK - path.item;
+    attributes.hidden = self.isCollapsing? NO : path.item >= VISIBLE_ITEMS_PER_STACK;
+    attributes.shadowOpacity = path.item >= VISIBLE_ITEMS_PER_STACK? 0 : 0.5;
     
     if (self.isPinching)
     {
@@ -126,9 +128,9 @@
                 angle *= (1- progress);
                 attributes.transform3D = CATransform3DMakeRotation(angle * M_PI / 180, 0, 0, 1);
                 attributes.alpha = 1;
-                attributes.zIndex = (itemCount + 3) - path.item;
+                attributes.zIndex = (itemCount + VISIBLE_ITEMS_PER_STACK) - path.item;
                 attributes.hidden = NO;
-                if (path.item >= 3)
+                if (path.item >= VISIBLE_ITEMS_PER_STACK)
                     attributes.shadowOpacity = 0.5 * progress;
            }
         }
@@ -230,8 +232,9 @@
 - (void)prepareStacksLayout
 {
     self.numberOfStacks = [self.collectionView numberOfSections];
-
-    CGFloat availableWidth = self.collectionView.bounds.size.width - (self.stacksInsets.left + self.stacksInsets.right);
+    self.pageSize = self.collectionView.bounds.size;
+    
+    CGFloat availableWidth = self.pageSize.width - (self.stacksInsets.left + self.stacksInsets.right);
     self.numberOfStacksAcross = floorf((availableWidth + self.minimumInterStackSpacing) / (self.stackSize.width + self.minimumInterStackSpacing));
     CGFloat spacing = floorf((availableWidth - (self.numberOfStacksAcross * self.stackSize.width)) / (self.numberOfStacksAcross - 1));
     self.numberOfStackRows = ceilf(self.numberOfStacks / (float)self.numberOfStacksAcross);
@@ -259,7 +262,7 @@
         }
     }
     
-    self.contentSize = CGSizeMake(self.collectionView.bounds.size.width, MAX(self.collectionView.bounds.size.height, self.stacksInsets.top + (self.numberOfStackRows * (self.stackSize.height + STACK_FOOTER_GAP + STACK_FOOTER_HEIGHT)) + ((self.numberOfStackRows - 1) * self.minimumLineSpacing) + self.stacksInsets.bottom));
+    self.contentSize = CGSizeMake(self.pageSize.width, MAX(self.pageSize.height, self.stacksInsets.top + (self.numberOfStackRows * (self.stackSize.height + STACK_FOOTER_GAP + STACK_FOOTER_HEIGHT)) + ((self.numberOfStackRows - 1) * self.minimumLineSpacing) + self.stacksInsets.bottom));
 }
 
 - (void)prepareItemsLayout
@@ -267,7 +270,7 @@
     self.itemFrames = [NSMutableArray array];
     
     int numberOfItems = [self.collectionView numberOfItemsInSection:self.pinchedStackIndex];
-    CGFloat availableWidth = self.collectionView.bounds.size.width - (self.gridLayout.sectionInset.left + self.gridLayout.sectionInset.right);
+    CGFloat availableWidth = self.pageSize.width - (self.gridLayout.sectionInset.left + self.gridLayout.sectionInset.right);
     int numberOfItemsAcross = floorf((availableWidth + self.gridLayout.minimumInteritemSpacing) / (self.gridLayout.itemSize.width + self.gridLayout.minimumInteritemSpacing));
     CGFloat spacing = floorf((availableWidth - (numberOfItemsAcross * self.gridLayout.itemSize.width)) / (numberOfItemsAcross - 1));
     
@@ -291,13 +294,13 @@
             row += 1;
         }
         
-        if (top >= self.collectionView.bounds.size.height)
+        if (top >= self.pageSize.height)
             break;
     }
     
     int numberOfItemRows = ceilf(self.itemFrames.count / (CGFloat)numberOfItemsAcross);
     
-    CGSize itemContentSize = CGSizeMake(self.collectionView.bounds.size.width, self.gridLayout.sectionInset.top + (numberOfItemRows * self.gridLayout.itemSize.height) + ((numberOfItemRows - 1) * self.gridLayout.minimumLineSpacing) + self.gridLayout.sectionInset.bottom);
+    CGSize itemContentSize = CGSizeMake(self.pageSize.width, self.gridLayout.sectionInset.top + (numberOfItemRows * self.gridLayout.itemSize.height) + ((numberOfItemRows - 1) * self.gridLayout.minimumLineSpacing) + self.gridLayout.sectionInset.bottom);
     CGSize stackContentSize = self.contentSize;
     self.contentSize = CGSizeMake(MAX(itemContentSize.width, stackContentSize.width), MAX(itemContentSize.height, stackContentSize.height));
 }
