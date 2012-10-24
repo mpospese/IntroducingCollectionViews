@@ -1,101 +1,19 @@
-
-/*
-     File: CircleLayout.m
- Abstract: 
- 
-  Version: 1.0
- 
- Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
- Inc. ("Apple") in consideration of your agreement to the following
- terms, and your use, installation, modification or redistribution of
- this Apple software constitutes acceptance of these terms.  If you do
- not agree with these terms, please do not use, install, modify or
- redistribute this Apple software.
- 
- In consideration of your agreement to abide by the following terms, and
- subject to these terms, Apple grants you a personal, non-exclusive
- license, under Apple's copyrights in this original Apple software (the
- "Apple Software"), to use, reproduce, modify and redistribute the Apple
- Software, with or without modifications, in source and/or binary forms;
- provided that if you redistribute the Apple Software in its entirety and
- without modifications, you must retain this notice and the following
- text and disclaimers in all such redistributions of the Apple Software.
- Neither the name, trademarks, service marks or logos of Apple Inc. may
- be used to endorse or promote products derived from the Apple Software
- without specific prior written permission from Apple.  Except as
- expressly stated in this notice, no other rights or licenses, express or
- implied, are granted by Apple herein, including but not limited to any
- patent rights that may be infringed by your derivative works or by other
- works in which the Apple Software may be incorporated.
- 
- The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
- MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
- THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
- FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
- OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
- 
- IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
- OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
- MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
- AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
- STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
- POSSIBILITY OF SUCH DAMAGE.
- 
- Copyright (C) 2012 Apple Inc. All Rights Reserved.
- 
- 
- WWDC 2012 License
- 
- NOTE: This Apple Software was supplied by Apple as part of a WWDC 2012
- Session. Please refer to the applicable WWDC 2012 Session for further
- information.
- 
- IMPORTANT: This Apple software is supplied to you by Apple
- Inc. ("Apple") in consideration of your agreement to the following
- terms, and your use, installation, modification or redistribution of
- this Apple software constitutes acceptance of these terms.  If you do
- not agree with these terms, please do not use, install, modify or
- redistribute this Apple software.
- 
- In consideration of your agreement to abide by the following terms, and
- subject to these terms, Apple grants you a non-exclusive license, under
- Apple's copyrights in this original Apple software (the "Apple
- Software"), to use, reproduce, modify and redistribute the Apple
- Software, with or without modifications, in source and/or binary forms;
- provided that if you redistribute the Apple Software in its entirety and
- without modifications, you must retain this notice and the following
- text and disclaimers in all such redistributions of the Apple Software.
- Neither the name, trademarks, service marks or logos of Apple Inc. may
- be used to endorse or promote products derived from the Apple Software
- without specific prior written permission from Apple.  Except as
- expressly stated in this notice, no other rights or licenses, express or
- implied, are granted by Apple herein, including but not limited to any
- patent rights that may be infringed by your derivative works or by other
- works in which the Apple Software may be incorporated.
- 
- The Apple Software is provided by Apple on an "AS IS" basis.  APPLE
- MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
- THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS
- FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND
- OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
- 
- IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL
- OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION,
- MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED
- AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
- STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
- POSSIBILITY OF SUCH DAMAGE.
- 
- */
-
 #import "SpiralLayout.h"
 #import "ConferenceLayoutAttributes.h"
 
 #define ITEM_SIZE 170
+
+@interface SpiralLayout()
+
+@property (nonatomic, assign) CGSize pageSize;
+@property (nonatomic, assign) CGSize contentSize;
+@property (nonatomic, assign) CGFloat radius;
+@property (nonatomic, strong) NSArray *cellCounts;
+@property (nonatomic, strong) NSArray *pageRects;
+@property (nonatomic, assign) NSInteger pageCount;
+@property (nonatomic, strong) NSMutableArray *deleteIndexPaths;
+
+@end
 
 @implementation SpiralLayout
 
@@ -103,21 +21,32 @@
 {
     [super prepareLayout];
     
-    CGSize size = self.collectionView.frame.size;
-    _cellCount = [[self collectionView] numberOfItemsInSection:0];
-    _center = CGPointMake(size.width / 2.0, size.height / 2.0);
-//    _radius = (MIN(size.width, size.height) - ITEM_SIZE) / 2 - 5;
-    _radius = (MIN((size.width - ITEM_SIZE), (size.height - ITEM_SIZE) * 1.2)) / 2 - 5;
+    self.pageSize = self.collectionView.frame.size;
+    _radius = (MIN((self.pageSize.width - ITEM_SIZE), (self.pageSize.height - ITEM_SIZE) * 1.2)) / 2 - 5;
+    
+    self.pageCount = [self.collectionView numberOfSections];
+    
+    NSMutableArray *counts = [NSMutableArray arrayWithCapacity:self.pageCount];
+    NSMutableArray *rects = [NSMutableArray arrayWithCapacity:self.pageCount];
+    for (int section = 0; section < self.pageCount; section++)
+    {
+        [counts addObject:@([self.collectionView numberOfItemsInSection:section])];
+        [rects addObject:[NSValue valueWithCGRect:(CGRect){{section * self.pageSize.width, 0}, self.pageSize}]];
+    }
+    self.cellCounts = [NSArray arrayWithArray:counts];
+    self.pageRects = [NSArray arrayWithArray:rects];
+    
+    self.contentSize = CGSizeMake(self.pageSize.width * self.pageCount, self.pageSize.height);
 }
 
 -(CGSize)collectionViewContentSize
 {
-    return [self collectionView].frame.size;
+    return self.contentSize;
 }
 
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)oldBounds
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
-    return YES;
+    return !CGSizeEqualToSize(self.pageSize, newBounds.size);
 }
 
 + (Class)layoutAttributesClass
@@ -129,9 +58,10 @@
 {
     UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path];
     attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
-    CGFloat denominator = MAX(_cellCount - 1, 1);
-    attributes.center = CGPointMake(_center.x + (_radius * path.item / denominator) * cosf(3 * path.item * M_PI / denominator),
-                                    _center.y + (_radius * path.item / denominator) * sinf(3 * path.item * M_PI / denominator));
+    int count = [self cellCountForSection:path.section];
+    CGFloat denominator = MAX(count - 1, 1);
+    CGRect pageRect = [self.pageRects[path.section] CGRectValue];
+    attributes.center = CGPointMake(CGRectGetMidX(pageRect) + (_radius * path.item / denominator) * cosf(3 * path.item * M_PI / denominator), CGRectGetMidY(pageRect) + (_radius * path.item / denominator) * sinf(3 * path.item * M_PI / denominator));
     CGFloat scale = 0.25 + 0.75 * (path.item / denominator);
     attributes.transform3D = CATransform3DMakeScale(scale, scale, 1);
     return attributes;
@@ -140,41 +70,89 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     ConferenceLayoutAttributes *attributes = [ConferenceLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
-    attributes.size = CGSizeMake(self.collectionView.bounds.size.width, 50);
-    attributes.center = CGPointMake(self.collectionView.bounds.size.width / 2, 35);
+    CGRect pageRect = [self.pageRects[indexPath.section] CGRectValue];
+    attributes.size = CGSizeMake(pageRect.size.width, 50);
+    attributes.center = CGPointMake(CGRectGetMidX(pageRect), 35);
     attributes.headerTextAlignment = NSTextAlignmentCenter;
     return attributes;
 }
 
+- (int)cellCountForSection:(NSInteger)section
+{
+    NSNumber *count = self.cellCounts[section];
+    return [count intValue];
+}
+
 -(NSArray*)layoutAttributesForElementsInRect:(CGRect)rect
 {
+    int page = 0;
     NSMutableArray* attributes = [NSMutableArray array];
-    for (NSInteger i=0 ; i < self.cellCount; i++) {
-        NSIndexPath* indexPath = [NSIndexPath indexPathForItem:i inSection:0];
-        [attributes addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
+    for (NSValue *pageRect in self.pageRects)
+    {
+        if (CGRectIntersectsRect(rect, pageRect.CGRectValue))
+        {
+            int cellCount = [self cellCountForSection:page];
+            for (int i = 0; i < cellCount; i++) {
+                NSIndexPath* indexPath = [NSIndexPath indexPathForItem:i inSection:page];
+                [attributes addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
+            }
+            
+            // add header
+            [attributes addObject:[self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForItem:0 inSection:page]]];
+        }
+        
+        page++;
     }
     
-    // add header
-    [attributes addObject:[self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]]];
-
     return attributes;
 }
 
-- (UICollectionViewLayoutAttributes *)initialLayoutAttributesForInsertedItemAtIndexPath:(NSIndexPath *)itemIndexPath
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
-    UICollectionViewLayoutAttributes* attributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
-    attributes.alpha = 0.0;
-    attributes.center = CGPointMake(_center.x, _center.y);
+    int closestPage = roundf(proposedContentOffset.x / self.pageSize.width);
+    if (closestPage < 0)
+        closestPage = 0;
+    if (closestPage >= self.pageCount)
+        closestPage = self.pageCount - 1;
+    
+    return CGPointMake(closestPage * self.pageSize.width, proposedContentOffset.y);
+}
+
+- (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
+{
+    [super prepareForCollectionViewUpdates:updateItems];
+    
+    self.deleteIndexPaths = [NSMutableArray array];
+    for (UICollectionViewUpdateItem *update in updateItems)
+    {
+        if (update.updateAction == UICollectionUpdateActionDelete)
+        {
+            [self.deleteIndexPaths addObject:update.indexPathBeforeUpdate];
+        }
+    }
+}
+
+- (void)finalizeCollectionViewUpdates
+{
+    [super finalizeCollectionViewUpdates];
+    self.deleteIndexPaths = nil;
+}
+
+- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
+{
+    UICollectionViewLayoutAttributes *attributes = nil;//[super finalLayoutAttributesForDisappearingItemAtIndexPath:itemIndexPath];
+    
+    if ([self.deleteIndexPaths containsObject:itemIndexPath])
+    {
+        // Configure attributes ...
+        if (!attributes)
+            attributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+        attributes.alpha = 0.0;
+        attributes.center = CGPointMake(attributes.center.x, 0 - ITEM_SIZE);
+    }
+    
     return attributes;
 }
 
-- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDeletedItemAtIndexPath:(NSIndexPath *)itemIndexPath
-{
-    UICollectionViewLayoutAttributes* attributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
-    attributes.alpha = 0.0;
-    attributes.center = CGPointMake(_center.x, _center.y);
-    attributes.transform3D = CATransform3DMakeScale(0.1, 0.1, 1.0);
-    return attributes;
-}
 
 @end
