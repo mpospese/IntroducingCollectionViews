@@ -31,7 +31,6 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     if (self)
     {
         _conferences = conferences;
-        _selectedSection = -1;
     }
     return self;
 }
@@ -40,14 +39,11 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return self.selectedSection >= 0? 1 : [self.conferences count];
+    return [self.conferences count];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (self.selectedSection >= 0)
-        section = self.selectedSection;
-    
     if (section < 0 || section >= self.conferences.count)
         return 0;
     
@@ -56,7 +52,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger section = self.selectedSection >= 0? self.selectedSection : indexPath.section;
+    NSInteger section = indexPath.section;
     
     Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSpeakerCellID forIndexPath:indexPath];
     
@@ -68,7 +64,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger section = self.selectedSection >= 0? self.selectedSection : indexPath.section;
+    NSInteger section = indexPath.section;
 
     BOOL isSmall = [kind isEqualToString:kConferenceHeaderSmallID];
     ConferenceHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:isSmall? kConferenceHeaderSmallID : kConferenceHeaderID forIndexPath:indexPath];
@@ -77,8 +73,6 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     
     return header;
 }
-
-#pragma mark - UICollectionViewStackDataSource
 
 #pragma mark - Private Class Methods
 

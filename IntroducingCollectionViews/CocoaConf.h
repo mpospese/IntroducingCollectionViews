@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "StacksLayout.h"
 
-@interface CocoaConf : NSObject<UICollectionViewStackDataSource>
+@interface CocoaConf : NSObject<UICollectionViewDataSource>
 
 + (CocoaConf *)combined;
 + (CocoaConf *)all;
@@ -17,8 +17,6 @@
 + (CocoaConf *)recent;
 
 + (NSString *)smallHeaderKind;
-
-@property (nonatomic, assign) NSInteger selectedSection;
 
 - (void)deleteSpeakerAtPath:(NSIndexPath *)indexPath;
 

@@ -8,15 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol UICollectionViewStackDataSource<UICollectionViewDataSource>
-
-@optional
-
-- (NSInteger)selectedSection;
-- (void)setSelectedSection:(NSInteger)selectedSection;
-
-@end
-
 @interface StacksLayout : UICollectionViewLayout
 
 @property (nonatomic, assign) NSInteger pinchedStackIndex;
