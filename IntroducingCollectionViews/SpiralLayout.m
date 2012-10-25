@@ -12,6 +12,7 @@
 @property (nonatomic, strong) NSArray *pageRects;
 @property (nonatomic, assign) NSInteger pageCount;
 @property (nonatomic, strong) NSMutableArray *deleteIndexPaths;
+@property (nonatomic, strong) NSMutableArray *insertIndexPaths;
 
 @end
 
@@ -123,11 +124,16 @@
     [super prepareForCollectionViewUpdates:updateItems];
     
     self.deleteIndexPaths = [NSMutableArray array];
+    self.insertIndexPaths = [NSMutableArray array];
     for (UICollectionViewUpdateItem *update in updateItems)
     {
         if (update.updateAction == UICollectionUpdateActionDelete)
         {
             [self.deleteIndexPaths addObject:update.indexPathBeforeUpdate];
+        }
+        else if (update.updateAction == UICollectionUpdateActionInsert)
+        {
+            [self.insertIndexPaths addObject:update.indexPathAfterUpdate];
         }
     }
 }
@@ -136,17 +142,38 @@
 {
     [super finalizeCollectionViewUpdates];
     self.deleteIndexPaths = nil;
+    self.insertIndexPaths = nil;
 }
 
+- (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
+{
+    UICollectionViewLayoutAttributes *attributes = [super initialLayoutAttributesForAppearingItemAtIndexPath:itemIndexPath];
+    
+    if ([self.insertIndexPaths containsObject:itemIndexPath])
+    {
+        if (!attributes)
+            attributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+        
+        // Configure attributes ...
+        attributes.alpha = 0.0;
+        CGRect pageRect = [self.pageRects[itemIndexPath.section] CGRectValue];
+        attributes.center = CGPointMake(CGRectGetMidX(pageRect), CGRectGetMidY(pageRect));
+        attributes.transform3D = CATransform3DMakeScale(0.25, 0.25, 1);
+    }
+    
+    return attributes;
+}
+ 
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
-    UICollectionViewLayoutAttributes *attributes = nil;//[super finalLayoutAttributesForDisappearingItemAtIndexPath:itemIndexPath];
+    UICollectionViewLayoutAttributes *attributes = [super finalLayoutAttributesForDisappearingItemAtIndexPath:itemIndexPath];
     
     if ([self.deleteIndexPaths containsObject:itemIndexPath])
     {
-        // Configure attributes ...
         if (!attributes)
             attributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+        
+        // Configure attributes ...
         attributes.alpha = 0.0;
         attributes.center = CGPointMake(attributes.center.x, 0 - ITEM_SIZE);
     }
