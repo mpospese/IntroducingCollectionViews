@@ -16,8 +16,9 @@
 + (CocoaConf *)currentCocoaConf;
 + (CocoaConf *)recent;
 
-+ (NSString *)smallHeaderKind;
++ (NSString *)smallHeaderReuseID;
 
-- (void)deleteSpeakerAtPath:(NSIndexPath *)indexPath;
+- (BOOL)deleteSpeakerAtPath:(NSIndexPath *)indexPath;
+- (BOOL)restoreSpeakerInSection:(int)section;
 
 @end

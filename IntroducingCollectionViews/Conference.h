@@ -13,11 +13,12 @@
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSDate* startDate;
 @property (nonatomic, assign, readonly) NSUInteger durationDays;
-@property (nonatomic, strong, readonly) NSArray *speakers;
+@property (nonatomic, strong, readonly) NSMutableArray *speakers;
 
 - (id)initWithName:(NSString *)name startDate:(NSDate *)startDate duration:(NSUInteger)durationDays speakers:(NSArray *)speakers;
 + (Conference *)conferenceWithName:(NSString *)name startDate:(NSDate *)startDate duration:(NSUInteger)durationDays speakers:(NSArray *)speakers;
 
-- (void)deleteSpeakerAtIndex:(NSUInteger)index;
+- (BOOL)deleteSpeakerAtIndex:(NSUInteger)index;
+- (BOOL)restoreSpeaker;
 
 @end

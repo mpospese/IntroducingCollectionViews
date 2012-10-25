@@ -155,6 +155,8 @@
 
 @end
 
+NSString *kSmallConferenceHeaderKind = @"ConferenceHeaderSmall";
+
 @implementation SmallConferenceHeader
 
 - (id)initWithFrame:(CGRect)frame
@@ -169,5 +171,9 @@
     return self;
 }
 
++ (NSString *)kind
+{
+    return (NSString *)kSmallConferenceHeaderKind;
+}
 
 @end

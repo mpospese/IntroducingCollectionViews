@@ -17,4 +17,6 @@
 
 @interface SmallConferenceHeader: ConferenceHeader
 
++ (NSString *)kind;
+
 @end

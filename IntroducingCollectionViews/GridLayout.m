@@ -8,7 +8,7 @@
 
 #import "GridLayout.h"
 #import "ShelfView.h"
-#import "CocoaConf.h"
+#import "ConferenceHeader.h"
 #import "ConferenceLayoutAttributes.h"
 
 @interface GridLayout()
@@ -144,7 +144,7 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    if ([kind isEqualToString:[CocoaConf smallHeaderKind]])
+    if ([kind isEqualToString:[SmallConferenceHeader kind]])
         return nil;
     
     UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:indexPath];

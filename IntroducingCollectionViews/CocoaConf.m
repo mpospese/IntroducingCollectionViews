@@ -66,7 +66,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 {
     NSInteger section = indexPath.section;
 
-    BOOL isSmall = [kind isEqualToString:kConferenceHeaderSmallID];
+    BOOL isSmall = [kind isEqualToString:[SmallConferenceHeader kind]];
     ConferenceHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:isSmall? kConferenceHeaderSmallID : kConferenceHeaderID forIndexPath:indexPath];
     
     [header setConference:self.conferences[section]];
@@ -159,15 +159,27 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     return recentCocoaConfs;
 }
 
-+ (NSString *)smallHeaderKind
++ (NSString *)smallHeaderReuseID
 {
     return kConferenceHeaderSmallID;
 }
 
-- (void)deleteSpeakerAtPath:(NSIndexPath *)indexPath
+- (BOOL)deleteSpeakerAtPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section < 0 || indexPath.section >= self.conferences.count)
+        return NO;
+
     Conference* conference = self.conferences[indexPath.section];
-    [conference deleteSpeakerAtIndex:indexPath.item];
+    return [conference deleteSpeakerAtIndex:indexPath.item];
+}
+
+- (BOOL)restoreSpeakerInSection:(int)section
+{
+    if (section < 0 || section >= self.conferences.count)
+        return NO;
+    
+    Conference* conference = self.conferences[section];
+    return [conference restoreSpeaker];
 }
 
 @end

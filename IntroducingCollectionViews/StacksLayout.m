@@ -8,7 +8,7 @@
 
 #import "StacksLayout.h"
 #import "GridLayout.h"
-#import "CocoaConf.h"
+#import "ConferenceHeader.h"
 #import "ConferenceLayoutAttributes.h"
 
 #define STACKS_LEFT_MARGIN  20.0f
@@ -150,7 +150,7 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    if (![kind isEqualToString:[CocoaConf smallHeaderKind]])
+    if (![kind isEqualToString:[SmallConferenceHeader kind]])
         return nil;
     
     UICollectionViewLayoutAttributes* attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
@@ -191,7 +191,7 @@
             }
             
             // add small label as footer
-            [attributes addObject:[self layoutAttributesForSupplementaryViewOfKind:[CocoaConf smallHeaderKind] atIndexPath:[NSIndexPath indexPathForItem:0 inSection:stack]]];
+            [attributes addObject:[self layoutAttributesForSupplementaryViewOfKind:[SmallConferenceHeader kind] atIndexPath:[NSIndexPath indexPathForItem:0 inSection:stack]]];
         }
     }
     

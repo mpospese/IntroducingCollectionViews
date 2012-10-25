@@ -77,13 +77,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     //[self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"SpeakerCell"];
-    [self.collectionView registerClass:[SmallConferenceHeader class] forSupplementaryViewOfKind:[CocoaConf smallHeaderKind] withReuseIdentifier:[CocoaConf smallHeaderKind]];
+    [self.collectionView registerClass:[SmallConferenceHeader class] forSupplementaryViewOfKind:[SmallConferenceHeader kind] withReuseIdentifier:[CocoaConf smallHeaderReuseID]];
     [self.collectionView reloadData];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wood-Planks"]];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-    tap.numberOfTouchesRequired = 2;
     [self.view addGestureRecognizer:tap];
+    
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handle2FingerTap:)];
+    tap2.numberOfTouchesRequired = 2;
+    [self.view addGestureRecognizer:tap2];
     
     UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handle3FingerTap:)];
     tap3.numberOfTouchesRequired = 3;
@@ -176,9 +179,54 @@
     }
 }
 
+- (BOOL)layoutSupportsInsert
+{
+    return self.layoutStyle == SpeakerLayoutSpiral;
+}
+
+- (BOOL)layoutSupportsDelete
+{
+    return self.layoutStyle == SpeakerLayoutSpiral;
+}
+
 #pragma mark - Touch gesture
 
 - (void)handleTap:(UITapGestureRecognizer *)gestureRecognizer
+{
+    if (![self layoutSupportsInsert])
+        return;
+    
+    CGPoint point = [gestureRecognizer locationInView:self.collectionView];
+    
+    int sectionCount = [self.collectionView numberOfSections];
+    for (int section = 0; section < sectionCount; section++)
+    {
+        NSString *kind = (self.layoutStyle == SpeakerLayoutStacks)? [SmallConferenceHeader kind] : UICollectionElementKindSectionHeader;
+        UICollectionViewLayoutAttributes *attributes = [self.collectionView.collectionViewLayout layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+        
+        if (attributes)
+        {
+            if (CGRectContainsPoint(attributes.frame, point))
+            {
+                int speakerCount = [self.collectionView numberOfItemsInSection:section];
+                id cocoaConf = self.collectionView.dataSource;
+                if ([cocoaConf restoreSpeakerInSection:section])
+                {
+                    // WORKAROUND: inserting cell to empty section often yields NSInternalInconsistencyException in UICollectionView
+                    // we'll just call reloadData instead
+                    if (speakerCount == 0)
+                        [self.collectionView reloadData];
+                    else
+                        [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:speakerCount inSection:section]]];
+                }
+                
+                break;
+            }
+        }
+    }
+}
+
+- (void)handle2FingerTap:(UITapGestureRecognizer *)gestureRecognizer
 {
     SpeakerLayout newLayout = self.layoutStyle + 1;
     if (newLayout >= SpeakerLayoutCount)
@@ -252,18 +300,26 @@
     }
 }
 
-
 - (void)handleSwipeUp:(UISwipeGestureRecognizer *)gestureRecognizer
 {
+    if (![self layoutSupportsDelete])
+        return;
+
     CGPoint startPoint = [gestureRecognizer locationInView:self.collectionView];
     NSIndexPath* cellPath = [self.collectionView indexPathForItemAtPoint:startPoint];
     if (cellPath)
     {
         CocoaConf *cocoaConf = (CocoaConf *)self.collectionView.dataSource;
-        [cocoaConf deleteSpeakerAtPath:cellPath];
-        [self.collectionView deleteItemsAtIndexPaths:@[cellPath]];
-        [self.collectionView insertItemsAtIndexPaths:nil];
-        [self.collectionView moveItemAtIndexPath:nil toIndexPath:nil];
+        int speakerCount = [self.collectionView numberOfItemsInSection:cellPath.section];
+        if ([cocoaConf deleteSpeakerAtPath:cellPath])
+        {
+            // WORKAROUND: deleting last cell from section often yields NSInternalInconsistencyException in UICollectionView
+            // we'll just call reloadData instead
+           if (speakerCount <= 1)
+                [self.collectionView reloadData];
+            else
+                [self.collectionView deleteItemsAtIndexPaths:@[cellPath]];
+        }
     }
 }
 

@@ -13,7 +13,8 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSDate* startDate;
 @property (nonatomic, assign) NSUInteger durationDays;
-@property (nonatomic, strong) NSArray *speakers;
+@property (nonatomic, strong) NSMutableArray *speakers;
+@property (nonatomic, strong) NSMutableArray *deletedSpeakers;
 
 @end
 
@@ -24,10 +25,11 @@
     self = [super init];
     if (self)
     {
-        _name = name;
-        _startDate = startDate;
+        _name = [name copy];
+        _startDate = [startDate copy];
         _durationDays = durationDays;
-        _speakers = speakers;
+        _speakers = [speakers mutableCopy];
+        _deletedSpeakers = [NSMutableArray array];
     }
     return self;
 }
@@ -37,10 +39,27 @@
     return [[Conference alloc] initWithName:name startDate:startDate duration:durationDays speakers:speakers];
 }
 
-- (void)deleteSpeakerAtIndex:(NSUInteger)index
+- (BOOL)deleteSpeakerAtIndex:(NSUInteger)index
 {
-    NSMutableArray *newSpeakers = [self.speakers mutableCopy];
-    [newSpeakers removeObjectAtIndex:index];
-    self.speakers = [NSArray arrayWithArray:newSpeakers];
+    if (index >= self.speakers.count)
+        return NO;
+    
+    [self.deletedSpeakers addObject:self.speakers[index]];
+    [self.speakers removeObjectAtIndex:index];
+    
+    return YES;
 }
+
+- (BOOL)restoreSpeaker
+{
+    if (self.deletedSpeakers.count == 0)
+        return NO;
+
+    [self.speakers addObject:self.deletedSpeakers[0]];    
+    [self.deletedSpeakers removeObjectAtIndex:0];
+
+    return YES;
+}
+
+
 @end
