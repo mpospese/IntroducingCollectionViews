@@ -112,6 +112,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0326AE163AA17800574543 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4D136A0316242CD800D84E85 /* ShelfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShelfView.h; sourceTree = "<group>"; };
 		4D136A0416242CD900D84E85 /* ShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelfView.m; sourceTree = "<group>"; };
 		4D136A4A1626DE1D00D84E85 /* CoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverFlowLayout.h; sourceTree = "<group>"; };
@@ -256,6 +257,7 @@
 				4D2A7FFF16301A8D00F03025 /* Icon-72@2x.png */,
 				4D2A7FFD16301A7E00F03025 /* Icon@2x.png */,
 				4D2A7FFB16301A7700F03025 /* Icon.png */,
+				4D0326AE163AA17800574543 /* README.md */,
 				4D3C733D161D9BB600C71391 /* IntroducingCollectionViews */,
 				4D3C7336161D9BB600C71391 /* Frameworks */,
 				4D3C7334161D9BB600C71391 /* Products */,
