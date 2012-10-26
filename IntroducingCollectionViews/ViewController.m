@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Cell.h"
+#import "SpeakerCell.h"
 #import "GridLayout.h"
 #import "LineLayout.h"
 #import "CocoaConf.h"

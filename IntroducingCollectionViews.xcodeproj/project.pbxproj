@@ -27,7 +27,7 @@
 		4D3C7351161D9BB600C71391 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C734F161D9BB600C71391 /* MainStoryboard_iPhone.storyboard */; };
 		4D3C7354161D9BB600C71391 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C7352161D9BB600C71391 /* MainStoryboard_iPad.storyboard */; };
 		4D3C7357161D9BB600C71391 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C7356161D9BB600C71391 /* ViewController.m */; };
-		4D3C7361161D9DB500C71391 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C7360161D9DB500C71391 /* Cell.m */; };
+		4D3C7361161D9DB500C71391 /* SpeakerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C7360161D9DB500C71391 /* SpeakerCell.m */; };
 		4D3C7365161D9F2600C71391 /* GridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C7364161D9F2600C71391 /* GridLayout.m */; };
 		4D3C7420161DA87400C71391 /* Whitney Young.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C73E2161DA87400C71391 /* Whitney Young.png */; };
 		4D3C7421161DA87400C71391 /* Jay Thrash.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3C73E3161DA87400C71391 /* Jay Thrash.png */; };
@@ -140,8 +140,8 @@
 		4D3C7353161D9BB600C71391 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		4D3C7355161D9BB600C71391 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4D3C7356161D9BB600C71391 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4D3C735F161D9DB500C71391 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
-		4D3C7360161D9DB500C71391 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		4D3C735F161D9DB500C71391 /* SpeakerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerCell.h; sourceTree = "<group>"; };
+		4D3C7360161D9DB500C71391 /* SpeakerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerCell.m; sourceTree = "<group>"; };
 		4D3C7363161D9F2600C71391 /* GridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayout.h; sourceTree = "<group>"; };
 		4D3C7364161D9F2600C71391 /* GridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayout.m; sourceTree = "<group>"; };
 		4D3C73E2161DA87400C71391 /* Whitney Young.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Whitney Young.png"; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 				4D3C7352161D9BB600C71391 /* MainStoryboard_iPad.storyboard */,
 				4D3C7355161D9BB600C71391 /* ViewController.h */,
 				4D3C7356161D9BB600C71391 /* ViewController.m */,
-				4D3C735F161D9DB500C71391 /* Cell.h */,
-				4D3C7360161D9DB500C71391 /* Cell.m */,
+				4D3C735F161D9DB500C71391 /* SpeakerCell.h */,
+				4D3C7360161D9DB500C71391 /* SpeakerCell.m */,
 				4DFAC5E4162304F500E9BFD7 /* ConferenceHeader.h */,
 				4DFAC5E5162304F500E9BFD7 /* ConferenceHeader.m */,
 				4D3C733E161D9BB600C71391 /* Supporting Files */,
@@ -585,7 +585,7 @@
 				4D3C7344161D9BB600C71391 /* main.m in Sources */,
 				4D3C7348161D9BB600C71391 /* AppDelegate.m in Sources */,
 				4D3C7357161D9BB600C71391 /* ViewController.m in Sources */,
-				4D3C7361161D9DB500C71391 /* Cell.m in Sources */,
+				4D3C7361161D9DB500C71391 /* SpeakerCell.m in Sources */,
 				4D3C7365161D9F2600C71391 /* GridLayout.m in Sources */,
 				4DFAC5D11622628900E9BFD7 /* LineLayout.m in Sources */,
 				4DFAC5DA1622D6D400E9BFD7 /* Conference.m in Sources */,

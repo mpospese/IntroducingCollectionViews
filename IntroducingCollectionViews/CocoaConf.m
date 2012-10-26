@@ -8,7 +8,7 @@
 
 #import "CocoaConf.h"
 #import "Conference.h"
-#import "Cell.h"
+#import "SpeakerCell.h"
 #import "ConferenceHeader.h"
 
 NSString *kConferenceHeaderID = @"ConferenceHeader";
@@ -54,7 +54,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 {
     NSInteger section = indexPath.section;
     
-    Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSpeakerCellID forIndexPath:indexPath];
+    SpeakerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kSpeakerCellID forIndexPath:indexPath];
     
     cell.speakerName = [self.conferences[section] speakers][indexPath.item];
     
