@@ -23,7 +23,9 @@
     [super prepareLayout];
     
     self.pageSize = self.collectionView.frame.size;
-    _radius = (MIN((self.pageSize.width - ITEM_SIZE), (self.pageSize.height - ITEM_SIZE) * 1.2)) / 2 - 5;
+    BOOL iPad = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+    CGFloat scaleFactor = iPad? 1 : 0.5;
+    _radius = (MIN((self.pageSize.width - (ITEM_SIZE * scaleFactor)), (self.pageSize.height - (ITEM_SIZE*scaleFactor)) * 1.2)) / 2 - 5;
     
     self.pageCount = [self.collectionView numberOfSections];
     
@@ -63,7 +65,9 @@
     CGFloat denominator = MAX(count - 1, 1);
     CGRect pageRect = [self.pageRects[path.section] CGRectValue];
     attributes.center = CGPointMake(CGRectGetMidX(pageRect) + (_radius * path.item / denominator) * cosf(3 * path.item * M_PI / denominator), CGRectGetMidY(pageRect) + (_radius * path.item / denominator) * sinf(3 * path.item * M_PI / denominator));
-    CGFloat scale = 0.25 + 0.75 * (path.item / denominator);
+    BOOL iPad = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+    CGFloat scaleFactor = iPad? 1 : 0.5;
+    CGFloat scale = (0.25 + 0.75 * (path.item / denominator)) * scaleFactor;
     attributes.transform3D = CATransform3DMakeScale(scale, scale, 1);
     return attributes;
 }
