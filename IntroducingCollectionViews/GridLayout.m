@@ -42,7 +42,6 @@
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    NSLog(@"%@", NSStringFromCGRect(rect));
     NSArray *array = [super layoutAttributesForElementsInRect:rect];
     
     for (UICollectionViewLayoutAttributes *attributes in array)
