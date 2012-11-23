@@ -10,8 +10,8 @@
 #import "Conference.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ConferenceLayoutAttributes.h"
+#import "MaskingTapeView.h"
 
-#define ZIG_SIZE 3
 #define MARGIN_HORIZONTAL_LARGE 20
 #define MARGIN_HORIZONTAL_SMALL 10
 #define MARGIN_VERTICAL_LARGE 5
@@ -23,6 +23,8 @@
 @property (nonatomic, assign, getter = isBackgroundSet) BOOL backgroundSet;
 @property (nonatomic, assign, getter = isSmall) BOOL small;
 @property (nonatomic, assign) BOOL centerText;
+@property (nonatomic, strong) MaskingTapeView *backgroundView;
+
 @end
 
 @implementation ConferenceHeader
@@ -49,7 +51,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
-        //[self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Apple-Wood"]]];
         _small = NO;
         _centerText = NO;
     }
@@ -80,7 +81,10 @@
     if (self.isBackgroundSet)
         return;
     
-    [self.conferenceNameLabel setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Aged-Paper"]]];
+    _backgroundView = [[MaskingTapeView alloc] initWithFrame:self.conferenceNameLabel.bounds];
+    [self insertSubview:_backgroundView belowSubview:self.conferenceNameLabel];
+    [self.conferenceNameLabel setBackgroundColor:[UIColor clearColor]];
+    
     [self setBackgroundSet:YES];
 }
 
@@ -109,6 +113,8 @@
         CGFloat leftMargin = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad? 20 : 5;
         self.conferenceNameLabel.frame = (CGRect){{leftMargin, roundf((self.bounds.size.height - labelBounds.size.height)/2)}, labelBounds.size};
     }
+    
+    [self.backgroundView setFrame:self.conferenceNameLabel.frame];
 }
 
 #pragma mark - Properties
@@ -123,34 +129,7 @@
 {
     [self setBackground];
     self.conferenceNameLabel.text = conference.name;
-    [self layoutSubviews];
-        
-    // put a zig-zag edge like tap cut marks on left and right edges of label
-    UIBezierPath *mask = [UIBezierPath bezierPath];
-    [mask moveToPoint:CGPointZero];
-    CGFloat y = 0;
-    BOOL zig = YES;
-    // zig-zag down the left edge
-    while (y < self.conferenceNameLabel.bounds.size.height)
-    {
-        y+= ZIG_SIZE;
-        [mask addLineToPoint:(CGPoint){zig? ZIG_SIZE : 0, y}];
-        zig = !zig;
-    }
-    [mask addLineToPoint:CGPointMake(self.conferenceNameLabel.bounds.size.width, y)];
-    // zig-zag back up the right edge
-    while (y > 0)
-    {
-        y-= ZIG_SIZE;
-        [mask addLineToPoint:(CGPoint){self.conferenceNameLabel.bounds.size.width - (zig? ZIG_SIZE : 0), y}];
-        zig = !zig;
-    }
-    
-    [mask addLineToPoint:CGPointZero];
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.path = mask.CGPath;
-    
-    self.conferenceNameLabel.layer.mask = maskLayer;
+    [self layoutSubviews];        
 }
 
 @end
