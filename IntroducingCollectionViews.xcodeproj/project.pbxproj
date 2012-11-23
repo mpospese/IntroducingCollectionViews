@@ -96,6 +96,7 @@
 		4D47144916330A14008C8F8B /* SpiralLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D47144816330A14008C8F8B /* SpiralLayout.m */; };
 		4D47144C1633ECE1008C8F8B /* ConferenceLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D47144B1633ECE1008C8F8B /* ConferenceLayoutAttributes.m */; };
 		4D84872C16281CE800699477 /* StacksLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84872B16281CE800699477 /* StacksLayout.m */; };
+		4DCA5690165F9443009A6D5B /* MaskingTapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA568F165F943A009A6D5B /* MaskingTapeView.m */; };
 		4DFAC5D11622628900E9BFD7 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D01622628900E9BFD7 /* LineLayout.m */; };
 		4DFAC5D4162263E500E9BFD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */; };
 		4DFAC5DA1622D6D400E9BFD7 /* Conference.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D91622D6D400E9BFD7 /* Conference.m */; };
@@ -215,6 +216,8 @@
 		4D47144B1633ECE1008C8F8B /* ConferenceLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConferenceLayoutAttributes.m; sourceTree = "<group>"; };
 		4D84872A16281CE800699477 /* StacksLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StacksLayout.h; sourceTree = "<group>"; };
 		4D84872B16281CE800699477 /* StacksLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StacksLayout.m; sourceTree = "<group>"; };
+		4DCA568E165F9436009A6D5B /* MaskingTapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskingTapeView.h; sourceTree = "<group>"; };
+		4DCA568F165F943A009A6D5B /* MaskingTapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskingTapeView.m; sourceTree = "<group>"; };
 		4DFAC5CF1622628900E9BFD7 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
 		4DFAC5D01622628900E9BFD7 /* LineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayout.m; sourceTree = "<group>"; };
 		4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -300,6 +303,8 @@
 				4D3C7360161D9DB500C71391 /* SpeakerCell.m */,
 				4DFAC5E4162304F500E9BFD7 /* ConferenceHeader.h */,
 				4DFAC5E5162304F500E9BFD7 /* ConferenceHeader.m */,
+				4DCA568E165F9436009A6D5B /* MaskingTapeView.h */,
+				4DCA568F165F943A009A6D5B /* MaskingTapeView.m */,
 				4D3C733E161D9BB600C71391 /* Supporting Files */,
 				4DFAC5D81622D6D400E9BFD7 /* Conference.h */,
 				4DFAC5D91622D6D400E9BFD7 /* Conference.m */,
@@ -600,6 +605,7 @@
 				4D2A7FD4162EBFD400F03025 /* MPAnimation.m in Sources */,
 				4D47144916330A14008C8F8B /* SpiralLayout.m in Sources */,
 				4D47144C1633ECE1008C8F8B /* ConferenceLayoutAttributes.m in Sources */,
+				4DCA5690165F9443009A6D5B /* MaskingTapeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
