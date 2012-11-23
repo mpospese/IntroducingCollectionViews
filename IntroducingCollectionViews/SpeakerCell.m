@@ -8,7 +8,7 @@
 
 #import "SpeakerCell.h"
 #import <QuartzCore/QuartzCore.h>
-#import "MPAnimation.h"
+//#import "MPAnimation.h"
 #import "ConferenceLayoutAttributes.h"
 
 @interface SpeakerCell()
@@ -48,7 +48,7 @@
     {
         _speakerName = speakerName;
         UIImage *speakerImage = [UIImage imageNamed:speakerName];
-        self.speakerImage.image = [MPAnimation renderImage:speakerImage withMargin:10.0 color:[UIColor whiteColor]];
+        self.speakerImage.image = speakerImage;//[MPAnimation renderImage:speakerImage withMargin:10.0 color:[UIColor whiteColor]];
         self.nameLabel.text = speakerName;
     }
 }
