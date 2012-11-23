@@ -110,7 +110,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 
 + (Conference *)raleigh2012
 {
-    return [Conference conferenceWithName:@"CocoaConf Raleigh 2012" startDate:[NSDate dateWithYear:2012 month:11 day:29] duration:3 speakers:@[@"Chris Adamson", @"Ameir Al-Zoubi", @"Ken Auer", @"Jonathan Blocksom", @"Kevin Conner", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Aaron Hillegass", @"Josh Johnson", @"Chris Judd", @"Jonathan Lehr", @"Scott McAlister", @"Rob Napier", @"Josh Nozzi", @"Jonathan Penn", @"Mark Pospesel", @"Daniel Steinberg", @"Jay Thrash", @"Walter Tyree"]];
+    return [Conference conferenceWithName:@"CocoaConf Raleigh 2012" startDate:[NSDate dateWithYear:2012 month:11 day:29] duration:3 speakers:@[@"Chris Adamson", @"Ameir Al-Zoubi", @"Ken Auer", @"Jonathan Blocksom", @"Kevin Conner", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Aaron Hillegass", @"Josh Johnson", @"Chris Judd", @"Scott McAlister", @"Rob Napier", @"Josh Nozzi", @"Jonathan Penn", @"Mark Pospesel", @"Daniel Steinberg", @"Jay Thrash", @"Walter Tyree"]];
 }
 
 #pragma mark - Class Methods
@@ -131,7 +131,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     static dispatch_once_t once;
     static id allCocoaConfs;
     dispatch_once(&once, ^{
-        allCocoaConfs = [[self alloc] initWithConferences:@[[self columbus2011], [self raleigh2011], [self chicago2012], [self dc2012], [self columbus2012], [self portland2012], [self raleigh2012]]];
+        allCocoaConfs = [[self alloc] initWithConferences:@[[self raleigh2012], [self portland2012], [self columbus2012], [self dc2012], [self chicago2012], [self raleigh2011], [self columbus2011]]];
     });
     
     return allCocoaConfs;
@@ -142,7 +142,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     static dispatch_once_t once;
     static id current;
     dispatch_once(&once, ^{
-        current = [[self alloc] initWithConferences:@[[self portland2012]]];
+        current = [[self alloc] initWithConferences:@[[self raleigh2012]]];
     });
     
     return current;
@@ -153,7 +153,7 @@ NSString *kSpeakerCellID = @"SpeakerCell";
     static dispatch_once_t once;
     static id recentCocoaConfs;
     dispatch_once(&once, ^{
-        recentCocoaConfs = [[self alloc] initWithConferences:@[[self portland2012], [self raleigh2012]]];
+        recentCocoaConfs = [[self alloc] initWithConferences:@[[self raleigh2012], [self portland2012]]];
     });
     
     return recentCocoaConfs;
