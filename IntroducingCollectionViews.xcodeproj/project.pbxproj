@@ -15,6 +15,8 @@
 		4D2A7FFE16301A7E00F03025 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A7FFD16301A7E00F03025 /* Icon@2x.png */; };
 		4D2A800016301A8D00F03025 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A7FFF16301A8D00F03025 /* Icon-72@2x.png */; };
 		4D2A800216301A9200F03025 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A800116301A9100F03025 /* Icon-72.png */; };
+		4D3787EB166721BD00505A37 /* Scott McAlister@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3787EA166721BD00505A37 /* Scott McAlister@2x.png */; };
+		4D3787EE1667245B00505A37 /* Rob Napier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3787ED1667245B00505A37 /* Rob Napier@2x.png */; };
 		4D3C7338161D9BB600C71391 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7337161D9BB600C71391 /* UIKit.framework */; };
 		4D3C733A161D9BB600C71391 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7339161D9BB600C71391 /* Foundation.framework */; };
 		4D3C733C161D9BB600C71391 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C733B161D9BB600C71391 /* CoreGraphics.framework */; };
@@ -97,6 +99,8 @@
 		4D47144C1633ECE1008C8F8B /* ConferenceLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D47144B1633ECE1008C8F8B /* ConferenceLayoutAttributes.m */; };
 		4D84872C16281CE800699477 /* StacksLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84872B16281CE800699477 /* StacksLayout.m */; };
 		4DCA5690165F9443009A6D5B /* MaskingTapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCA568F165F943A009A6D5B /* MaskingTapeView.m */; };
+		4DCA5693165F9D0E009A6D5B /* Ameir Al-Zoubi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA5692165F9D05009A6D5B /* Ameir Al-Zoubi@2x.png */; };
+		4DCA5695165FAB2C009A6D5B /* Ken Auer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DCA5694165FAB22009A6D5B /* Ken Auer@2x.png */; };
 		4DFAC5D11622628900E9BFD7 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D01622628900E9BFD7 /* LineLayout.m */; };
 		4DFAC5D4162263E500E9BFD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */; };
 		4DFAC5DA1622D6D400E9BFD7 /* Conference.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAC5D91622D6D400E9BFD7 /* Conference.m */; };
@@ -125,6 +129,8 @@
 		4D2A7FFD16301A7E00F03025 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		4D2A7FFF16301A8D00F03025 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		4D2A800116301A9100F03025 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		4D3787EA166721BD00505A37 /* Scott McAlister@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scott McAlister@2x.png"; sourceTree = "<group>"; };
+		4D3787ED1667245B00505A37 /* Rob Napier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rob Napier@2x.png"; sourceTree = "<group>"; };
 		4D3C7333161D9BB600C71391 /* IntroducingCollectionViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroducingCollectionViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3C7337161D9BB600C71391 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D3C7339161D9BB600C71391 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -218,6 +224,8 @@
 		4D84872B16281CE800699477 /* StacksLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StacksLayout.m; sourceTree = "<group>"; };
 		4DCA568E165F9436009A6D5B /* MaskingTapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskingTapeView.h; sourceTree = "<group>"; };
 		4DCA568F165F943A009A6D5B /* MaskingTapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskingTapeView.m; sourceTree = "<group>"; };
+		4DCA5692165F9D05009A6D5B /* Ameir Al-Zoubi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ameir Al-Zoubi@2x.png"; sourceTree = "<group>"; };
+		4DCA5694165FAB22009A6D5B /* Ken Auer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ken Auer@2x.png"; sourceTree = "<group>"; };
 		4DFAC5CF1622628900E9BFD7 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
 		4DFAC5D01622628900E9BFD7 /* LineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayout.m; sourceTree = "<group>"; };
 		4DFAC5D3162263E500E9BFD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -350,8 +358,10 @@
 				4D4714421632B714008C8F8B /* Josh Abernathy@2x.png */,
 				4D3C7413161DA87400C71391 /* Chris Adamson.png */,
 				4D3C7412161DA87400C71391 /* Ameir Al-Zoubi.png */,
+				4DCA5692165F9D05009A6D5B /* Ameir Al-Zoubi@2x.png */,
 				4D3C741F161DA87400C71391 /* Mike Ash.png */,
 				4DFAC5E21622F69D00E9BFD7 /* Ken Auer.png */,
+				4DCA5694165FAB22009A6D5B /* Ken Auer@2x.png */,
 				4D3C73E2161DA87400C71391 /* Whitney Young.png */,
 				4D3C73E3161DA87400C71391 /* Jay Thrash.png */,
 				4D3C73E4161DA87400C71391 /* Walter Tyree.png */,
@@ -375,12 +385,14 @@
 				4D3C73F0161DA87400C71391 /* Josh Nozzi.png */,
 				4D3C73F1161DA87400C71391 /* Jaimee Newberry.png */,
 				4D3C741A161DA87400C71391 /* Rob Napier.png */,
+				4D3787ED1667245B00505A37 /* Rob Napier@2x.png */,
 				4D3C73F2161DA87400C71391 /* Kevin Munc.png */,
 				4D3C73F3161DA87400C71391 /* Saul Mora.png */,
 				4D3C73F4161DA87400C71391 /* Justin Miller.png */,
 				4D4714451632B94E008C8F8B /* Justin Miller@2x.png */,
 				4D3C73F5161DA87400C71391 /* Eric Meyer.png */,
 				4D3C73F6161DA87400C71391 /* Scott McAlister.png */,
+				4D3787EA166721BD00505A37 /* Scott McAlister@2x.png */,
 				4D3C73F7161DA87400C71391 /* Steve Madsen.png */,
 				4D3C73F8161DA87400C71391 /* Mac Liaw.png */,
 				4D3C73F9161DA87400C71391 /* Jonathan Lehr.png */,
@@ -579,6 +591,10 @@
 				4D2A800216301A9200F03025 /* Icon-72.png in Resources */,
 				4D4714431632B714008C8F8B /* Josh Abernathy@2x.png in Resources */,
 				4D4714461632B94E008C8F8B /* Justin Miller@2x.png in Resources */,
+				4DCA5693165F9D0E009A6D5B /* Ameir Al-Zoubi@2x.png in Resources */,
+				4DCA5695165FAB2C009A6D5B /* Ken Auer@2x.png in Resources */,
+				4D3787EB166721BD00505A37 /* Scott McAlister@2x.png in Resources */,
+				4D3787EE1667245B00505A37 /* Rob Napier@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
