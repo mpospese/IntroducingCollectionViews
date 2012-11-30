@@ -17,6 +17,7 @@
 		4D2A800216301A9200F03025 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A800116301A9100F03025 /* Icon-72.png */; };
 		4D3787EB166721BD00505A37 /* Scott McAlister@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3787EA166721BD00505A37 /* Scott McAlister@2x.png */; };
 		4D3787EE1667245B00505A37 /* Rob Napier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D3787ED1667245B00505A37 /* Rob Napier@2x.png */; };
+		4D3788051667E3C200505A37 /* StarRatingFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3788041667E3C100505A37 /* StarRatingFooter.m */; };
 		4D3C7338161D9BB600C71391 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7337161D9BB600C71391 /* UIKit.framework */; };
 		4D3C733A161D9BB600C71391 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C7339161D9BB600C71391 /* Foundation.framework */; };
 		4D3C733C161D9BB600C71391 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3C733B161D9BB600C71391 /* CoreGraphics.framework */; };
@@ -131,6 +132,8 @@
 		4D2A800116301A9100F03025 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		4D3787EA166721BD00505A37 /* Scott McAlister@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scott McAlister@2x.png"; sourceTree = "<group>"; };
 		4D3787ED1667245B00505A37 /* Rob Napier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rob Napier@2x.png"; sourceTree = "<group>"; };
+		4D3788031667E3C100505A37 /* StarRatingFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingFooter.h; sourceTree = "<group>"; };
+		4D3788041667E3C100505A37 /* StarRatingFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingFooter.m; sourceTree = "<group>"; };
 		4D3C7333161D9BB600C71391 /* IntroducingCollectionViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroducingCollectionViews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3C7337161D9BB600C71391 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4D3C7339161D9BB600C71391 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -311,6 +314,8 @@
 				4D3C7360161D9DB500C71391 /* SpeakerCell.m */,
 				4DFAC5E4162304F500E9BFD7 /* ConferenceHeader.h */,
 				4DFAC5E5162304F500E9BFD7 /* ConferenceHeader.m */,
+				4D3788031667E3C100505A37 /* StarRatingFooter.h */,
+				4D3788041667E3C100505A37 /* StarRatingFooter.m */,
 				4DCA568E165F9436009A6D5B /* MaskingTapeView.h */,
 				4DCA568F165F943A009A6D5B /* MaskingTapeView.m */,
 				4D3C733E161D9BB600C71391 /* Supporting Files */,
@@ -622,6 +627,7 @@
 				4D47144916330A14008C8F8B /* SpiralLayout.m in Sources */,
 				4D47144C1633ECE1008C8F8B /* ConferenceLayoutAttributes.m in Sources */,
 				4DCA5690165F9443009A6D5B /* MaskingTapeView.m in Sources */,
+				4D3788051667E3C200505A37 /* StarRatingFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

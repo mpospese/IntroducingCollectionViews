@@ -10,10 +10,12 @@
 #import "Conference.h"
 #import "SpeakerCell.h"
 #import "ConferenceHeader.h"
+#import "StarRatingFooter.h"
 
 NSString *kConferenceHeaderID = @"ConferenceHeader";
 NSString *kConferenceHeaderSmallID = @"ConferenceHeaderSmall";
 NSString *kSpeakerCellID = @"SpeakerCell";
+NSString *kStarRatingFooterID = @"StarRatingFooter";
 
 @interface CocoaConf()
 
@@ -66,6 +68,12 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 {
     NSInteger section = indexPath.section;
 
+    if ([kind isEqualToString:UICollectionElementKindSectionFooter])
+    {
+        StarRatingFooter *footer = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kStarRatingFooterID forIndexPath:indexPath];
+        return footer;
+    }
+    
     BOOL isSmall = [kind isEqualToString:[SmallConferenceHeader kind]];
     ConferenceHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:isSmall? kConferenceHeaderSmallID : kConferenceHeaderID forIndexPath:indexPath];
     
@@ -110,6 +118,8 @@ NSString *kSpeakerCellID = @"SpeakerCell";
 
 + (Conference *)raleigh2012
 {
+    // reduces list for screenshots
+    //return [Conference conferenceWithName:@"CocoaConf Raleigh 2012" startDate:[NSDate dateWithYear:2012 month:11 day:29] duration:3 speakers:@[@"Ameir Al-Zoubi", @"Ken Auer", @"Kevin Conner", @"Jack Cox", @"Josh Johnson", @"Scott McAlister", @"Rob Napier", @"Josh Nozzi", @"Jay Thrash", @"Walter Tyree"]];
     return [Conference conferenceWithName:@"CocoaConf Raleigh 2012" startDate:[NSDate dateWithYear:2012 month:11 day:29] duration:3 speakers:@[@"Chris Adamson", @"Ameir Al-Zoubi", @"Ken Auer", @"Jonathan Blocksom", @"Kevin Conner", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Aaron Hillegass", @"Josh Johnson", @"Chris Judd", @"Scott McAlister", @"Rob Napier", @"Josh Nozzi", @"Jonathan Penn", @"Mark Pospesel", @"Daniel Steinberg", @"Jay Thrash", @"Walter Tyree"]];
 }
 

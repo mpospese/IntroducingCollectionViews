@@ -80,7 +80,8 @@
     [self.collectionView registerClass:[SmallConferenceHeader class] forSupplementaryViewOfKind:[SmallConferenceHeader kind] withReuseIdentifier:[CocoaConf smallHeaderReuseID]];
     [self.collectionView reloadData];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Wood-Planks"]];
-    
+    //self.collectionView.backgroundColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"Wood-Planks"]] colorWithAlphaComponent:0.5]; // screenshots
+     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.view addGestureRecognizer:tap];
     
