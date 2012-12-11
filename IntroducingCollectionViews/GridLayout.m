@@ -41,57 +41,17 @@
     return [ConferenceLayoutAttributes class];
 }
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
-{
-    NSArray *array = [super layoutAttributesForElementsInRect:rect];
-    
-    for (UICollectionViewLayoutAttributes *attributes in array)
-    {
-        attributes.zIndex = 1;
-        /*if (attributes.representedElementCategory != UICollectionElementCategorySupplementaryView || [attributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader])
-            attributes.alpha = 0.5;
-        else if (attributes.indexPath.row > 0 || attributes.indexPath.section > 0)
-            attributes.alpha = 0.5; // for single cell closeup*/
-        if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal && attributes.representedElementCategory == UICollectionElementCategorySupplementaryView)
-        {
-            // make label vertical if scrolling is horizontal
-            attributes.transform3D = CATransform3DMakeRotation(-90 * M_PI / 180, 0, 0, 1);
-            attributes.size = CGSizeMake(attributes.size.height, attributes.size.width);            
-        }
-        
-        if (attributes.representedElementCategory == UICollectionElementCategorySupplementaryView && [attributes isKindOfClass:[ConferenceLayoutAttributes class]])
-        {
-            ConferenceLayoutAttributes *conferenceAttributes = (ConferenceLayoutAttributes *)attributes;
-            conferenceAttributes.headerTextAlignment = NSTextAlignmentLeft;
-        }
-    }
-    
-    NSMutableArray *newArray = [array mutableCopy];
-    
-    [self.shelfRects enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if (CGRectIntersectsRect([obj CGRectValue], rect))
-        {
-            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:[ShelfView kind] withIndexPath:key];
-            attributes.frame = [obj CGRectValue];
-            attributes.zIndex = 0;
-            //attributes.alpha = 0.5; // screenshots
-            [newArray addObject:attributes];
-        }
-    }];
-
-    array = [NSArray arrayWithArray:newArray];
-    
-    return array;
-}
-
+// Do all the calculations for determining where shelves go here
 - (void)prepareLayout
 {
+    // call super so flow layout can do all the math for cells, headers, and footers
     [super prepareLayout];
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical)
     {
+        // Calculate where shelves go in a vertical layout
         int sectionCount = [self.collectionView numberOfSections];
         
         CGFloat y = 0;
@@ -120,6 +80,7 @@
     }
     else
     {
+        // Calculate where shelves go in a horizontal layout
         CGFloat y = self.sectionInset.top;
         CGFloat availableHeight = self.collectionViewContentSize.height - (self.sectionInset.top + self.sectionInset.bottom);
         int itemsAcross = floorf((availableHeight + self.minimumInteritemSpacing) / (self.itemSize.height + self.minimumInteritemSpacing));
@@ -136,6 +97,54 @@
     self.shelfRects = [NSDictionary dictionaryWithDictionary:dictionary];
 }
 
+// Return attributes of all items (cells, supplementary views, decoration views) that appear within this rect
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
+{
+    // call super so flow layout can return default attributes for all cells, headers, and footers
+    NSArray *array = [super layoutAttributesForElementsInRect:rect];
+    
+    // tweak the attributes slightly
+    for (UICollectionViewLayoutAttributes *attributes in array)
+    {
+        attributes.zIndex = 1;
+        /*if (attributes.representedElementCategory != UICollectionElementCategorySupplementaryView || [attributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader])
+            attributes.alpha = 0.5;
+        else if (attributes.indexPath.row > 0 || attributes.indexPath.section > 0)
+            attributes.alpha = 0.5; // for single cell closeup*/
+        if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal && attributes.representedElementCategory == UICollectionElementCategorySupplementaryView)
+        {
+            // make label vertical if scrolling is horizontal
+            attributes.transform3D = CATransform3DMakeRotation(-90 * M_PI / 180, 0, 0, 1);
+            attributes.size = CGSizeMake(attributes.size.height, attributes.size.width);            
+        }
+        
+        if (attributes.representedElementCategory == UICollectionElementCategorySupplementaryView && [attributes isKindOfClass:[ConferenceLayoutAttributes class]])
+        {
+            ConferenceLayoutAttributes *conferenceAttributes = (ConferenceLayoutAttributes *)attributes;
+            conferenceAttributes.headerTextAlignment = NSTextAlignmentLeft;
+        }
+    }
+    
+    // Add our decoration views (shelves)
+    NSMutableArray *newArray = [array mutableCopy];
+    
+    [self.shelfRects enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if (CGRectIntersectsRect([obj CGRectValue], rect))
+        {
+            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:[ShelfView kind] withIndexPath:key];
+            attributes.frame = [obj CGRectValue];
+            attributes.zIndex = 0;
+            //attributes.alpha = 0.5; // screenshots
+            [newArray addObject:attributes];
+        }
+    }];
+
+    array = [NSArray arrayWithArray:newArray];
+    
+    return array;
+}
+
+// Layout attributes for a specific cell
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
@@ -143,6 +152,7 @@
     return attributes;
 }
 
+// layout attributes for a specific header or footer
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if ([kind isEqualToString:[SmallConferenceHeader kind]])
@@ -166,9 +176,16 @@
    return attributes;
 }
 
+// layout attributes for a specific decoration view
 - (UICollectionViewLayoutAttributes *)layoutAttributesForDecorationViewOfKind:(NSString *)decorationViewKind atIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForDecorationViewOfKind:decorationViewKind atIndexPath:indexPath];
+    id shelfRect = self.shelfRects[indexPath];
+    if (!shelfRect)
+        return nil; // no shelf at this index (this is probably an error)
+    
+    UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:[ShelfView kind] withIndexPath:indexPath];
+    attributes.frame = [shelfRect CGRectValue];
+    attributes.zIndex = 0; // shelves go behind other views
     
     return attributes;
 }
