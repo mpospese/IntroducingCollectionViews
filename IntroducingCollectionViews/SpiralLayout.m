@@ -22,7 +22,7 @@
 {
     [super prepareLayout];
     
-    self.pageSize = self.collectionView.frame.size;
+    self.pageSize = self.collectionView.bounds.size;
     BOOL iPad = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
     CGFloat scaleFactor = iPad? 1 : 0.5;
     _radius = (MIN((self.pageSize.width - (ITEM_SIZE * scaleFactor)), (self.pageSize.height - (ITEM_SIZE*scaleFactor)) * 1.2)) / 2 - 5;
