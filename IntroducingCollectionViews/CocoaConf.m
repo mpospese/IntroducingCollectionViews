@@ -130,7 +130,7 @@ NSString *kStarRatingFooterID = @"StarRatingFooter";
 
 + (Conference *)dc2013
 {
-    return [Conference conferenceWithName:@"CocoaConf DC 2013" startDate:[NSDate dateWithYear:2012 month:6 day:28] duration:3 speakers:@[@"Chris Adamson", @"Ken Auer", @"Jonathan Blocksom", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Kevin Kim", @"Jeff LaMarche", @"Bob McCune", @"Rob Napier", @"Jaimee Newberry", @"Mark Pospesel", @"Chris Risner", @"Chad Sellers", @"Doug Sjoquist", @"Daniel Steinberg", @"Walter Tyree", @"T.J. Usiyan", @"Ray Wenderlich"]];
+    return [Conference conferenceWithName:@"CocoaConf DC 2013" startDate:[NSDate dateWithYear:2012 month:6 day:28] duration:3 speakers:@[@"Chris Adamson", @"Ken Auer", @"Jonathan Blocksom", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Kevin Kim", @"Jeff LaMarche", @"Bob McCune", @"Rob Napier", @"Jaimee Newberry", @"Mark Pospesel", @"Chris Risner", @"Chad Sellers", @"Doug Sjoquist", @"Daniel Steinberg", @"Walter Tyree", @"TJ Usiyan", @"Ray Wenderlich"]];
 }
 
 // TODO: Dallas 2013, San Jose 2013
