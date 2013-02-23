@@ -13,6 +13,13 @@
 		0C5D533516D92A2100ECCFF9 /* Bob McCune.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D532F16D92A2100ECCFF9 /* Bob McCune.png */; };
 		0C5D533616D92A2100ECCFF9 /* Jeff LaMarche.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533016D92A2100ECCFF9 /* Jeff LaMarche.png */; };
 		0C5D533716D92A2100ECCFF9 /* Kevin Kim.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533116D92A2100ECCFF9 /* Kevin Kim.png */; };
+		0C5D533F16D9330200ECCFF9 /* Josh Twist.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533816D9330200ECCFF9 /* Josh Twist.png */; };
+		0C5D534016D9330200ECCFF9 /* Brittany Tarvin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533916D9330200ECCFF9 /* Brittany Tarvin.png */; };
+		0C5D534116D9330200ECCFF9 /* Charles Perry.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533A16D9330200ECCFF9 /* Charles Perry.png */; };
+		0C5D534216D9330200ECCFF9 /* Ben Lachman.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533B16D9330200ECCFF9 /* Ben Lachman.png */; };
+		0C5D534316D9330200ECCFF9 /* Peter Kananen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533C16D9330200ECCFF9 /* Peter Kananen.png */; };
+		0C5D534416D9330200ECCFF9 /* Aaron Douglas.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533D16D9330200ECCFF9 /* Aaron Douglas.png */; };
+		0C5D534516D9330200ECCFF9 /* Brandon Alexander.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533E16D9330200ECCFF9 /* Brandon Alexander.png */; };
 		4D136A0516242CD900D84E85 /* ShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A0416242CD900D84E85 /* ShelfView.m */; };
 		4D136A4C1626DE1D00D84E85 /* CoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */; };
 		4D2A7FD4162EBFD400F03025 /* MPAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A7FD3162EBFD400F03025 /* MPAnimation.m */; };
@@ -130,6 +137,13 @@
 		0C5D532F16D92A2100ECCFF9 /* Bob McCune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bob McCune.png"; sourceTree = "<group>"; };
 		0C5D533016D92A2100ECCFF9 /* Jeff LaMarche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jeff LaMarche.png"; sourceTree = "<group>"; };
 		0C5D533116D92A2100ECCFF9 /* Kevin Kim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kevin Kim.png"; sourceTree = "<group>"; };
+		0C5D533816D9330200ECCFF9 /* Josh Twist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Josh Twist.png"; sourceTree = "<group>"; };
+		0C5D533916D9330200ECCFF9 /* Brittany Tarvin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brittany Tarvin.png"; sourceTree = "<group>"; };
+		0C5D533A16D9330200ECCFF9 /* Charles Perry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Charles Perry.png"; sourceTree = "<group>"; };
+		0C5D533B16D9330200ECCFF9 /* Ben Lachman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ben Lachman.png"; sourceTree = "<group>"; };
+		0C5D533C16D9330200ECCFF9 /* Peter Kananen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Peter Kananen.png"; sourceTree = "<group>"; };
+		0C5D533D16D9330200ECCFF9 /* Aaron Douglas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Aaron Douglas.png"; sourceTree = "<group>"; };
+		0C5D533E16D9330200ECCFF9 /* Brandon Alexander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brandon Alexander.png"; sourceTree = "<group>"; };
 		4D0326AE163AA17800574543 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4D136A0316242CD800D84E85 /* ShelfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShelfView.h; sourceTree = "<group>"; };
 		4D136A0416242CD900D84E85 /* ShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelfView.m; sourceTree = "<group>"; };
@@ -447,6 +461,13 @@
 				0C5D532F16D92A2100ECCFF9 /* Bob McCune.png */,
 				0C5D533016D92A2100ECCFF9 /* Jeff LaMarche.png */,
 				0C5D533116D92A2100ECCFF9 /* Kevin Kim.png */,
+				0C5D533816D9330200ECCFF9 /* Josh Twist.png */,
+				0C5D533916D9330200ECCFF9 /* Brittany Tarvin.png */,
+				0C5D533A16D9330200ECCFF9 /* Charles Perry.png */,
+				0C5D533B16D9330200ECCFF9 /* Ben Lachman.png */,
+				0C5D533C16D9330200ECCFF9 /* Peter Kananen.png */,
+				0C5D533D16D9330200ECCFF9 /* Aaron Douglas.png */,
+				0C5D533E16D9330200ECCFF9 /* Brandon Alexander.png */,
 			);
 			name = speakers;
 			sourceTree = "<group>";
@@ -624,6 +645,13 @@
 				0C5D533516D92A2100ECCFF9 /* Bob McCune.png in Resources */,
 				0C5D533616D92A2100ECCFF9 /* Jeff LaMarche.png in Resources */,
 				0C5D533716D92A2100ECCFF9 /* Kevin Kim.png in Resources */,
+				0C5D533F16D9330200ECCFF9 /* Josh Twist.png in Resources */,
+				0C5D534016D9330200ECCFF9 /* Brittany Tarvin.png in Resources */,
+				0C5D534116D9330200ECCFF9 /* Charles Perry.png in Resources */,
+				0C5D534216D9330200ECCFF9 /* Ben Lachman.png in Resources */,
+				0C5D534316D9330200ECCFF9 /* Peter Kananen.png in Resources */,
+				0C5D534416D9330200ECCFF9 /* Aaron Douglas.png in Resources */,
+				0C5D534516D9330200ECCFF9 /* Brandon Alexander.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
