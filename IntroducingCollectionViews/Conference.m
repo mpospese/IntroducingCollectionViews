@@ -28,7 +28,9 @@
         _name = [name copy];
         _startDate = [startDate copy];
         _durationDays = durationDays;
-        _speakers = [speakers mutableCopy];
+        _speakers = [[speakers sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            return [obj1 caseInsensitiveCompare:obj2];
+        }] mutableCopy];
         _deletedSpeakers = [NSMutableArray array];
     }
     return self;

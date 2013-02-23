@@ -123,6 +123,18 @@ NSString *kStarRatingFooterID = @"StarRatingFooter";
     return [Conference conferenceWithName:@"CocoaConf Raleigh 2012" startDate:[NSDate dateWithYear:2012 month:11 day:29] duration:3 speakers:@[@"Chris Adamson", @"Ameir Al-Zoubi", @"Ken Auer", @"Jonathan Blocksom", @"Kevin Conner", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Aaron Hillegass", @"Josh Johnson", @"Chris Judd", @"Scott McAlister", @"Rob Napier", @"Josh Nozzi", @"Jonathan Penn", @"Mark Pospesel", @"Daniel Steinberg", @"Jay Thrash", @"Walter Tyree"]];
 }
 
++ (Conference *)chicago2013
+{
+    return [Conference conferenceWithName:@"CocoaConf Chicago 2013" startDate:[NSDate dateWithYear:2012 month:3 day:15] duration:3 speakers:@[@"Chris Adamson", @"Brandon Alexander", @"Randy Beiter", @"Jeff Biggus", @"James Dempsey", @"Aaron Douglas", @"Nathan Eror", @"Chris Judd", @"Peter Kananen", @"Dave Koziol", @"Ben Lachman", @"Jaimee Newberry", @"Jonathan Penn", @"Charles Perry", @"Boisy Pitre", @"Ben Scheirman", @"Josh Smith", @"Daniel Steinberg", @"Brittany Tarvin", @"Elizabeth Taylor", @"Josh Twist", @"Whitney Young"]];
+}
+
++ (Conference *)dc2013
+{
+    return [Conference conferenceWithName:@"CocoaConf DC 2013" startDate:[NSDate dateWithYear:2012 month:6 day:28] duration:3 speakers:@[@"Chris Adamson", @"Ken Auer", @"Jonathan Blocksom", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Kevin Kim", @"Jeff LaMarche", @"Bob McCune", @"Rob Napier", @"Jaimee Newberry", @"Mark Pospesel", @"Chris Risner", @"Chad Sellers", @"Doug Sjoquist", @"Daniel Steinberg", @"Walter Tyree", @"T.J. Usiyan", @"Ray Wenderlich"]];
+}
+
+// TODO: Dallas 2013, San Jose 2013
+
 #pragma mark - Class Methods
 
 + (CocoaConf *)combined
@@ -141,7 +153,7 @@ NSString *kStarRatingFooterID = @"StarRatingFooter";
     static dispatch_once_t once;
     static id allCocoaConfs;
     dispatch_once(&once, ^{
-        allCocoaConfs = [[self alloc] initWithConferences:@[[self raleigh2012], [self portland2012], [self columbus2012], [self dc2012], [self chicago2012], [self raleigh2011], [self columbus2011]]];
+        allCocoaConfs = [[self alloc] initWithConferences:@[[self dc2013], [self chicago2013], [self raleigh2012], [self portland2012], [self columbus2012], [self dc2012], [self chicago2012], [self raleigh2011], [self columbus2011]]];
     });
     
     return allCocoaConfs;
@@ -152,7 +164,7 @@ NSString *kStarRatingFooterID = @"StarRatingFooter";
     static dispatch_once_t once;
     static id current;
     dispatch_once(&once, ^{
-        current = [[self alloc] initWithConferences:@[[self raleigh2012]]];
+        current = [[self alloc] initWithConferences:@[[self dc2013]]];
     });
     
     return current;
@@ -163,7 +175,7 @@ NSString *kStarRatingFooterID = @"StarRatingFooter";
     static dispatch_once_t once;
     static id recentCocoaConfs;
     dispatch_once(&once, ^{
-        recentCocoaConfs = [[self alloc] initWithConferences:@[[self raleigh2012], [self portland2012]]];
+        recentCocoaConfs = [[self alloc] initWithConferences:@[[self dc2013], [self chicago2013]]];
     });
     
     return recentCocoaConfs;
