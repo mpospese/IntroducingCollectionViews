@@ -106,8 +106,12 @@
     else if (path.item == 2)
         angle = -5;
     attributes.transform3D = CATransform3DMakeRotation(angle * M_PI / 180, 0, 0, 1);
-    attributes.alpha = path.item >= VISIBLE_ITEMS_PER_STACK? 0 : 1;
-    attributes.zIndex = path.item >= VISIBLE_ITEMS_PER_STACK? 0 : VISIBLE_ITEMS_PER_STACK - path.item;
+    attributes.alpha = 1;
+    if (path.item < VISIBLE_ITEMS_PER_STACK)
+    {
+        // use z-dimension (rather than z-Index) to stack photos in the correct order
+        attributes.transform3D = CATransform3DTranslate(attributes.transform3D, 0, 0, VISIBLE_ITEMS_PER_STACK - path.item);
+    }
     attributes.hidden = self.isCollapsing? NO : path.item >= VISIBLE_ITEMS_PER_STACK;
     attributes.shadowOpacity = path.item >= VISIBLE_ITEMS_PER_STACK? 0 : 0.5;
     
@@ -128,7 +132,9 @@
                 angle *= (1- progress);
                 attributes.transform3D = CATransform3DMakeRotation(angle * M_PI / 180, 0, 0, 1);
                 attributes.alpha = 1;
-                attributes.zIndex = (itemCount + VISIBLE_ITEMS_PER_STACK) - path.item;
+                // use z-dimension (rather than z-Index) to stack photos in the correct order
+                attributes.transform3D = CATransform3DTranslate(attributes.transform3D, 0, 0, (itemCount + VISIBLE_ITEMS_PER_STACK) - path.item);
+
                 attributes.hidden = NO;
                 if (path.item >= VISIBLE_ITEMS_PER_STACK)
                     attributes.shadowOpacity = 0.5 * progress;

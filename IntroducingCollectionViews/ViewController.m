@@ -113,8 +113,7 @@
         return;
     
     UICollectionViewLayout *newLayout = nil;
-    BOOL reloadData = NO;
-    BOOL delayedReload = NO;
+    BOOL delayedInvalidate = NO;
     
     switch (layoutStyle)
     {
@@ -124,17 +123,16 @@
             
         case SpeakerLayoutLine:
             newLayout = [[LineLayout alloc] init];
-            delayedReload = YES;
+            delayedInvalidate = YES;
             break;
             
         case SpeakerLayoutCoverFlow:
             newLayout = [[CoverFlowLayout alloc] init];
-            delayedReload = YES;
+            delayedInvalidate = YES;
             break;
             
         case SpeakerLayoutStacks:
             newLayout = [[StacksLayout alloc] init];
-            reloadData = YES;
             break;
             
         case SpeakerLayoutSpiral:
@@ -148,18 +146,13 @@
     if (!newLayout)
         return;
     
-    [newLayout invalidateLayout];
     self.layoutStyle = layoutStyle;
-    [self.collectionView setCollectionViewLayout:newLayout animated:(animated && !reloadData)];
+    [self.collectionView setCollectionViewLayout:newLayout animated:animated];
     self.collectionView.pagingEnabled = (layoutStyle == SpeakerLayoutSpiral);
     
-    if (reloadData)
+    if (delayedInvalidate)
     {
-        [self.collectionView reloadData];
-    }
-    else if (delayedReload)
-    {
-        [self.collectionView performSelector:@selector(reloadData) withObject:nil afterDelay:0.5];
+        [self.collectionView.collectionViewLayout performSelector:@selector(invalidateLayout) withObject:nil afterDelay:0.4];
     }
     
     // There's a UICollectionView bug where the supplementary views from StacksLayout are leftover and remain in other layouts
@@ -290,7 +283,7 @@
                 stacksLayout.collapsing = YES;
                 [self.collectionView performBatchUpdates:^{
                     stacksLayout.pinchedStackIndex = -1;
-                   stacksLayout.pinchedStackScale = 1.0;
+                    stacksLayout.pinchedStackScale = 1.0;
                  } completion:^(BOOL finished) {
                      stacksLayout.collapsing = NO;
                      // remove them from the view hierarchy
