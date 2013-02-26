@@ -16,7 +16,7 @@
 #import "SpiralLayout.h"
 #import "ConferenceHeader.h"
 
-@interface ViewController ()
+@interface ViewController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) SpeakerLayout layoutStyle;
 
@@ -94,9 +94,11 @@
     [self.view addGestureRecognizer:tap3];
     
     UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+    pinch.delegate = self;
     [self.collectionView addGestureRecognizer:pinch];
     
     UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
+    swipeUp.delegate = self;
     swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
     [self.collectionView addGestureRecognizer:swipeUp];
 }
@@ -184,6 +186,34 @@
     return self.layoutStyle == SpeakerLayoutSpiral;
 }
 
+#pragma mark - UIGestureRecognizerDelegate methods
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ([gestureRecognizer isKindOfClass:[UIPinchGestureRecognizer class]])
+    {
+        // recognize pinch gesture only if we're in stacks layout and pinch is on a stack
+        if (self.layoutStyle != SpeakerLayoutStacks)
+            return NO;
+        
+        CGPoint touchPoint = [touch locationInView:self.collectionView];
+        NSIndexPath* cellPath = [self.collectionView indexPathForItemAtPoint:touchPoint];
+        return cellPath != nil;
+    }
+    else if ([gestureRecognizer isKindOfClass:[UISwipeGestureRecognizer class]])
+    {
+        // recognize swipe gesture only if we're in a layout that supports delete
+        if (![self layoutSupportsDelete])
+            return NO;
+        
+        CGPoint touchPoint = [touch locationInView:self.collectionView];
+        NSIndexPath* cellPath = [self.collectionView indexPathForItemAtPoint:touchPoint];
+        return cellPath != nil;
+    }
+    
+    return YES;
+}
+
 #pragma mark - Touch gesture
 
 - (void)handleTap:(UITapGestureRecognizer *)gestureRecognizer
@@ -239,9 +269,6 @@
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)gestureRecognizer
 {
-    if (self.layoutStyle != SpeakerLayoutStacks)
-        return;
-    
     StacksLayout *stacksLayout = (StacksLayout *)self.collectionView.collectionViewLayout;
     
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan)
@@ -251,16 +278,15 @@
         if (pinchedCellPath)
             [stacksLayout setPinchedStackIndex:pinchedCellPath.section];
     }
-    
-    else if (gestureRecognizer.state == UIGestureRecognizerStateChanged)
+    else if (stacksLayout.pinchedStackIndex >= 0)
     {
-        stacksLayout.pinchedStackScale = gestureRecognizer.scale;
-        stacksLayout.pinchedStackCenter = [gestureRecognizer locationInView:self.collectionView];
-    }
-    
-    else
-    {
-        if (stacksLayout.pinchedStackIndex >= 0)
+        if (gestureRecognizer.state == UIGestureRecognizerStateChanged)
+        {
+            stacksLayout.pinchedStackScale = gestureRecognizer.scale;
+            stacksLayout.pinchedStackCenter = [gestureRecognizer locationInView:self.collectionView];
+        }
+        
+        else
         {
             if (stacksLayout.pinchedStackScale > 2.5)
             {
@@ -286,11 +312,11 @@
                 [self.collectionView performBatchUpdates:^{
                     stacksLayout.pinchedStackIndex = -1;
                     stacksLayout.pinchedStackScale = 1.0;
-                 } completion:^(BOOL finished) {
-                     stacksLayout.collapsing = NO;
-                     // manually remove leftover supplementary views from the view hierarchy
-                     for (UIView *subview in leftoverViews)
-                         [subview removeFromSuperview];
+                } completion:^(BOOL finished) {
+                    stacksLayout.collapsing = NO;
+                    // manually remove leftover supplementary views from the view hierarchy
+                    for (UIView *subview in leftoverViews)
+                        [subview removeFromSuperview];
                 }];
             }
         }
