@@ -112,7 +112,8 @@
     return attributes;
 }
 
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+// Not necessary because I just decided to go with UIScrollView.pagingEnabled = YES instead
+/*- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
     int closestPage = roundf(proposedContentOffset.x / self.pageSize.width);
     if (closestPage < 0)
@@ -121,7 +122,7 @@
         closestPage = self.pageCount - 1;
     
     return CGPointMake(closestPage * self.pageSize.width, proposedContentOffset.y);
-}
+}*/
 
 - (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
 {

@@ -151,6 +151,7 @@
     [newLayout invalidateLayout];
     self.layoutStyle = layoutStyle;
     [self.collectionView setCollectionViewLayout:newLayout animated:(animated && !reloadData)];
+    self.collectionView.pagingEnabled = (layoutStyle == SpeakerLayoutSpiral);
     
     if (reloadData)
     {
