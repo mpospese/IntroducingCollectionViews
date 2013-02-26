@@ -155,8 +155,8 @@
         [self.collectionView.collectionViewLayout performSelector:@selector(invalidateLayout) withObject:nil afterDelay:0.4];
     }
     
-    // There's a UICollectionView bug where the supplementary views from StacksLayout are leftover and remain in other layouts
-    if (layoutStyle != SpeakerLayoutStacks)
+    // WORKAROUND: There's a UICollectionView bug where the supplementary views from StacksLayout are leftover and remain in other layouts
+    /*if (layoutStyle != SpeakerLayoutStacks)
     {
         NSMutableArray *leftoverViews = [NSMutableArray array];
         for (UIView *subview in self.collectionView.subviews)
@@ -171,7 +171,7 @@
         // remove them from the view hierarchy
         for (UIView *subview in leftoverViews)
             [subview removeFromSuperview];
-    }
+    }*/
 }
 
 - (BOOL)layoutSupportsInsert
@@ -270,6 +270,8 @@
             else
             {
                 // collapse items back into stack
+                
+                // WORKAROUND: There's a UICollectionView bug where the supplementary views are leftover after animation completes
                 NSMutableArray *leftoverViews = [NSMutableArray array];
                 for (UIView *subview in self.collectionView.subviews)
                 {
@@ -286,7 +288,7 @@
                     stacksLayout.pinchedStackScale = 1.0;
                  } completion:^(BOOL finished) {
                      stacksLayout.collapsing = NO;
-                     // remove them from the view hierarchy
+                     // manually remove leftover supplementary views from the view hierarchy
                      for (UIView *subview in leftoverViews)
                          [subview removeFromSuperview];
                 }];
