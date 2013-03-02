@@ -130,6 +130,8 @@ NSString *kStarRatingFooterID = @"StarRatingFooter";
 
 + (Conference *)dc2013
 {
+    // reduces list for screenshots
+    //return [Conference conferenceWithName:@"CocoaConf DC 2013" startDate:[NSDate dateWithYear:2012 month:6 day:28] duration:3 speakers:@[@"Ken Auer", @"Jack Cox", @"Kevin Kim", @"Bob McCune", @"Rob Napier", @"Jaimee Newberry", @"Chris Risner", @"Chad Sellers", @"Doug Sjoquist", @"Walter Tyree", @"TJ Usiyan"]];
     return [Conference conferenceWithName:@"CocoaConf DC 2013" startDate:[NSDate dateWithYear:2012 month:6 day:28] duration:3 speakers:@[@"Chris Adamson", @"Ken Auer", @"Jonathan Blocksom", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Kevin Kim", @"Jeff LaMarche", @"Bob McCune", @"Rob Napier", @"Jaimee Newberry", @"Mark Pospesel", @"Chris Risner", @"Chad Sellers", @"Doug Sjoquist", @"Daniel Steinberg", @"Walter Tyree", @"TJ Usiyan", @"Ray Wenderlich"]];
 }
 
