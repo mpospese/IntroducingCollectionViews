@@ -125,17 +125,25 @@ NSString *kStarRatingFooterID = @"StarRatingFooter";
 
 + (Conference *)chicago2013
 {
-    return [Conference conferenceWithName:@"CocoaConf Chicago 2013" startDate:[NSDate dateWithYear:2012 month:3 day:15] duration:3 speakers:@[@"Chris Adamson", @"Brandon Alexander", @"Randy Beiter", @"Jeff Biggus", @"James Dempsey", @"Aaron Douglas", @"Nathan Eror", @"Chris Judd", @"Peter Kananen", @"Dave Koziol", @"Ben Lachman", @"Jaimee Newberry", @"Jonathan Penn", @"Charles Perry", @"Boisy Pitre", @"Ben Scheirman", @"Josh Smith", @"Daniel Steinberg", @"Brittany Tarvin", @"Elizabeth Taylor", @"Josh Twist", @"Whitney Young"]];
+    return [Conference conferenceWithName:@"CocoaConf Chicago 2013" startDate:[NSDate dateWithYear:2013 month:3 day:7] duration:3 speakers:@[@"Chris Adamson", @"Brandon Alexander", @"Randy Beiter", @"Jeff Biggus", @"James Dempsey", @"Aaron Douglas", @"Nathan Eror", @"Chris Judd", @"Peter Kananen", @"Dave Koziol", @"Ben Lachman", @"Jaimee Newberry", @"Jonathan Penn", @"Charles Perry", @"Boisy Pitre", @"Ben Scheirman", @"Josh Smith", @"Daniel Steinberg", @"Brittany Tarvin", @"Elizabeth Taylor", @"Josh Twist", @"Whitney Young"]];
 }
 
 + (Conference *)dc2013
 {
     // reduces list for screenshots
     //return [Conference conferenceWithName:@"CocoaConf DC 2013" startDate:[NSDate dateWithYear:2012 month:6 day:28] duration:3 speakers:@[@"Ken Auer", @"Jack Cox", @"Kevin Kim", @"Bob McCune", @"Rob Napier", @"Jaimee Newberry", @"Chris Risner", @"Chad Sellers", @"Doug Sjoquist", @"Walter Tyree", @"TJ Usiyan"]];
-    return [Conference conferenceWithName:@"CocoaConf DC 2013" startDate:[NSDate dateWithYear:2012 month:6 day:28] duration:3 speakers:@[@"Chris Adamson", @"Ken Auer", @"Jonathan Blocksom", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Kevin Kim", @"Jeff LaMarche", @"Bob McCune", @"Rob Napier", @"Jaimee Newberry", @"Mark Pospesel", @"Chris Risner", @"Chad Sellers", @"Doug Sjoquist", @"Daniel Steinberg", @"Walter Tyree", @"TJ Usiyan", @"Ray Wenderlich"]];
+    return [Conference conferenceWithName:@"CocoaConf DC 2013" startDate:[NSDate dateWithYear:2013 month:3 day:21] duration:3 speakers:@[@"Chris Adamson", @"Ken Auer", @"Jonathan Blocksom", @"Jack Cox", @"Mark Dalrymple", @"Bill Dudney", @"Kevin Kim", @"Jeff LaMarche", @"Bob McCune", @"Rob Napier", @"Jaimee Newberry", @"Mark Pospesel", @"Chris Risner", @"Chad Sellers", @"Doug Sjoquist", @"Daniel Steinberg", @"Walter Tyree", @"TJ Usiyan", @"Ray Wenderlich"]];
 }
 
-// TODO: Dallas 2013, San Jose 2013
++ (Conference *)dallas2013
+{
+    return [Conference conferenceWithName:@"CocoaConf Dallas 2013" startDate:[NSDate dateWithYear:2013 month:4 day:4] duration:3 speakers:@[@"Patrick Burleson", @"Rene Cacheaux", @"James Dempsey", @"Bill Dudney", @"Nathan Eror", @"Kevin Harwood", @"Kevin Kim", @"Sean McMains", @"Saul Mora", @"Daniel Pasco", @"Jonathan Penn", @"Manton Reece", @"Kyle Richter", @"Cesare Rocchi", @"Ben Scheirman", @"Doug Sjoquist", @"Daniel Steinberg", @"Conrad Stoll", @"Josh Twist", @"Walter Tyree"]];
+}
+
++ (Conference *)sanJose2013
+{
+    return [Conference conferenceWithName:@"CocoaConf San Jose 2013" startDate:[NSDate dateWithYear:2013 month:4 day:21] duration:3 speakers:@[@"Chris Adamson", @"James Dempsey", @"Matt Drance", @"Bill Dudney", @"Nathan Eror", @"Mattieu Gamache-Asselin", @"Pete Hodgson", @"Jeff LaMarche", @"Ben Lachman", @"Bob McCune", @"Saul Mora", @"Jaimee Newberry", @"Daniel Pasco", @"Jonathan Penn", @"Mark Pospesel", @"Kyle Richter", @"Michael Simmons", @"Josh Smith", @"Daniel Steinberg", @"Elizabeth Taylor", @"Michele Titolo", @"Marcus Zarra"]];
+}
 
 #pragma mark - Class Methods
 
@@ -155,7 +163,7 @@ NSString *kStarRatingFooterID = @"StarRatingFooter";
     static dispatch_once_t once;
     static id allCocoaConfs;
     dispatch_once(&once, ^{
-        allCocoaConfs = [[self alloc] initWithConferences:@[[self dc2013], [self chicago2013], [self raleigh2012], [self portland2012], [self columbus2012], [self dc2012], [self chicago2012], [self raleigh2011], [self columbus2011]]];
+        allCocoaConfs = [[self alloc] initWithConferences:@[[self sanJose2013], [self dallas2013], [self dc2013], [self chicago2013], [self raleigh2012], [self portland2012], [self columbus2012], [self dc2012], [self chicago2012], [self raleigh2011], [self columbus2011]]];
     });
     
     return allCocoaConfs;

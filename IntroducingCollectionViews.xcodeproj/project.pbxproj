@@ -22,6 +22,17 @@
 		0C5D534316D9330200ECCFF9 /* Peter Kananen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533C16D9330200ECCFF9 /* Peter Kananen.png */; };
 		0C5D534416D9330200ECCFF9 /* Aaron Douglas.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533D16D9330200ECCFF9 /* Aaron Douglas.png */; };
 		0C5D534516D9330200ECCFF9 /* Brandon Alexander.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5D533E16D9330200ECCFF9 /* Brandon Alexander.png */; };
+		0C8210381719685F0060A0BA /* Kyle Richter.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C821036171968580060A0BA /* Kyle Richter.png */; };
+		0C8210391719685F0060A0BA /* Kyle Richter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8210371719685B0060A0BA /* Kyle Richter@2x.png */; };
+		0C82103C171969880060A0BA /* Marcus Zarra.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82103A1719697F0060A0BA /* Marcus Zarra.png */; };
+		0C82103D171969880060A0BA /* Marcus Zarra@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82103B171969830060A0BA /* Marcus Zarra@2x.png */; };
+		0C82104017196A2B0060A0BA /* Matt Drance.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82103E17196A230060A0BA /* Matt Drance.png */; };
+		0C82104117196A2B0060A0BA /* Matt Drance@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82103F17196A260060A0BA /* Matt Drance@2x.png */; };
+		0C82104317196AC60060A0BA /* Mattieu Gamache-Asselin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104217196AC30060A0BA /* Mattieu Gamache-Asselin.png */; };
+		0C82104617196C220060A0BA /* Michael Simmons.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104417196C190060A0BA /* Michael Simmons.png */; };
+		0C82104717196C220060A0BA /* Michael Simmons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104517196C1C0060A0BA /* Michael Simmons@2x.png */; };
+		0C82104A17196CEF0060A0BA /* Michele Titolo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104817196CE70060A0BA /* Michele Titolo.png */; };
+		0C82104B17196CEF0060A0BA /* Michele Titolo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104917196CEA0060A0BA /* Michele Titolo@2x.png */; };
 		4D136A0516242CD900D84E85 /* ShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A0416242CD900D84E85 /* ShelfView.m */; };
 		4D136A4C1626DE1D00D84E85 /* CoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */; };
 		4D2A7FD4162EBFD400F03025 /* MPAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A7FD3162EBFD400F03025 /* MPAnimation.m */; };
@@ -148,6 +159,17 @@
 		0C5D533C16D9330200ECCFF9 /* Peter Kananen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Peter Kananen.png"; sourceTree = "<group>"; };
 		0C5D533D16D9330200ECCFF9 /* Aaron Douglas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Aaron Douglas.png"; sourceTree = "<group>"; };
 		0C5D533E16D9330200ECCFF9 /* Brandon Alexander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brandon Alexander.png"; sourceTree = "<group>"; };
+		0C821036171968580060A0BA /* Kyle Richter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kyle Richter.png"; sourceTree = "<group>"; };
+		0C8210371719685B0060A0BA /* Kyle Richter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kyle Richter@2x.png"; sourceTree = "<group>"; };
+		0C82103A1719697F0060A0BA /* Marcus Zarra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Marcus Zarra.png"; sourceTree = "<group>"; };
+		0C82103B171969830060A0BA /* Marcus Zarra@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Marcus Zarra@2x.png"; sourceTree = "<group>"; };
+		0C82103E17196A230060A0BA /* Matt Drance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Matt Drance.png"; sourceTree = "<group>"; };
+		0C82103F17196A260060A0BA /* Matt Drance@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Matt Drance@2x.png"; sourceTree = "<group>"; };
+		0C82104217196AC30060A0BA /* Mattieu Gamache-Asselin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mattieu Gamache-Asselin.png"; sourceTree = "<group>"; };
+		0C82104417196C190060A0BA /* Michael Simmons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Michael Simmons.png"; sourceTree = "<group>"; };
+		0C82104517196C1C0060A0BA /* Michael Simmons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Michael Simmons@2x.png"; sourceTree = "<group>"; };
+		0C82104817196CE70060A0BA /* Michele Titolo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Michele Titolo.png"; sourceTree = "<group>"; };
+		0C82104917196CEA0060A0BA /* Michele Titolo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Michele Titolo@2x.png"; sourceTree = "<group>"; };
 		4D0326AE163AA17800574543 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4D136A0316242CD800D84E85 /* ShelfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShelfView.h; sourceTree = "<group>"; };
 		4D136A0416242CD900D84E85 /* ShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelfView.m; sourceTree = "<group>"; };
@@ -389,91 +411,102 @@
 		4D3C735E161D9C5200C71391 /* speakers */ = {
 			isa = PBXGroup;
 			children = (
-				4D3C7414161DA87400C71391 /* Josh Abernathy.png */,
-				4D4714421632B714008C8F8B /* Josh Abernathy@2x.png */,
-				4D3C7413161DA87400C71391 /* Chris Adamson.png */,
+				0C5D533D16D9330200ECCFF9 /* Aaron Douglas.png */,
+				4D3C741B161DA87400C71391 /* Aaron Hillegass.png */,
+				4D3C73FF161DA87400C71391 /* Andria Jensen.png */,
+				4D3C7402161DA87400C71391 /* Andy Hunt.png */,
 				4D3C7412161DA87400C71391 /* Ameir Al-Zoubi.png */,
 				4DCA5692165F9D05009A6D5B /* Ameir Al-Zoubi@2x.png */,
-				4D3C741F161DA87400C71391 /* Mike Ash.png */,
-				4DFAC5E21622F69D00E9BFD7 /* Ken Auer.png */,
-				4DCA5694165FAB22009A6D5B /* Ken Auer@2x.png */,
-				4D3C73E2161DA87400C71391 /* Whitney Young.png */,
-				4D3C73E3161DA87400C71391 /* Jay Thrash.png */,
-				4D3C73E4161DA87400C71391 /* Walter Tyree.png */,
-				4D3C73E5161DA87400C71391 /* Mattt Thompson.png */,
-				4D3C73E6161DA87400C71391 /* Elizabeth Taylor.png */,
-				4D3C7415161DA87400C71391 /* Daniel Steinberg.png */,
-				4D3C73E7161DA87400C71391 /* David Smith.png */,
-				4D3C73E8161DA87400C71391 /* Josh Smith.png */,
-				4D3C73E9161DA87400C71391 /* Doug Sjoquist.png */,
-				4D3C73EA161DA87400C71391 /* Brent Simmons.png */,
-				4D3C73EB161DA87400C71391 /* Chad Sellers.png */,
-				0C04300C16E21F2D0023B19B /* Chad Sellers@2x.png */,
+				0C5D533B16D9330200ECCFF9 /* Ben Lachman.png */,
 				4D3C7416161DA87400C71391 /* Ben Scheirman.png */,
-				4D3C73EC161DA87400C71391 /* Jonathan Saggau.png */,
-				4D3C73ED161DA87400C71391 /* Jared Richardson.png */,
-				4D3C7417161DA87400C71391 /* Mark Pospesel.png */,
-				4D2A7FF91630172400F03025 /* Mark Pospesel@2x.png */,
-				4D3C73EE161DA87400C71391 /* Boisy Pitre.png */,
-				4D3C73EF161DA87400C71391 /* Jonathan Penn.png */,
-				4D3C7418161DA87400C71391 /* Daniel Pasco.png */,
-				4D3C7419161DA87400C71391 /* Janine Ohmer.png */,
-				4D3C73F0161DA87400C71391 /* Josh Nozzi.png */,
-				4D3C73F1161DA87400C71391 /* Jaimee Newberry.png */,
-				4D3C741A161DA87400C71391 /* Rob Napier.png */,
-				4D3787ED1667245B00505A37 /* Rob Napier@2x.png */,
-				4D3C73F2161DA87400C71391 /* Kevin Munc.png */,
-				4D3C73F3161DA87400C71391 /* Saul Mora.png */,
-				4D3C73F4161DA87400C71391 /* Justin Miller.png */,
-				4D4714451632B94E008C8F8B /* Justin Miller@2x.png */,
-				4D3C73F5161DA87400C71391 /* Eric Meyer.png */,
-				4D3C73F6161DA87400C71391 /* Scott McAlister.png */,
-				4D3787EA166721BD00505A37 /* Scott McAlister@2x.png */,
-				4D3C73F7161DA87400C71391 /* Steve Madsen.png */,
-				4D3C73F8161DA87400C71391 /* Mac Liaw.png */,
-				4D3C73F9161DA87400C71391 /* Jonathan Lehr.png */,
-				4D3C73FA161DA87400C71391 /* Brad Larson.png */,
-				4D3C73FB161DA87400C71391 /* Dave Koziol.png */,
-				4D3C73FC161DA87400C71391 /* Jeff Kelley.png */,
-				4D3C73FD161DA87400C71391 /* Chris Judd.png */,
-				4D3C73FE161DA87400C71391 /* Josh Johnson.png */,
-				4D3C73FF161DA87400C71391 /* Andria Jensen.png */,
-				4D3C7400161DA87400C71391 /* Jason Hunter.png */,
-				4D3C7402161DA87400C71391 /* Andy Hunt.png */,
-				4D3C741B161DA87400C71391 /* Aaron Hillegass.png */,
-				4D3C7403161DA87400C71391 /* Geoff Goetz.png */,
-				4D3C7404161DA87400C71391 /* Mark Gilicinski.png */,
-				4D3C7405161DA87400C71391 /* Jason Felice.png */,
-				4D3C7406161DA87400C71391 /* Nathan Eror.png */,
 				4D3C7407161DA87400C71391 /* Bill Dudney.png */,
-				4D3C7408161DA87400C71391 /* Collin Donnell.png */,
-				4D3C7409161DA87400C71391 /* James Dempsey.png */,
-				4D3C740A161DA87400C71391 /* Mark Dalrymple.png */,
-				4D3C740B161DA87400C71391 /* Brian Coyner.png */,
-				4D3C740C161DA87400C71391 /* Jack Cox.png */,
-				4D3C7401161DA87400C71391 /* Pete Hodgson.png */,
-				4D3C741C161DA87400C71391 /* Kevin Conner.png */,
-				4D3C740D161DA87400C71391 /* Step Christopher.png */,
-				4D3C740E161DA87400C71391 /* Craig Castelaz.png */,
-				4D3C741D161DA87400C71391 /* Tim Burks.png */,
-				4D3C740F161DA87400C71391 /* Heath Borders.png */,
-				4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */,
-				4D3C7410161DA87400C71391 /* Jeff Biggus.png */,
-				4D3C7411161DA87400C71391 /* Randy Beiter.png */,
-				0C5D532C16D92A2100ECCFF9 /* Ray Wenderlich.png */,
-				0C5D532D16D92A2100ECCFF9 /* TJ Usiyan.png */,
-				0C5D532E16D92A2100ECCFF9 /* Chris Risner.png */,
 				0C5D532F16D92A2100ECCFF9 /* Bob McCune.png */,
 				0C04300A16E21C500023B19B /* Bob McCune@2x.png */,
-				0C5D533016D92A2100ECCFF9 /* Jeff LaMarche.png */,
-				0C5D533116D92A2100ECCFF9 /* Kevin Kim.png */,
-				0C5D533816D9330200ECCFF9 /* Josh Twist.png */,
+				4D3C73EE161DA87400C71391 /* Boisy Pitre.png */,
+				4D3C73FA161DA87400C71391 /* Brad Larson.png */,
+				0C5D533E16D9330200ECCFF9 /* Brandon Alexander.png */,
+				4D3C73EA161DA87400C71391 /* Brent Simmons.png */,
+				4D3C740B161DA87400C71391 /* Brian Coyner.png */,
 				0C5D533916D9330200ECCFF9 /* Brittany Tarvin.png */,
 				0C5D533A16D9330200ECCFF9 /* Charles Perry.png */,
-				0C5D533B16D9330200ECCFF9 /* Ben Lachman.png */,
+				0C5D532E16D92A2100ECCFF9 /* Chris Risner.png */,
+				4D3C73EB161DA87400C71391 /* Chad Sellers.png */,
+				0C04300C16E21F2D0023B19B /* Chad Sellers@2x.png */,
+				4D3C7413161DA87400C71391 /* Chris Adamson.png */,
+				4D3C73FD161DA87400C71391 /* Chris Judd.png */,
+				4D3C7408161DA87400C71391 /* Collin Donnell.png */,
+				4D3C740E161DA87400C71391 /* Craig Castelaz.png */,
+				4D3C7418161DA87400C71391 /* Daniel Pasco.png */,
+				4D3C7415161DA87400C71391 /* Daniel Steinberg.png */,
+				4D3C73FB161DA87400C71391 /* Dave Koziol.png */,
+				4D3C73E7161DA87400C71391 /* David Smith.png */,
+				4D3C73E9161DA87400C71391 /* Doug Sjoquist.png */,
+				4D3C73E6161DA87400C71391 /* Elizabeth Taylor.png */,
+				4D3C73F5161DA87400C71391 /* Eric Meyer.png */,
+				4D3C7403161DA87400C71391 /* Geoff Goetz.png */,
+				4D3C740F161DA87400C71391 /* Heath Borders.png */,
+				4D3C740C161DA87400C71391 /* Jack Cox.png */,
+				4D3C73F1161DA87400C71391 /* Jaimee Newberry.png */,
+				4D3C7409161DA87400C71391 /* James Dempsey.png */,
+				4D3C7419161DA87400C71391 /* Janine Ohmer.png */,
+				4D3C73ED161DA87400C71391 /* Jared Richardson.png */,
+				4D3C7405161DA87400C71391 /* Jason Felice.png */,
+				4D3C7400161DA87400C71391 /* Jason Hunter.png */,
+				4D3C73E3161DA87400C71391 /* Jay Thrash.png */,
+				4D3C7410161DA87400C71391 /* Jeff Biggus.png */,
+				0C5D533016D92A2100ECCFF9 /* Jeff LaMarche.png */,
+				4D3C741E161DA87400C71391 /* Jonathan Blocksom.png */,
+				4D3C73FC161DA87400C71391 /* Jeff Kelley.png */,
+				4D3C73F9161DA87400C71391 /* Jonathan Lehr.png */,
+				4D3C73EF161DA87400C71391 /* Jonathan Penn.png */,
+				4D3C73EC161DA87400C71391 /* Jonathan Saggau.png */,
+				4D3C7414161DA87400C71391 /* Josh Abernathy.png */,
+				4D4714421632B714008C8F8B /* Josh Abernathy@2x.png */,
+				4D3C73FE161DA87400C71391 /* Josh Johnson.png */,
+				4D3C73F0161DA87400C71391 /* Josh Nozzi.png */,
+				4D3C73E8161DA87400C71391 /* Josh Smith.png */,
+				0C5D533816D9330200ECCFF9 /* Josh Twist.png */,
+				4D3C73F4161DA87400C71391 /* Justin Miller.png */,
+				4D4714451632B94E008C8F8B /* Justin Miller@2x.png */,
+				4D3C73F2161DA87400C71391 /* Kevin Munc.png */,
+				4DFAC5E21622F69D00E9BFD7 /* Ken Auer.png */,
+				4DCA5694165FAB22009A6D5B /* Ken Auer@2x.png */,
+				4D3C741C161DA87400C71391 /* Kevin Conner.png */,
+				0C5D533116D92A2100ECCFF9 /* Kevin Kim.png */,
+				0C821036171968580060A0BA /* Kyle Richter.png */,
+				0C8210371719685B0060A0BA /* Kyle Richter@2x.png */,
+				4D3C73F8161DA87400C71391 /* Mac Liaw.png */,
+				0C82103A1719697F0060A0BA /* Marcus Zarra.png */,
+				0C82103B171969830060A0BA /* Marcus Zarra@2x.png */,
+				4D3C740A161DA87400C71391 /* Mark Dalrymple.png */,
+				4D3C7404161DA87400C71391 /* Mark Gilicinski.png */,
+				4D3C7417161DA87400C71391 /* Mark Pospesel.png */,
+				4D2A7FF91630172400F03025 /* Mark Pospesel@2x.png */,
+				0C82103E17196A230060A0BA /* Matt Drance.png */,
+				0C82103F17196A260060A0BA /* Matt Drance@2x.png */,
+				0C82104217196AC30060A0BA /* Mattieu Gamache-Asselin.png */,
+				4D3C73E5161DA87400C71391 /* Mattt Thompson.png */,
+				0C82104417196C190060A0BA /* Michael Simmons.png */,
+				0C82104517196C1C0060A0BA /* Michael Simmons@2x.png */,
+				0C82104817196CE70060A0BA /* Michele Titolo.png */,
+				0C82104917196CEA0060A0BA /* Michele Titolo@2x.png */,
+				4D3C741F161DA87400C71391 /* Mike Ash.png */,
+				4D3C7406161DA87400C71391 /* Nathan Eror.png */,
+				4D3C7401161DA87400C71391 /* Pete Hodgson.png */,
 				0C5D533C16D9330200ECCFF9 /* Peter Kananen.png */,
-				0C5D533D16D9330200ECCFF9 /* Aaron Douglas.png */,
-				0C5D533E16D9330200ECCFF9 /* Brandon Alexander.png */,
+				4D3C7411161DA87400C71391 /* Randy Beiter.png */,
+				0C5D532C16D92A2100ECCFF9 /* Ray Wenderlich.png */,
+				4D3C741A161DA87400C71391 /* Rob Napier.png */,
+				4D3787ED1667245B00505A37 /* Rob Napier@2x.png */,
+				4D3C73F3161DA87400C71391 /* Saul Mora.png */,
+				4D3C73F6161DA87400C71391 /* Scott McAlister.png */,
+				4D3787EA166721BD00505A37 /* Scott McAlister@2x.png */,
+				4D3C740D161DA87400C71391 /* Step Christopher.png */,
+				4D3C73F7161DA87400C71391 /* Steve Madsen.png */,
+				4D3C741D161DA87400C71391 /* Tim Burks.png */,
+				0C5D532D16D92A2100ECCFF9 /* TJ Usiyan.png */,
+				4D3C73E4161DA87400C71391 /* Walter Tyree.png */,
+				4D3C73E2161DA87400C71391 /* Whitney Young.png */,
 			);
 			name = speakers;
 			sourceTree = "<group>";
@@ -660,6 +693,17 @@
 				0C5D534516D9330200ECCFF9 /* Brandon Alexander.png in Resources */,
 				0C04300B16E21C500023B19B /* Bob McCune@2x.png in Resources */,
 				0C04300D16E21F2D0023B19B /* Chad Sellers@2x.png in Resources */,
+				0C8210381719685F0060A0BA /* Kyle Richter.png in Resources */,
+				0C8210391719685F0060A0BA /* Kyle Richter@2x.png in Resources */,
+				0C82103C171969880060A0BA /* Marcus Zarra.png in Resources */,
+				0C82103D171969880060A0BA /* Marcus Zarra@2x.png in Resources */,
+				0C82104017196A2B0060A0BA /* Matt Drance.png in Resources */,
+				0C82104117196A2B0060A0BA /* Matt Drance@2x.png in Resources */,
+				0C82104317196AC60060A0BA /* Mattieu Gamache-Asselin.png in Resources */,
+				0C82104617196C220060A0BA /* Michael Simmons.png in Resources */,
+				0C82104717196C220060A0BA /* Michael Simmons@2x.png in Resources */,
+				0C82104A17196CEF0060A0BA /* Michele Titolo.png in Resources */,
+				0C82104B17196CEF0060A0BA /* Michele Titolo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
