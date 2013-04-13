@@ -33,6 +33,10 @@
 		0C82104717196C220060A0BA /* Michael Simmons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104517196C1C0060A0BA /* Michael Simmons@2x.png */; };
 		0C82104A17196CEF0060A0BA /* Michele Titolo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104817196CE70060A0BA /* Michele Titolo.png */; };
 		0C82104B17196CEF0060A0BA /* Michele Titolo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104917196CEA0060A0BA /* Michele Titolo@2x.png */; };
+		0C82104E17196F3C0060A0BA /* Rene Cacheaux.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104C17196F330060A0BA /* Rene Cacheaux.png */; };
+		0C82104F17196F3C0060A0BA /* Rene Cacheaux@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C82104D17196F370060A0BA /* Rene Cacheaux@2x.png */; };
+		0C821052171970420060A0BA /* Kevin Harwood.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C821050171970390060A0BA /* Kevin Harwood.png */; };
+		0C821053171970420060A0BA /* Kevin Harwood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C8210511719703D0060A0BA /* Kevin Harwood@2x.png */; };
 		4D136A0516242CD900D84E85 /* ShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A0416242CD900D84E85 /* ShelfView.m */; };
 		4D136A4C1626DE1D00D84E85 /* CoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D136A4B1626DE1D00D84E85 /* CoverFlowLayout.m */; };
 		4D2A7FD4162EBFD400F03025 /* MPAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A7FD3162EBFD400F03025 /* MPAnimation.m */; };
@@ -170,6 +174,10 @@
 		0C82104517196C1C0060A0BA /* Michael Simmons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Michael Simmons@2x.png"; sourceTree = "<group>"; };
 		0C82104817196CE70060A0BA /* Michele Titolo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Michele Titolo.png"; sourceTree = "<group>"; };
 		0C82104917196CEA0060A0BA /* Michele Titolo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Michele Titolo@2x.png"; sourceTree = "<group>"; };
+		0C82104C17196F330060A0BA /* Rene Cacheaux.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rene Cacheaux.png"; sourceTree = "<group>"; };
+		0C82104D17196F370060A0BA /* Rene Cacheaux@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rene Cacheaux@2x.png"; sourceTree = "<group>"; };
+		0C821050171970390060A0BA /* Kevin Harwood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kevin Harwood.png"; sourceTree = "<group>"; };
+		0C8210511719703D0060A0BA /* Kevin Harwood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kevin Harwood@2x.png"; sourceTree = "<group>"; };
 		4D0326AE163AA17800574543 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4D136A0316242CD800D84E85 /* ShelfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShelfView.h; sourceTree = "<group>"; };
 		4D136A0416242CD900D84E85 /* ShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShelfView.m; sourceTree = "<group>"; };
@@ -472,6 +480,8 @@
 				4DFAC5E21622F69D00E9BFD7 /* Ken Auer.png */,
 				4DCA5694165FAB22009A6D5B /* Ken Auer@2x.png */,
 				4D3C741C161DA87400C71391 /* Kevin Conner.png */,
+				0C821050171970390060A0BA /* Kevin Harwood.png */,
+				0C8210511719703D0060A0BA /* Kevin Harwood@2x.png */,
 				0C5D533116D92A2100ECCFF9 /* Kevin Kim.png */,
 				0C821036171968580060A0BA /* Kyle Richter.png */,
 				0C8210371719685B0060A0BA /* Kyle Richter@2x.png */,
@@ -496,6 +506,8 @@
 				0C5D533C16D9330200ECCFF9 /* Peter Kananen.png */,
 				4D3C7411161DA87400C71391 /* Randy Beiter.png */,
 				0C5D532C16D92A2100ECCFF9 /* Ray Wenderlich.png */,
+				0C82104C17196F330060A0BA /* Rene Cacheaux.png */,
+				0C82104D17196F370060A0BA /* Rene Cacheaux@2x.png */,
 				4D3C741A161DA87400C71391 /* Rob Napier.png */,
 				4D3787ED1667245B00505A37 /* Rob Napier@2x.png */,
 				4D3C73F3161DA87400C71391 /* Saul Mora.png */,
@@ -704,6 +716,10 @@
 				0C82104717196C220060A0BA /* Michael Simmons@2x.png in Resources */,
 				0C82104A17196CEF0060A0BA /* Michele Titolo.png in Resources */,
 				0C82104B17196CEF0060A0BA /* Michele Titolo@2x.png in Resources */,
+				0C82104E17196F3C0060A0BA /* Rene Cacheaux.png in Resources */,
+				0C82104F17196F3C0060A0BA /* Rene Cacheaux@2x.png in Resources */,
+				0C821052171970420060A0BA /* Kevin Harwood.png in Resources */,
+				0C821053171970420060A0BA /* Kevin Harwood@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
