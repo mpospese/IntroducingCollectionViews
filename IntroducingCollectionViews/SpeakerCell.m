@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 //#import "MPAnimation.h"
 #import "ConferenceLayoutAttributes.h"
+#import "AppDelegate.h"
 
 @interface SpeakerCell()
 
@@ -47,9 +48,16 @@
     if (![_speakerName isEqualToString:speakerName])
     {
         _speakerName = speakerName;
-        UIImage *speakerImage = [UIImage imageNamed:speakerName];
-        self.speakerImage.image = speakerImage;//[MPAnimation renderImage:speakerImage withMargin:10.0 color:[UIColor whiteColor]];
         self.nameLabel.text = speakerName;
+        
+        // asynchronous image load
+        [[AppDelegate backgroundQueue] addOperationWithBlock:^{
+            UIImage *speakerImage = [UIImage imageNamed:speakerName];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                self.speakerImage.image = speakerImage;
+            }];
+        }];
     }
 }
 

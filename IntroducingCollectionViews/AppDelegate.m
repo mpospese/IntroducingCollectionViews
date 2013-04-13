@@ -43,4 +43,17 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
++ (NSOperationQueue *)backgroundQueue
+{
+    static dispatch_once_t once;
+    static id _backgroundQueue;
+    
+    dispatch_once(&once, ^{
+        _backgroundQueue = [[NSOperationQueue alloc] init];
+        [_backgroundQueue setMaxConcurrentOperationCount:4];
+    });
+    
+    return _backgroundQueue;
+}
+
 @end
