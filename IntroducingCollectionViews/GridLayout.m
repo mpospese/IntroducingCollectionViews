@@ -107,6 +107,7 @@
     for (UICollectionViewLayoutAttributes *attributes in array)
     {
         attributes.zIndex = 1;
+        //if (attributes.representedElementCategory != UICollectionElementCategoryCell)
         /*if (attributes.representedElementCategory != UICollectionElementCategorySupplementaryView || [attributes.representedElementKind isEqualToString:UICollectionElementKindSectionHeader])
             attributes.alpha = 0.5;
         else if (attributes.indexPath.row > 0 || attributes.indexPath.section > 0)
